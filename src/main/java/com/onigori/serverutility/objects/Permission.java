@@ -1,5 +1,10 @@
 package com.onigori.serverutility.objects;
 
+import com.onigori.serverutility.SUtilMain;
+import com.onigori.serverutility.players.SUtilPlayer;
+import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
+
 public enum Permission {
 
 	HIGHEST(100),
@@ -13,6 +18,14 @@ public enum Permission {
 
 	public int getPermissionValue() {
 		return this.permission;
+	}
+
+	/*
+	Utilities.
+	 */
+	public static boolean comparedPermission(CommandSender sender, Permission permission) {
+		Player player = (Player) sender;
+		return SUtilMain.getPlayerFactory().fetch(player.getUniqueId()).getPermission().getPermissionValue() >= permission.getPermissionValue();
 	}
 
 }

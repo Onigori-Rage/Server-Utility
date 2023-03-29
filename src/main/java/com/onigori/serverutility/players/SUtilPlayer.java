@@ -25,4 +25,12 @@ public class SUtilPlayer {
 		return this.uuid;
 	}
 
+	public Punishment getPunishment() {
+		return this.punishment;
+	}
+
+	public Permission getPermission() {
+		return this.permission;
+	}
+
 }
