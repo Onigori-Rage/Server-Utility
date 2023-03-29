@@ -1,5 +1,6 @@
 package com.onigori.serverutility;
 
+import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.modules.SUtilLogger;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -11,7 +12,9 @@ public class SUtilMain {
 
 	private static CommandSender console;
 
-	public static void init(JavaPlugin instance) {
+	private static CommandHandler commandHandler;
+
+	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
 		console = Bukkit.getConsoleSender();
 
@@ -20,7 +23,7 @@ public class SUtilMain {
 
 	}
 
-	public static void stop() {
+	public static void onDisable() {
 
 	}
 

@@ -9,7 +9,7 @@ public class PluginBootstrap extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
-		SUtilMain.init(this);
+		SUtilMain.onEnable(this);
 	}
 
 	@Override
