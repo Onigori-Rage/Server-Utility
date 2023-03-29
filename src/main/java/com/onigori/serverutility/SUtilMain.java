@@ -1,6 +1,7 @@
 package com.onigori.serverutility;
 
 import com.onigori.serverutility.commands.CommandHandler;
+import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.modules.SUtilLogger;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
@@ -14,12 +15,15 @@ public class SUtilMain {
 
 	private static CommandHandler commandHandler;
 
+	private static PlayerFactory playerFactory;
+
 	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
 		console = Bukkit.getConsoleSender();
 
 		SUtilLogger.printLog(Symbols.HELLO_MESSAGE);
 
+		playerFactory = new PlayerFactory();
 
 	}
 
@@ -33,6 +37,10 @@ public class SUtilMain {
 
 	public static CommandSender getConsole() {
 		return console;
+	}
+
+	public static PlayerFactory getPlayerFactory() {
+		return playerFactory;
 	}
 
 }
