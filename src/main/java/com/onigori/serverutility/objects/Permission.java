@@ -1,7 +1,6 @@
 package com.onigori.serverutility.objects;
 
 import com.onigori.serverutility.SUtilMain;
-import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

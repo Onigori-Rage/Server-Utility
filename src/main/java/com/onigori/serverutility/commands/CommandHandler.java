@@ -1,8 +1,6 @@
 package com.onigori.serverutility.commands;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.impl.DefaultCommand;
-import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.IInit;
 import com.onigori.serverutility.objects.Permission;
 import org.bukkit.command.CommandSender;

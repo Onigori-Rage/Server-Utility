@@ -1,14 +1,11 @@
 package com.onigori.serverutility.modules.players;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.objects.IInit;
 import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.players.Punishment;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
-import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;

@@ -2,7 +2,6 @@ package com.onigori.serverutility.objects.inventories;
 
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
-import org.bukkit.entity.Player;
 
 public class PunishScreen extends OnigoriScreen {
 

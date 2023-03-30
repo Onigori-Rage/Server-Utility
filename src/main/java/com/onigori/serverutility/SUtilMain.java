@@ -1,10 +1,9 @@
 package com.onigori.serverutility;
 
 import com.onigori.serverutility.commands.CommandHandler;
-import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.modules.SUtilLogger;
+import com.onigori.serverutility.modules.players.PlayerFactory;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
