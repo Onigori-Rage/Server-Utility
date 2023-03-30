@@ -1,6 +1,7 @@
 package com.onigori.serverutility.bootstrap;
 
 import com.onigori.serverutility.SUtilMain;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -20,9 +21,11 @@ public class PluginBootstrap extends JavaPlugin {
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] arguments) {
 		/*
-		TODO Below add code.
+		Fixed command implements logic.
 		 */
-
+		Bukkit.getScheduler().runTaskAsynchronously(this,
+				() -> SUtilMain.getCommandHandler().dispatchCommand(sender, arguments, command.getName())
+		);
 		return true;
 	}
 

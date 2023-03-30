@@ -42,7 +42,7 @@ public class CommandHandler implements IInit {
 			commandExecutor.execute(sender, args);
 		}
 		else {
-			// Send permission message:
+			// Send permission message << localized.:
 		}
 	}
 

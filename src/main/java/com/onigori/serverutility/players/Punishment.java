@@ -19,7 +19,6 @@ public class Punishment {
 	Default punishment's constructor.
 	 */
 	public Punishment() {
-
 	}
 
 }

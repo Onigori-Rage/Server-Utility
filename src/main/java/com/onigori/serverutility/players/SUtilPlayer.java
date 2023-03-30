@@ -33,4 +33,8 @@ public class SUtilPlayer {
 		return this.permission;
 	}
 
+	public void setPermission(Permission permission) {
+		this.permission = permission;
+	}
+
 }
