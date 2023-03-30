@@ -6,7 +6,7 @@ import com.onigori.serverutility.Symbols;
 public class SUtilLogger {
 
 	public static final void printLog(String log) {
-		SUtilMain.getConsole().sendMessage(Symbols.PREFIX + log);
+		SUtilMain.getSender().sendTranslated(Symbols.PREFIX + log);
 	}
 
 }

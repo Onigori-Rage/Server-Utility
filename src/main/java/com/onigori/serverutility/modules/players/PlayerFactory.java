@@ -49,7 +49,8 @@ public class PlayerFactory implements IInit {
 	}
 
 	public SUtilPlayer addPlayer(SUtilPlayer player) {
-		return playerMap.putIfAbsent(player.getUUID(), player);
+		playerMap.putIfAbsent(player.getUUID(), player);
+		return player;
 	}
 
 }

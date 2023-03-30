@@ -6,14 +6,13 @@ import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class LocalizedMessage implements IInit {
+public class LocalizedMessage {
 
 	private static Locale locale = Locale.ENGLISH;
 
 	private static ResourceBundle resourceBundle;
 
-	@Override
-	public void init() {
+	public static void init() {
 		try {
 			resourceBundle = ResourceBundle.getBundle("message", locale);
 		}
@@ -22,8 +21,7 @@ public class LocalizedMessage implements IInit {
 		}
 	}
 
-	@Override
-	public void stop() {
+	public static void stop() {
 
 	}
 

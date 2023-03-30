@@ -1,7 +1,6 @@
 package com.onigori.serverutility.listeners;
 
 import com.onigori.serverutility.SUtilMain;
-import com.onigori.serverutility.modules.players.PlayerFactory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

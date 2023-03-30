@@ -1,6 +1,7 @@
 package com.onigori.serverutility.objects;
 
 import com.onigori.serverutility.SUtilMain;
+import com.onigori.serverutility.commands.Sender;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -22,9 +23,8 @@ public enum Permission {
 	/*
 	Utilities.
 	 */
-	public static boolean comparedPermission(CommandSender sender, Permission permission) {
-		Player player = (Player) sender;
-		return SUtilMain.getPlayerFactory().fetch(player.getUniqueId()).getPermission().getPermissionValue() >= permission.getPermissionValue();
+	public static boolean comparedPermission(Sender sender, Permission permission) {
+		return sender.getPermission().getPermissionValue() >= permission.getPermissionValue();
 	}
 
 }

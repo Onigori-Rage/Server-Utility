@@ -1,11 +1,13 @@
 package com.onigori.serverutility.players;
 
+import com.onigori.serverutility.commands.Sender;
+import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Permission;
 import org.bukkit.entity.Player;
 
 import java.util.UUID;
 
-public class SUtilPlayer {
+public class SUtilPlayer implements Sender {
 
 	private UUID uuid;
 
@@ -32,6 +34,7 @@ public class SUtilPlayer {
 		return this.punishment;
 	}
 
+	@Override
 	public Permission getPermission() {
 		return this.permission;
 	}
@@ -44,10 +47,12 @@ public class SUtilPlayer {
 		this.corePlayer = player;
 	}
 
+	@Override
 	public void sendMessage(String key, String... args) {
-		this.sendTranslated(null);
+		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, args));
 	}
 
+	@Override
 	public void sendTranslated(String message) {
 		if (this.corePlayer != null) {
 			this.corePlayer.sendMessage(message);

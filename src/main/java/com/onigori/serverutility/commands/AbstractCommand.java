@@ -24,7 +24,10 @@ public abstract class AbstractCommand {
 		return this.permission;
 	}
 
+	public String getName() {
+		return this.name;
+	}
 
-	public abstract void execute(CommandSender sender, String[] args);
+	public abstract void execute(Sender sender, String[] args);
 
 }

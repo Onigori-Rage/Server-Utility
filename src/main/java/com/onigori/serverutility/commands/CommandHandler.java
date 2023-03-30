@@ -1,8 +1,11 @@
 package com.onigori.serverutility.commands;
 
+import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.impl.Default;
+import com.onigori.serverutility.commands.impl.SPunish;
 import com.onigori.serverutility.objects.IInit;
 import com.onigori.serverutility.objects.Permission;
+import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -17,6 +20,7 @@ public class CommandHandler implements IInit {
 
 	@Override
 	public void init() {
+		this.addCommand(new SPunish());
 	}
 
 	@Override
@@ -24,24 +28,35 @@ public class CommandHandler implements IInit {
 
 	}
 
+	private void addCommand(AbstractCommand command) {
+		commandMap.put(command.getName(), command);
+	}
+
 	/*
 	Logic (dispatching command)
 	 */
-	public void dispatchCommand(CommandSender sender, String[] args, String command) {
+	public void dispatchCommand(CommandSender commandSender, String[] args, String command) {
+		long a = System.nanoTime();
 		AbstractCommand commandExecutor = commandMap.getOrDefault(command, this.defaultCommand);
 
-		if (sender instanceof ConsoleCommandSender) {
-			commandExecutor.execute(sender, args);
-			return;
+		final Sender sender;
+
+		if (commandSender instanceof ConsoleCommandSender) {
+			sender = SUtilMain.getSender();
+		}
+		else {
+			Player player = (Player) commandSender;
+			sender = SUtilMain.getPlayerFactory().fetch(player.getUniqueId());
 		}
 
-		Player player = (Player) sender;
 		if (Permission.comparedPermission(sender, commandExecutor.getPermission())) {
 			commandExecutor.execute(sender, args);
 		}
 		else {
-			// Send permission message << localized.:
+			sender.sendMessage("permission-error");
 		}
+		long b = System.nanoTime();
+		System.out.println(b-a);
 	}
 
 }

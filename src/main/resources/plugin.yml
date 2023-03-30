@@ -1,3 +1,5 @@
 main: com.onigori.serverutility.bootstrap.PluginBootstrap
 name: Server-Utility
 version: 1.0
+commands:
+  spunish:
