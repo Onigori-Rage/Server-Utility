@@ -36,12 +36,16 @@ public class PlayerFactory implements IInit {
 	 */
 	public SUtilPlayer fetch(String name) {
 		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(name);
-
 		return this.fetch(offlinePlayer.getUniqueId());
 	}
 
 	public SUtilPlayer addPlayer(UUID uuid) {
-		return this.addPlayer(new SUtilPlayer(uuid, Bukkit.getOfflinePlayer(uuid).getName(), Permission.NORMAL, new Punishment()));
+		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
+
+		SUtilPlayer player = new SUtilPlayer(uuid, offlinePlayer.getName(), Permission.NORMAL, new Punishment());
+		player.updatePlayer(offlinePlayer.getPlayer());
+
+		return this.addPlayer(player);
 	}
 
 	public SUtilPlayer addPlayer(SUtilPlayer player) {
