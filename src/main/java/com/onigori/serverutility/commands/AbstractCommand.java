@@ -28,6 +28,10 @@ public abstract class AbstractCommand {
 		return this.name;
 	}
 
+	public String getUsageKey() {
+		return this.usageKey;
+	}
+
 	public abstract void execute(Sender sender, String[] args);
 
 }

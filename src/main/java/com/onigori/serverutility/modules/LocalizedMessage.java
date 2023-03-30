@@ -8,7 +8,7 @@ import java.util.ResourceBundle;
 
 public class LocalizedMessage {
 
-	private static Locale locale = Locale.ENGLISH;
+	private static Locale locale = Locale.JAPANESE;
 
 	private static ResourceBundle resourceBundle;
 
@@ -27,6 +27,7 @@ public class LocalizedMessage {
 
 	public static void setLocale(Locale locale) {
 		LocalizedMessage.locale = locale;
+		resourceBundle = ResourceBundle.getBundle("message", LocalizedMessage.locale);
 	}
 
 	public static String getLocalizedMessage(String key, String... args) {

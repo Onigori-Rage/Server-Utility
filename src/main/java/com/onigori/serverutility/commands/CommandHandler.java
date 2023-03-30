@@ -2,6 +2,7 @@ package com.onigori.serverutility.commands;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.impl.Default;
+import com.onigori.serverutility.commands.impl.SLang;
 import com.onigori.serverutility.commands.impl.SPunish;
 import com.onigori.serverutility.objects.IInit;
 import com.onigori.serverutility.objects.Permission;
@@ -21,6 +22,7 @@ public class CommandHandler implements IInit {
 	@Override
 	public void init() {
 		this.addCommand(new SPunish());
+		this.addCommand(new SLang());
 	}
 
 	@Override
@@ -53,7 +55,7 @@ public class CommandHandler implements IInit {
 			commandExecutor.execute(sender, args);
 		}
 		else {
-			sender.sendMessage("permission-error");
+			sender.sendMessage("permission-error", true);
 		}
 		long b = System.nanoTime();
 		System.out.println(b-a);

@@ -3,6 +3,7 @@ package com.onigori.serverutility;
 import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
+import com.onigori.serverutility.listeners.LoginHandler;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.modules.SUtilLogger;
 import com.onigori.serverutility.modules.players.PlayerFactory;
@@ -42,6 +43,7 @@ public class SUtilMain {
 
 		SUtilLogger.printLog(Symbols.HELLO_MESSAGE);
 
+		Bukkit.getPluginManager().registerEvents(new LoginHandler(), plugin);
 
 	}
 

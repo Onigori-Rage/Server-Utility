@@ -1,5 +1,6 @@
 package com.onigori.serverutility.players;
 
+import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Permission;
@@ -48,14 +49,14 @@ public class SUtilPlayer implements Sender {
 	}
 
 	@Override
-	public void sendMessage(String key, String... args) {
-		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, args));
+	public void sendMessage(String key, boolean prefix, String... args) {
+		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, args), prefix);
 	}
 
 	@Override
-	public void sendTranslated(String message) {
+	public void sendTranslated(String message, boolean prefix) {
 		if (this.corePlayer != null) {
-			this.corePlayer.sendMessage(message);
+			this.corePlayer.sendMessage(prefix ? Symbols.PREFIX + message : message);
 		}
 	}
 

@@ -13,7 +13,7 @@ public class Default extends AbstractCommand {
 
 	@Override
 	public void execute(Sender sender, String[] args) {
-		sender.sendTranslated("Undefined");
+		sender.sendTranslated("Undefined", true);
 	}
 
 }
