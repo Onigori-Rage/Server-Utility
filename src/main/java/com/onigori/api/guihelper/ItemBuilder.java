@@ -4,6 +4,8 @@ import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
+import java.util.Arrays;
+
 public class ItemBuilder {
 
 	private ItemStack item;
@@ -20,5 +22,14 @@ public class ItemBuilder {
 		return this;
 	}
 
-	public ItemBuilder
+	public ItemBuilder setDescription(String... lore) {
+		this.meta.setLore(Arrays.asList(lore));
+		return this;
+	}
+
+	public ItemStack build() {
+		this.item.setItemMeta(this.meta);
+		return this.item;
+	}
+
 }

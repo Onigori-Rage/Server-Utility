@@ -1,5 +1,6 @@
 package com.onigori.serverutility;
 
+import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.modules.SUtilLogger;
 import com.onigori.serverutility.modules.players.PlayerFactory;
@@ -21,11 +22,16 @@ public class SUtilMain {
 		plugin = instance;
 		console = Bukkit.getConsoleSender();
 
+		playerFactory = new PlayerFactory();
+		/*
+		Load api.
+		 */
+		GUIHelper.init(plugin);
+
 		commandHandler = new CommandHandler();
 
 		SUtilLogger.printLog(Symbols.HELLO_MESSAGE);
 
-		playerFactory = new PlayerFactory();
 
 	}
 

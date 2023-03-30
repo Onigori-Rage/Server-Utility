@@ -1,6 +1,6 @@
 package com.onigori.serverutility.commands;
 
-import com.onigori.serverutility.commands.impl.DefaultCommand;
+import com.onigori.serverutility.commands.impl.Default;
 import com.onigori.serverutility.objects.IInit;
 import com.onigori.serverutility.objects.Permission;
 import org.bukkit.command.CommandSender;
@@ -13,7 +13,7 @@ public class CommandHandler implements IInit {
 
 	private final ConcurrentHashMap<String, AbstractCommand> commandMap = new ConcurrentHashMap<>();
 
-	private final AbstractCommand defaultCommand = new DefaultCommand();
+	private final AbstractCommand defaultCommand = new Default();
 
 	@Override
 	public void init() {

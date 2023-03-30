@@ -4,9 +4,9 @@ import com.onigori.serverutility.commands.AbstractCommand;
 import com.onigori.serverutility.objects.Permission;
 import org.bukkit.command.CommandSender;
 
-public class DefaultCommand extends AbstractCommand {
+public class Default extends AbstractCommand {
 
-	public DefaultCommand() {
+	public Default() {
 		super(null, null, null, Permission.NORMAL);
 	}
 
