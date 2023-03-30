@@ -8,30 +8,25 @@ import java.util.ResourceBundle;
 
 public class LocalizedMessage {
 
-	private static Locale locale = Locale.JAPANESE;
+	private static ResourceBundle japanese;
 
-	private static ResourceBundle resourceBundle;
+	private static ResourceBundle english;
 
 	public static void init() {
-		try {
-			resourceBundle = ResourceBundle.getBundle("message", locale);
-		}
-		catch (Exception exception) {
-			resourceBundle = ResourceBundle.getBundle("message", Locale.ENGLISH);
-		}
+		japanese = ResourceBundle.getBundle("message", Locale.JAPANESE);
+		english = ResourceBundle.getBundle("message", Locale.ENGLISH);
 	}
 
 	public static void stop() {
 
 	}
 
-	public static void setLocale(Locale locale) {
-		LocalizedMessage.locale = locale;
-		resourceBundle = ResourceBundle.getBundle("message", LocalizedMessage.locale);
-	}
-
-	public static String getLocalizedMessage(String key, String... args) {
-		String message = resourceBundle.getString(key);
+	/*
+	二言語だけだから、このようなコードでも可能。
+	Reformat するべき。
+	 */
+	public static String getLocalizedMessage(String key, Locale locale, String... args) {
+		String message = (locale == Locale.JAPANESE ? japanese.getString(key) : english.getString(key));
 		return (args.length == 0 ? message : MessageFormat.format(message, args));
 	}
 

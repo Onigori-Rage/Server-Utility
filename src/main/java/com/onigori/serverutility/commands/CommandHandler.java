@@ -2,11 +2,11 @@ package com.onigori.serverutility.commands;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.impl.Default;
-import com.onigori.serverutility.commands.impl.SLang;
-import com.onigori.serverutility.commands.impl.SPunish;
+import com.onigori.serverutility.commands.impl.Help;
+import com.onigori.serverutility.commands.impl.Lang;
+import com.onigori.serverutility.commands.impl.Punish;
 import com.onigori.serverutility.objects.IInit;
 import com.onigori.serverutility.objects.Permission;
-import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -15,14 +15,15 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class CommandHandler implements IInit {
 
-	private final ConcurrentHashMap<String, AbstractCommand> commandMap = new ConcurrentHashMap<>();
+	private final ConcurrentHashMap<String, Command> commandMap = new ConcurrentHashMap<>();
 
-	private final AbstractCommand defaultCommand = new Default();
+	private final Command defaultCommand = new Default();
 
 	@Override
 	public void init() {
-		this.addCommand(new SPunish());
-		this.addCommand(new SLang());
+		this.addCommand(new Punish());
+		this.addCommand(new Lang());
+		this.addCommand(new Help());
 	}
 
 	@Override
@@ -30,7 +31,7 @@ public class CommandHandler implements IInit {
 
 	}
 
-	private void addCommand(AbstractCommand command) {
+	private void addCommand(Command command) {
 		commandMap.put(command.getName(), command);
 	}
 
@@ -39,17 +40,9 @@ public class CommandHandler implements IInit {
 	 */
 	public void dispatchCommand(CommandSender commandSender, String[] args, String command) {
 		long a = System.nanoTime();
-		AbstractCommand commandExecutor = commandMap.getOrDefault(command, this.defaultCommand);
+		Command commandExecutor = commandMap.getOrDefault(command, this.defaultCommand);
 
-		final Sender sender;
-
-		if (commandSender instanceof ConsoleCommandSender) {
-			sender = SUtilMain.getSender();
-		}
-		else {
-			Player player = (Player) commandSender;
-			sender = SUtilMain.getPlayerFactory().fetch(player.getUniqueId());
-		}
+		final Sender sender = commandSender instanceof ConsoleCommandSender ? SUtilMain.getSender() : SUtilMain.getPlayerFactory().fetch(((Player) commandSender).getUniqueId());
 
 		if (Permission.comparedPermission(sender, commandExecutor.getPermission())) {
 			commandExecutor.execute(sender, args);

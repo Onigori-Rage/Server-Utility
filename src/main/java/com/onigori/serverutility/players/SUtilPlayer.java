@@ -6,6 +6,7 @@ import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Permission;
 import org.bukkit.entity.Player;
 
+import java.util.Locale;
 import java.util.UUID;
 
 public class SUtilPlayer implements Sender {
@@ -17,6 +18,8 @@ public class SUtilPlayer implements Sender {
 	private Permission permission;
 
 	private Punishment punishment;
+
+	private Locale locale = Symbols.DEFAULT_LOCALE;
 
 	private Player corePlayer;
 
@@ -40,6 +43,16 @@ public class SUtilPlayer implements Sender {
 		return this.permission;
 	}
 
+	@Override
+	public Locale getLocale() {
+		return this.locale;
+	}
+
+	@Override
+	public void setLocale(Locale locale) {
+		this.locale = locale;
+	}
+
 	public void setPermission(Permission permission) {
 		this.permission = permission;
 	}
@@ -50,7 +63,7 @@ public class SUtilPlayer implements Sender {
 
 	@Override
 	public void sendMessage(String key, boolean prefix, String... args) {
-		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, args), prefix);
+		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, this.locale, args), prefix);
 	}
 
 	@Override

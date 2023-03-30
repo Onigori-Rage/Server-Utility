@@ -5,7 +5,6 @@ import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.listeners.LoginHandler;
 import com.onigori.serverutility.modules.LocalizedMessage;
-import com.onigori.serverutility.modules.SUtilLogger;
 import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
 import org.bukkit.Bukkit;
@@ -41,7 +40,7 @@ public class SUtilMain {
 		commandHandler = new CommandHandler();
 		commandHandler.init();
 
-		SUtilLogger.printLog(Symbols.HELLO_MESSAGE);
+		consoleSender.sendMessage("welcome", true);
 
 		Bukkit.getPluginManager().registerEvents(new LoginHandler(), plugin);
 
