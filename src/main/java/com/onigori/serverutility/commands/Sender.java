@@ -16,4 +16,6 @@ public interface Sender {
 
 	void setLocale(Locale locale);
 
+	boolean isPlayer();
+
 }

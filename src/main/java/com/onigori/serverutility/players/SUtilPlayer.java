@@ -34,6 +34,15 @@ public class SUtilPlayer implements Sender {
 		return this.uuid;
 	}
 
+	@Override
+	public boolean isPlayer() {
+		return true;
+	}
+
+	public Player getCore() {
+		return this.corePlayer;
+	}
+
 	public Punishment getPunishment() {
 		return this.punishment;
 	}

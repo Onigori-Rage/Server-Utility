@@ -1,5 +1,6 @@
 package com.onigori.serverutility.modules.players;
 
+import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.players.Punishment;
 import com.onigori.serverutility.players.SUtilPlayer;
@@ -25,6 +26,9 @@ public class PlayerFactory {
 		if (player == null) {
 			player = this.addPlayer(uuid);
 		}
+
+		//SUtilMain.getSender().sendTranslated(uuid.toString(), true);
+
 		return player;
 	}
 

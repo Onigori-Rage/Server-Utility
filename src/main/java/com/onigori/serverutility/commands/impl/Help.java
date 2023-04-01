@@ -7,11 +7,12 @@ import com.onigori.serverutility.commands.impl.help.Info;
 import com.onigori.serverutility.commands.impl.help.List;
 import com.onigori.serverutility.objects.Permission;
 
+import java.util.HashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Help extends Command {
 
-	private final ConcurrentHashMap<String, SubCommand> subcommands = new ConcurrentHashMap<>();
+	private final HashMap<String, SubCommand> subcommands = new HashMap<>();
 
 	public Help() {
 		super("shelp", "command-shelp-usage", "command-shelp-description", Permission.NORMAL);
@@ -30,8 +31,6 @@ public class Help extends Command {
 				return;
 			}
 
-			sender.sendMessage(this.getUsageKey(), true);
-			return;
 		}
 
 		sender.sendMessage(this.getUsageKey(), true);

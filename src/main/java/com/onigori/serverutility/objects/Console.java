@@ -27,6 +27,11 @@ public class Console implements Sender {
 	}
 
 	@Override
+	public boolean isPlayer() {
+		return false;
+	}
+
+	@Override
 	public Locale getLocale() {
 		return this.locale;
 	}
