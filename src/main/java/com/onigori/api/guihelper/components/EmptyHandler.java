@@ -1,11 +1,13 @@
 package com.onigori.api.guihelper.components;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.entity.Player;
 
-public abstract class ItemHandler {
+public class EmptyHandler extends ItemHandler {
 
-	public abstract void execute(SUtilPlayer player);
+	@Override
+	public void execute(SUtilPlayer player) {
+
+	}
 
 }
