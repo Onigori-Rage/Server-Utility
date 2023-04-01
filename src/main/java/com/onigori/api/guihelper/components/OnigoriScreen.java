@@ -6,11 +6,10 @@ import org.bukkit.inventory.InventoryHolder;
 
 public abstract class OnigoriScreen implements InventoryHolder {
 
-	private final Inventory inventory;
+	protected Inventory inventory;
 
 	public OnigoriScreen(int row, String name) {
-		this.inventory = Bukkit.createInventory(null, row * 9, name);
-		this.init();
+		this.inventory = Bukkit.createInventory(this, row * 9, name);
 	}
 
 	public abstract void init();

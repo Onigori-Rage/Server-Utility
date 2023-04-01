@@ -14,14 +14,12 @@ public class Panel implements SubCommand {
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
 		if (sender.isPlayer()) {
-			SUtilPlayer player = (SUtilPlayer) sender;
-			Player corePlayer = player.getCore();
+			SUtilPlayer executor = (SUtilPlayer) sender;
+			Player coreExecutor = executor.getCore();
 
-			SUtilPlayer targetPlayer = SUtilMain.getPlayerFactory().fetch(args[1]);
+			SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
 
-			//GUIHelper.openInventory(new PunishScreen());
-
-			sender.sendTranslated("Open the screen", true);
+			GUIHelper.openInventory(new PunishScreen(executor, target), coreExecutor);
 
 			return;
 		}

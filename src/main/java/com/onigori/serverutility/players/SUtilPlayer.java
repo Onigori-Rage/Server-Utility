@@ -39,6 +39,10 @@ public class SUtilPlayer implements Sender {
 		return true;
 	}
 
+	public String getName() {
+		return this.name;
+	}
+
 	public Player getCore() {
 		return this.corePlayer;
 	}
