@@ -1,9 +1,6 @@
 package com.onigori.serverutility.objects;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Sender;
-import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 
 public enum Permission {
 

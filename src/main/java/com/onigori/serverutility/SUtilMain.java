@@ -41,7 +41,7 @@ public class SUtilMain {
 		commandHandler = new CommandHandler();
 		commandHandler.init();
 
-		consoleSender.sendMessage("welcome", true);
+		consoleSender.sendMessage("welcome", true, Symbols.AUTHOR, Symbols.DISCORD, Symbols.VERSION);
 
 		Bukkit.getPluginManager().registerEvents(new LoginHandler(), plugin);
 

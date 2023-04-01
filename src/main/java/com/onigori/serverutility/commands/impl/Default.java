@@ -12,7 +12,7 @@ public class Default extends Command {
 
 	@Override
 	public void execute(Sender sender, String[] args) {
-		sender.sendTranslated("Undefined", true);
+		sender.sendMessage("command-undefined-error", true);
 	}
 
 }

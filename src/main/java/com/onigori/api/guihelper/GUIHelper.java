@@ -2,7 +2,6 @@ package com.onigori.api.guihelper;
 
 import com.onigori.api.guihelper.components.InventoryHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
-import com.onigori.serverutility.objects.punishments.Ban;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;

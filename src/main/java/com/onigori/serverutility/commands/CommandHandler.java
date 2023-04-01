@@ -10,6 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
 
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CommandHandler {
@@ -29,7 +30,19 @@ public class CommandHandler {
 	}
 
 	private void addCommand(Command command) {
-		commandMap.put(command.getName(), command);
+		this.commandMap.put(command.getName(), command);
+	}
+
+	public Collection<Command> getCommands() {
+		return this.commandMap.values();
+	}
+
+	public Command getCommandOrDefault(String command) {
+		return this.commandMap.getOrDefault(command, this.defaultCommand);
+	}
+
+	public Command getCommand(String command) {
+		return this.commandMap.get(command);
 	}
 
 	/*
@@ -37,7 +50,7 @@ public class CommandHandler {
 	 */
 	public void dispatchCommand(CommandSender commandSender, String[] args, String command) {
 		long a = System.nanoTime();
-		Command commandExecutor = commandMap.getOrDefault(command, this.defaultCommand);
+		Command commandExecutor = this.getCommandOrDefault(command);
 
 		final Sender sender = commandSender instanceof ConsoleCommandSender ? SUtilMain.getSender() : SUtilMain.getPlayerFactory().fetch(((Player) commandSender).getUniqueId());
 
@@ -45,7 +58,7 @@ public class CommandHandler {
 			commandExecutor.execute(sender, args);
 		}
 		else {
-			sender.sendMessage("permission-error", true);
+			sender.sendMessage("command-permission-error", true);
 		}
 		long b = System.nanoTime();
 		System.out.println(b-a);

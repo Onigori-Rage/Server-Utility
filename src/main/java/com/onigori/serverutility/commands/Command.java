@@ -2,8 +2,6 @@ package com.onigori.serverutility.commands;
 
 import com.onigori.serverutility.objects.Permission;
 
-import java.util.HashMap;
-
 public abstract class Command {
 
 	private final String name;
@@ -31,6 +29,10 @@ public abstract class Command {
 
 	public String getUsageKey() {
 		return this.usageKey;
+	}
+
+	public String getDescriptionKey() {
+		return this.descriptionKey;
 	}
 
 	public abstract void execute(Sender sender, String[] args);
