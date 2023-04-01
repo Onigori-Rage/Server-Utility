@@ -13,12 +13,12 @@ import java.util.UUID;
 
 public class ItemBuilder {
 
-	private OnigoriItem item;
+	private ItemStack item;
 
 	private ItemMeta meta;
 
 	public ItemBuilder(Material material, int amount) {
-		this.item = new OnigoriItem(material, amount);
+		this.item = new ItemStack(material, amount);
 		this.meta = this.item.getItemMeta();
 	}
 
@@ -40,13 +40,7 @@ public class ItemBuilder {
 		return this;
 	}
 
-	public ItemBuilder setListener(ItemHandler handler) {
-		this.item.setListener(handler);
-
-		return this;
-	}
-
-	public OnigoriItem build() {
+	public ItemStack build() {
 		this.item.setItemMeta(this.meta);
 		return this.item;
 	}
