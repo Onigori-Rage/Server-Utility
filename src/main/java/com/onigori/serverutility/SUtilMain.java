@@ -32,6 +32,7 @@ public class SUtilMain {
 		consoleSender = new Console();
 
 		playerFactory = new PlayerFactory();
+		playerFactory.init();
 		/*
 		Load api.
 		 */

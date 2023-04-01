@@ -1,6 +1,5 @@
 package com.onigori.serverutility.modules.players;
 
-import com.onigori.serverutility.objects.IInit;
 import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.players.Punishment;
 import com.onigori.serverutility.players.SUtilPlayer;
@@ -10,15 +9,13 @@ import org.bukkit.OfflinePlayer;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class PlayerFactory implements IInit {
+public class PlayerFactory {
 
 	private final ConcurrentHashMap<UUID, SUtilPlayer> playerMap = new ConcurrentHashMap<>();
 
-	@Override
 	public void init() {
 	}
 
-	@Override
 	public void stop() {
 
 	}

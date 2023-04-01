@@ -1,7 +1,5 @@
 package com.onigori.serverutility.modules;
 
-import com.onigori.serverutility.objects.IInit;
-
 import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
