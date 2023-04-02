@@ -20,10 +20,16 @@ public class InventoryHandler implements Listener {
 			event.setCancelled(true);
 			Bukkit.getScheduler().runTaskAsynchronously(GUIHelper.getPlugin(), () -> {
 
+				long a = System.nanoTime();
+
 				Player player = (Player) event.getWhoClicked();
 				OnigoriScreen screen = (OnigoriScreen) holder;
 
 				screen.fireHandler(event.getRawSlot(), player);
+
+				long b = System.nanoTime();
+
+				System.out.println(b-a);
 
 			});
 		}

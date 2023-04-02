@@ -26,6 +26,8 @@ public abstract class OnigoriScreen implements InventoryHolder {
 	public void setItem(OnigoriItem item, int... slots) {
 		for (int slot : slots) {
 			this.inventory.setItem(slot, item.getItemStack());
+
+			this.handlersMap.put(slot, item.getListener());
 		}
 	}
 

@@ -22,4 +22,8 @@ public class OnigoriItem {
 		this.handler = handler;
 	}
 
+	public ItemHandler getListener() {
+		return this.handler;
+	}
+
 }
