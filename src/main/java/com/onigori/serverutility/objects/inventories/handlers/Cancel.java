@@ -10,7 +10,6 @@ public class Cancel implements ItemHandler {
 	@Override
 	public void execute(SUtilPlayer player, OnigoriScreen screen) {
 		GUIHelper.closeInventory(player.getCore());
-		player.sendTranslated("You have closed the inventory", true);
 	}
 
 }

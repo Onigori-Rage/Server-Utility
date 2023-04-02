@@ -27,8 +27,8 @@ public class ItemBuilder {
 		return this;
 	}
 
-	public ItemBuilder setDescription(String... lore) {
-		this.meta.setLore(Arrays.asList(lore));
+	public ItemBuilder setDescription(String lore) {
+		this.meta.setLore(Arrays.asList(lore.split("\n")));
 		return this;
 	}
 

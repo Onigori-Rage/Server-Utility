@@ -47,7 +47,6 @@ public class PunishScreen extends OnigoriScreen {
 										this.target.getName(),
 										this.target.getUUID().toString(),
 										this.target.getPermission().name())
-								.split("\n")
 				).
 				mergeSkull(this.target.getUUID()).
 				build()
@@ -63,7 +62,45 @@ public class PunishScreen extends OnigoriScreen {
 				, 0, 8, 36, 44
 		);
 
+		//Ban
 
+		this.setItem(
+				new ItemBuilder(Material.LAVA_BUCKET, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-banaction-displayname", this.executor.getLocale())).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-banaction-lore", this.executor.getLocale())).
+						build()
+				, 19
+		);
+
+		//Mute
+
+		this.setItem(
+				new ItemBuilder(Material.REDSTONE_BLOCK, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-muteaction-displayname", this.executor.getLocale())).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-muteaction-lore", this.executor.getLocale())).
+						build()
+				, 25
+		);
+
+		//Kick
+
+		this.setItem(
+				new ItemBuilder(Material.DISPENSER, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-displayname", this.executor.getLocale())).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-lore", this.executor.getLocale())).
+						build()
+				, 4
+		);
+
+		//Warn
+
+		this.setItem(
+				new ItemBuilder(Material.REDSTONE_TORCH_ON, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-warnaction-displayname", this.executor.getLocale())).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-warnaction-lore", this.executor.getLocale())).
+						build()
+				, 40
+		);
 
 	}
 

@@ -13,3 +13,6 @@
 作者: Onigori_Rage
 
 権利関係: すべてフリー
+
+![画像1](https://media.discordapp.net/attachments/1091922710214475916/1091922732612071544/image.png)
+![画像2](https://media.discordapp.net/attachments/1091922710214475916/1091922864376119408/image.png)

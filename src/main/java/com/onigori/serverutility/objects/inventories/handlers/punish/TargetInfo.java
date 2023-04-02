@@ -12,7 +12,7 @@ public class TargetInfo implements ItemHandler {
 	public void execute(SUtilPlayer player, OnigoriScreen screen) {
 		player.getCore().closeInventory();
 
-		player.sendTranslated("You closed inventory", true);
+		player.sendTranslated("§dNow developing...", true);
 	}
 
 }
