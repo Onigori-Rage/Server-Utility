@@ -86,4 +86,10 @@ public class SUtilPlayer implements Sender {
 		}
 	}
 
+	public void kick(String reason) {
+		if (this.corePlayer != null) {
+			this.corePlayer.kickPlayer(reason);
+		}
+	}
+
 }

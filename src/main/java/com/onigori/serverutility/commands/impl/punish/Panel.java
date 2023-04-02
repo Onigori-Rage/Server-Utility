@@ -5,7 +5,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.objects.inventories.PunishScreen;
+import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.entity.Player;
 
@@ -19,12 +19,23 @@ public class Panel implements SubCommand {
 
 			SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
 
-			GUIHelper.openInventory(new PunishScreen(executor, target), coreExecutor);
+			String reason = args.length >= 3 ? getArgumentsByArray(args, 2, " ") : "Undefined.";
+
+			GUIHelper.openInventory(new PunishScreen(executor, target, reason), coreExecutor);
 
 			return;
 		}
 
 		sender.sendMessage("command-spunish-panel-executor-error", true);
+	}
+
+	public static String getArgumentsByArray(String[] args, int startIndex, String suffix) {
+		StringBuilder stringBuilder = new StringBuilder();
+		for (int index = startIndex; index <= (args.length - 1); index = index + 1) {
+			stringBuilder.append(args[index] + suffix);
+		}
+		stringBuilder.setLength(stringBuilder.length() - suffix.length());
+		return stringBuilder.toString();
 	}
 
 }

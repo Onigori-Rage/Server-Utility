@@ -1,10 +1,11 @@
-package com.onigori.serverutility.objects.inventories;
+package com.onigori.serverutility.objects.inventories.screens;
 
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
+import com.onigori.serverutility.objects.inventories.handlers.punish.Kick;
 import com.onigori.serverutility.objects.inventories.handlers.punish.TargetInfo;
 import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.players.SUtilPlayer;
@@ -24,13 +25,21 @@ public class PunishScreen extends OnigoriScreen {
 
 	private final SUtilPlayer target;
 
-	public PunishScreen(SUtilPlayer executor, SUtilPlayer target) {
+	private String reason;
+
+	public PunishScreen(SUtilPlayer executor, SUtilPlayer target, String reason) {
 		super(5, LocalizedMessage.getLocalizedMessage("gui-punish-displayname", executor.getLocale()));
 
 		this.executor = executor;
 		this.target = target;
 
+		this.reason = reason;
+
 		this.init();
+	}
+
+	public String getReason() {
+		return this.reason;
 	}
 
 	@Override
@@ -59,7 +68,7 @@ public class PunishScreen extends OnigoriScreen {
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-global-cancel-lore", this.executor.getLocale())).
 						setListener(new Cancel()).
 						build()
-				, 0, 8, 36, 44
+				, 44
 		);
 
 		//Ban
@@ -88,6 +97,7 @@ public class PunishScreen extends OnigoriScreen {
 				new ItemBuilder(Material.DISPENSER, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-displayname", this.executor.getLocale())).
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-lore", this.executor.getLocale())).
+						setListener(new Kick()).
 						build()
 				, 4
 		);
@@ -102,6 +112,24 @@ public class PunishScreen extends OnigoriScreen {
 				, 40
 		);
 
+		//Reasoning
+
+		this.setItem(
+				new ItemBuilder(Material.NAME_TAG, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-reason-displayname", this.executor.getLocale())).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-reason-lore", this.executor.getLocale(), this.reason)).
+						build()
+				, 8
+		);
+
+	}
+
+	public SUtilPlayer getExecutor() {
+		return this.executor;
+	}
+
+	public SUtilPlayer getTarget() {
+		return this.target;
 	}
 
 }

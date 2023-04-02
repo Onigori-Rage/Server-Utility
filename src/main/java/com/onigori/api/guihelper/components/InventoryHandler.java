@@ -1,8 +1,6 @@
 package com.onigori.api.guihelper.components;
 
 import com.onigori.api.guihelper.GUIHelper;
-import com.onigori.serverutility.SUtilMain;
-import com.onigori.serverutility.objects.inventories.PunishScreen;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
