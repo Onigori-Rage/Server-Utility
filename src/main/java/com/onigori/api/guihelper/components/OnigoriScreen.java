@@ -1,5 +1,7 @@
 package com.onigori.api.guihelper.components;
 
+import com.onigori.api.guihelper.OnigoriItem;
+import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -13,21 +15,24 @@ public abstract class OnigoriScreen implements InventoryHolder {
 
 	private final Inventory inventory;
 
-	private static final ConcurrentHashMap<String, ConcurrentHashMap<Integer, ItemHandler>> HANDLERS = new ConcurrentHashMap<>();
+	private final HashMap<Integer, ItemHandler> handlersMap = new HashMap<>();
+
+	private static final ItemHandler EMPTY_HANDLER = new EmptyHandler();
 
 	public OnigoriScreen(int row, String name) {
 		this.inventory = Bukkit.createInventory(this, row * 9, name);
 	}
 
-	/*
-	APIを改変
-	 */
-	public void execute(SUtilPlayer player, int slot) {
-		HANDLERS.get(getClass().getName()).getOrDefault(slot, new EmptyHandler()).execute(player);
+	public void setItem(OnigoriItem item, int... slots) {
+		for (int slot : slots) {
+			this.inventory.setItem(slot, item.getItemStack());
+		}
 	}
 
-	public static void addHandler(String className, ConcurrentHashMap<Integer, ItemHandler> handler) {
-		HANDLERS.put(className, handler);
+	public void fireHandler(final int slot, final Player player) {
+		// Fixed API
+		this.handlersMap.getOrDefault(slot, EMPTY_HANDLER).execute(SUtilMain.getPlayerFactory().fetch(player.getUniqueId()), this);
+
 	}
 
 	public abstract void init();

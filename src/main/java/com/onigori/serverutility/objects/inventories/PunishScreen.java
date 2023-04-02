@@ -4,6 +4,7 @@ import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.punish.TargetInfo;
 import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.players.SUtilPlayer;
@@ -14,6 +15,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.SkullMeta;
 
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class PunishScreen extends OnigoriScreen {
@@ -21,12 +23,6 @@ public class PunishScreen extends OnigoriScreen {
 	private final SUtilPlayer executor;
 
 	private final SUtilPlayer target;
-
-	static {
-		ConcurrentHashMap<Integer, ItemHandler> handler = new ConcurrentHashMap<>();
-		handler.put(22, new TargetInfo());
-		OnigoriScreen.addHandler(PunishScreen.class.getName(), handler);
-	}
 
 	public PunishScreen(SUtilPlayer executor, SUtilPlayer target) {
 		super(5, LocalizedMessage.getLocalizedMessage("gui-punish-displayname", executor.getLocale()));
@@ -40,12 +36,13 @@ public class PunishScreen extends OnigoriScreen {
 	@Override
 	public void init() {
 		// Target Info
-		this.getInventory().
-				setItem(22, new ItemBuilder(Material.SKULL_ITEM, 1).
-				setName(LocalizedMessage.getLocalizedMessage("gui-punish-targetinfo-displayname", this.executor.getLocale())).
-				setDescription(
-						LocalizedMessage.
-								getLocalizedMessage("gui-punish-targetinfo-lore",
+		this.setItem(
+				new ItemBuilder(Material.SKULL_ITEM, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-targetinfo-displayname", this.executor.getLocale())).
+						setListener(new TargetInfo()).
+						setDescription(
+								LocalizedMessage.
+										getLocalizedMessage("gui-punish-targetinfo-lore",
 										this.executor.getLocale(),
 										this.target.getName(),
 										this.target.getUUID().toString(),
@@ -54,11 +51,17 @@ public class PunishScreen extends OnigoriScreen {
 				).
 				mergeSkull(this.target.getUUID()).
 				build()
+		, 22);
+
+		// Cancel
+		this.setItem(
+				new ItemBuilder(Material.BARRIER, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-global-cancel-displayname", this.executor.getLocale())).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-global-cancel-lore", this.executor.getLocale())).
+						setListener(new Cancel()).
+						build()
+				, 0, 8, 36, 44
 		);
-
-		// Close
-
-
 
 
 

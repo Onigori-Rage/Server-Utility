@@ -18,15 +18,12 @@ public class InventoryHandler implements Listener {
 
 		if (holder instanceof OnigoriScreen) {
 			event.setCancelled(true);
-			Bukkit.getScheduler().runTaskAsynchronously(GUIHelper.getPlugin(), new Runnable() {
+			Bukkit.getScheduler().runTaskAsynchronously(GUIHelper.getPlugin(), () -> {
 
-				@Override
-				public void run() {
-					Player player = (Player) event.getWhoClicked();
-					OnigoriScreen screen = (OnigoriScreen) holder;
+				Player player = (Player) event.getWhoClicked();
+				OnigoriScreen screen = (OnigoriScreen) holder;
 
-					screen.execute(SUtilMain.getPlayerFactory().fetch(player.getUniqueId()), event.getRawSlot());
-				}
+				screen.fireHandler(event.getRawSlot(), player);
 
 			});
 		}

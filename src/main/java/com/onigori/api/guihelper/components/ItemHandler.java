@@ -4,8 +4,8 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.entity.Player;
 
-public abstract class ItemHandler {
+public interface ItemHandler {
 
-	public abstract void execute(SUtilPlayer player);
+	void execute(SUtilPlayer player, OnigoriScreen screen);
 
 }

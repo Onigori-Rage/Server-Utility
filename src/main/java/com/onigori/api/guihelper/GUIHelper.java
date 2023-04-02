@@ -28,5 +28,9 @@ public class GUIHelper {
 		player.openInventory(screen.getInventory());
 	}
 
+	public static void closeInventory(Player player) {
+		player.closeInventory();
+	}
+
 
 }

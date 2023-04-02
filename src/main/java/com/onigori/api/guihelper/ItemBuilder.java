@@ -13,13 +13,13 @@ import java.util.UUID;
 
 public class ItemBuilder {
 
-	private ItemStack item;
+	private OnigoriItem item;
 
 	private ItemMeta meta;
 
 	public ItemBuilder(Material material, int amount) {
-		this.item = new ItemStack(material, amount);
-		this.meta = this.item.getItemMeta();
+		this.item = new OnigoriItem(material, amount);
+		this.meta = this.item.getItemStack().getItemMeta();
 	}
 
 	public ItemBuilder setName(String name) {
@@ -35,13 +35,19 @@ public class ItemBuilder {
 	public ItemBuilder mergeSkull(UUID uuid) {
 		((SkullMeta) this.meta).setOwningPlayer(Bukkit.getOfflinePlayer(uuid));
 
-		this.item.setDurability((short) SkullType.PLAYER.ordinal());
+		this.item.getItemStack().setDurability((short) SkullType.PLAYER.ordinal());
 
 		return this;
 	}
 
-	public ItemStack build() {
-		this.item.setItemMeta(this.meta);
+	public ItemBuilder setListener(ItemHandler handler) {
+		this.item.setListener(handler);
+
+		return this;
+	}
+
+	public OnigoriItem build() {
+		this.item.getItemStack().setItemMeta(this.meta);
 		return this.item;
 	}
 
