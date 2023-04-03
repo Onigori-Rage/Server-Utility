@@ -12,22 +12,23 @@ import org.bukkit.Material;
 
 import java.util.Locale;
 
-public class KickScreen extends PunishScreen {
+public class WarnScreen extends PunishScreen {
 
-	public KickScreen(SUtilPlayer executor, SUtilPlayer target, String reason) {
-		super(executor, target, reason, ScreenType.KICK);
+	public WarnScreen(SUtilPlayer executor, SUtilPlayer target, String reason) {
+		super(executor, target, reason, ScreenType.WARN);
 
 		this.init();
 	}
 
 	@Override
 	public void init() {
+
 		Locale locale = this.getExecutor().getLocale();
 
 		this.setItem(
 				new ItemBuilder(Material.EMERALD_BLOCK, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kick-accept-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kick-accept-lore", locale)).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-warn-accept-displayname", locale)).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-warn-accept-lore", locale)).
 						setListener(new Accept()).
 						build()
 				, 11
@@ -35,8 +36,8 @@ public class KickScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.REDSTONE_BLOCK, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kick-deny-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kick-deny-lore", locale)).
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-warn-deny-displayname", locale)).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-warn-deny-lore", locale)).
 						setListener(new Cancel()).
 						build()
 				, 15

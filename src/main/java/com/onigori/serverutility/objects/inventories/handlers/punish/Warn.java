@@ -4,10 +4,10 @@ import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
-import com.onigori.serverutility.objects.inventories.screens.punish.KickScreen;
+import com.onigori.serverutility.objects.inventories.screens.punish.WarnScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
 
-public class Kick implements ItemHandler {
+public class Warn implements ItemHandler {
 
 	@Override
 	public void execute(SUtilPlayer player, OnigoriScreen screen) {
@@ -15,7 +15,7 @@ public class Kick implements ItemHandler {
 
 		PunishScreen punishScreen = (PunishScreen) screen;
 
-		GUIHelper.openInventory(new KickScreen(punishScreen.getExecutor(), punishScreen.getTarget(), punishScreen.getReason()), player.getCore());
+		GUIHelper.openInventory(new WarnScreen(punishScreen.getExecutor(), punishScreen.getTarget(), punishScreen.getReason()), player.getCore());
 	}
 
 }
