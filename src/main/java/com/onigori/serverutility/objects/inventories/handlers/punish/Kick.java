@@ -15,7 +15,7 @@ public class Kick implements ItemHandler {
 
 		PunishScreen punishScreen = (PunishScreen) screen;
 
-		GUIHelper.openInventory(new KickScreen(punishScreen.getExecutor(), punishScreen.getTarget(), punishScreen.getReason()), player.getCore());
+		GUIHelper.openInventory(new KickScreen(punishScreen.getExecutor(), punishScreen.getTarget(), punishScreen.getReason(), screen), player.getCore());
 	}
 
 }

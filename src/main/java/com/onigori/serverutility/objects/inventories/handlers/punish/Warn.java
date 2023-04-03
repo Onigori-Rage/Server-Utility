@@ -15,7 +15,7 @@ public class Warn implements ItemHandler {
 
 		PunishScreen punishScreen = (PunishScreen) screen;
 
-		GUIHelper.openInventory(new WarnScreen(punishScreen.getExecutor(), punishScreen.getTarget(), punishScreen.getReason()), player.getCore());
+		GUIHelper.openInventory(new WarnScreen(punishScreen.getExecutor(), punishScreen.getTarget(), punishScreen.getReason(), screen), player.getCore());
 	}
 
 }

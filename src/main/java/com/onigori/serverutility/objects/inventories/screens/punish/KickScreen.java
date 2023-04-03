@@ -2,6 +2,7 @@ package com.onigori.serverutility.objects.inventories.screens.punish;
 
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
+import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.punish.TargetInfo;
@@ -14,8 +15,8 @@ import java.util.Locale;
 
 public class KickScreen extends PunishScreen {
 
-	public KickScreen(SUtilPlayer executor, SUtilPlayer target, String reason) {
-		super(executor, target, reason, ScreenType.KICK);
+	public KickScreen(SUtilPlayer executor, SUtilPlayer target, String reason, OnigoriScreen previousScreen) {
+		super(executor, target, reason, ScreenType.KICK, previousScreen);
 
 		this.init();
 	}
@@ -35,8 +36,8 @@ public class KickScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.REDSTONE_BLOCK, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kick-deny-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kick-deny-lore", locale)).
+						setName(LocalizedMessage.getLocalizedMessage("gui-global-cancel-displayname", locale)).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-global-cancel-lore", locale)).
 						setListener(new Cancel()).
 						build()
 				, 15

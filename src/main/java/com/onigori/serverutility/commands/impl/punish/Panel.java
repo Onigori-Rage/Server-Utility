@@ -2,6 +2,7 @@ package com.onigori.serverutility.commands.impl.punish;
 
 import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.serverutility.SUtilMain;
+import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
@@ -20,9 +21,9 @@ public class Panel implements SubCommand {
 
 			SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
 
-			String reason = args.length >= 3 ? getArgumentsByArray(args, 2, " ") : "Undefined.";
+			String reason = args.length >= 3 ? getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
-			GUIHelper.openInventory(new PunishScreen(executor, target, reason, ScreenType.BOSS), coreExecutor);
+			GUIHelper.openInventory(new PunishScreen(executor, target, reason, ScreenType.BOSS, null), coreExecutor);
 
 			return;
 		}

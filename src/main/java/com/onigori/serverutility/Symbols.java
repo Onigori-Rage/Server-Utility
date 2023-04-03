@@ -18,4 +18,6 @@ public class Symbols {
 
 	public static final Locale DEFAULT_LOCALE = Locale.ENGLISH;
 
+	public static final String DEFAULT_REASON = "Unknown / なし";
+
 }

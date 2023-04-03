@@ -1,19 +1,20 @@
-package com.onigori.serverutility.objects.inventories.handlers.punish;
+package com.onigori.serverutility.objects.inventories.handlers;
 
 import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
-import com.onigori.serverutility.SUtilMain;
+import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
-import org.bukkit.entity.Player;
 
-public class TargetInfo implements ItemHandler {
+public class Return implements ItemHandler {
 
 	@Override
 	public void execute(SUtilPlayer player, OnigoriScreen screen) {
+		ReturnableScreen returnableScreen = (ReturnableScreen) screen;
+
 		GUIHelper.closeInventory(player.getCore());
 
-		player.sendTranslated("§dNow developing...", true);
+		GUIHelper.openInventory(returnableScreen.getPreviousScreen(), player.getCore());
 	}
 
 }

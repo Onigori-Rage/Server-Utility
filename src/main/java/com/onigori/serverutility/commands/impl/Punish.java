@@ -17,7 +17,7 @@ public class Punish extends Command {
 	private final HashMap<String, SubCommand> subcommands = new HashMap<>();
 
 	public Punish() {
-		super("spunish", "usageKey", "descriptionKey", Permission.NORMAL);//Permission.HIGHEST);
+		super("spunish", "command-spunish-usage", "command-spunish-description", Permission.NORMAL);//Permission.HIGHEST);
 		this.subcommands.put("panel", new Panel());
 	}
 

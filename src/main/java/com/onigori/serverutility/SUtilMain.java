@@ -39,6 +39,7 @@ public class SUtilMain {
 		GUIHelper.init(plugin);
 
 		commandHandler = new CommandHandler();
+
 		commandHandler.init();
 
 		consoleSender.sendMessage("welcome", true, Symbols.AUTHOR, Symbols.DISCORD, Symbols.VERSION);

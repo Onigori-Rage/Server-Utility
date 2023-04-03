@@ -3,6 +3,7 @@ package com.onigori.serverutility.objects.inventories.screens;
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
+import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.punish.Kick;
@@ -21,21 +22,25 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class PunishScreen extends OnigoriScreen {
+public class PunishScreen extends OnigoriScreen implements ReturnableScreen {
 
 	private final SUtilPlayer executor;
 
 	private final SUtilPlayer target;
 
+	private OnigoriScreen previousScreen;
+
 	private String reason;
 
-	public PunishScreen(SUtilPlayer executor, SUtilPlayer target, String reason, ScreenType screenType) {
+	public PunishScreen(SUtilPlayer executor, SUtilPlayer target, String reason, ScreenType screenType, OnigoriScreen previousScreen) {
 		super(screenType.getRow(), LocalizedMessage.getLocalizedMessage(screenType.getDisplayKey(), executor.getLocale()));
 
 		this.executor = executor;
 		this.target = target;
 
 		this.reason = reason;
+
+		this.previousScreen = previousScreen;
 
 		if (screenType == ScreenType.BOSS) {
 			this.init();
@@ -135,6 +140,11 @@ public class PunishScreen extends OnigoriScreen {
 
 	public SUtilPlayer getTarget() {
 		return this.target;
+	}
+
+	@Override
+	public OnigoriScreen getPreviousScreen() {
+		return this.previousScreen;
 	}
 
 }
