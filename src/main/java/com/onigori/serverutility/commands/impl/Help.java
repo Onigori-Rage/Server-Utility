@@ -15,6 +15,7 @@ public class Help extends Command {
 
 	public Help() {
 		super("shelp", "command-shelp-usage", "command-shelp-description", Permission.NORMAL);
+
 		this.subcommands.put("info", new Info());
 		this.subcommands.put("command", new com.onigori.serverutility.commands.impl.help.Command());
 		this.subcommands.put("list", new List());

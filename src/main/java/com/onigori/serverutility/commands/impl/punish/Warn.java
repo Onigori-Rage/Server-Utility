@@ -8,7 +8,7 @@ import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.modules.ArgumentManager;
 import com.onigori.serverutility.players.SUtilPlayer;
 
-public class CmdWarn implements SubCommand {
+public class Warn implements SubCommand {
 
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
@@ -16,13 +16,7 @@ public class CmdWarn implements SubCommand {
 
 		String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
-		String key = "command-spunish-warn-failed";
-
-		if (target.kick(reason)) {
-			key = "command-spunish-warn-success";
-		}
-
-		sender.sendMessage(key, true, target.getName());
+		sender.sendMessage(target.warn(reason) ? "command-spunish-warn-success" : "command-spunish-warn-failed", true, target.getName());
 	}
 
 }

@@ -3,7 +3,7 @@ package com.onigori.serverutility.commands.impl;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.commands.impl.punish.CmdKick;
+import com.onigori.serverutility.commands.impl.punish.Kick;
 import com.onigori.serverutility.commands.impl.punish.Panel;
 import com.onigori.serverutility.objects.Permission;
 
@@ -17,7 +17,7 @@ public class Punish extends Command {
 		super("spunish", "command-spunish-usage", "command-spunish-description", Permission.NORMAL);//Permission.HIGHEST);
 
 		this.subcommands.put("panel", new Panel());
-		this.subcommands.put("kick", new CmdKick());
+		this.subcommands.put("kick", new Kick());
 	}
 
 	@Override

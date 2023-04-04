@@ -86,6 +86,7 @@ public class SUtilPlayer implements Sender {
 		if (this.corePlayer != null) {
 			this.corePlayer.sendMessage(prefix ? Symbols.PREFIX + message : message);
 		}
+
 	}
 
 	public boolean kick(String reason) {
@@ -93,6 +94,17 @@ public class SUtilPlayer implements Sender {
 			Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
 					this.corePlayer.kickPlayer(LocalizedMessage.getLocalizedMessage("kick-reason", this.locale, Symbols.PREFIX, reason))
 			);
+
+			return true;
+		}
+
+		return false;
+	}
+
+	public boolean warn(String reason) {
+		if (this.corePlayer != null) {
+			this.sendMessage(reason, true);
+
 			return true;
 		}
 

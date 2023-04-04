@@ -47,6 +47,7 @@ public class PlayerFactory {
 
 	public SUtilPlayer addPlayer(SUtilPlayer player) {
 		playerMap.putIfAbsent(player.getUUID(), player);
+
 		return player;
 	}
 
