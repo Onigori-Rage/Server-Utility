@@ -32,7 +32,7 @@ public class PlayerFactory {
 	}
 
 	/*
-	Warn
+	WarnOpener
 	 */
 	public SUtilPlayer fetch(String name) {
 		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(name);

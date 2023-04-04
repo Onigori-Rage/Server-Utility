@@ -7,7 +7,7 @@ import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.objects.inventories.screens.punish.WarnScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
 
-public class Warn implements ItemHandler {
+public class WarnOpener implements ItemHandler {
 
 	@Override
 	public void execute(SUtilPlayer player, OnigoriScreen screen) {

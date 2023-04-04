@@ -1,7 +1,6 @@
 package com.onigori.serverutility.commands;
 
 import com.onigori.serverutility.SUtilMain;
-import com.onigori.serverutility.commands.impl.Default;
 import com.onigori.serverutility.commands.impl.Help;
 import com.onigori.serverutility.commands.impl.Lang;
 import com.onigori.serverutility.commands.impl.Punish;
@@ -48,20 +47,25 @@ public class CommandHandler {
 	/*
 	Logic (dispatching command)
 	 */
-	public void dispatchCommand(CommandSender commandSender, String[] args, String command) {
+	public void dispatchCommand(final CommandSender commandSender, final String[] args, final String command) {
 		long a = System.nanoTime();
-		Command commandExecutor = this.getCommandOrDefault(command);
 
-		final Sender sender = commandSender instanceof ConsoleCommandSender ? SUtilMain.getSender() : SUtilMain.getPlayerFactory().fetch(((Player) commandSender).getUniqueId());
+		this.dispatchCommand(commandSender instanceof ConsoleCommandSender ? SUtilMain.getSender() : SUtilMain.getPlayerFactory().fetch(((Player) commandSender).getUniqueId()), args, command);
+
+		long b = System.nanoTime();
+		System.out.println(b-a);
+	}
+
+	public void dispatchCommand(final Sender sender, final String[] args, final String command) {
+		final Command commandExecutor = this.getCommandOrDefault(command);
 
 		if (Permission.comparedPermission(sender, commandExecutor.getPermission())) {
 			commandExecutor.execute(sender, args);
 		}
+
 		else {
 			sender.sendMessage("command-permission-error", true);
 		}
-		long b = System.nanoTime();
-		System.out.println(b-a);
 	}
 
 }

@@ -7,7 +7,7 @@ import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.objects.inventories.screens.punish.KickScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
 
-public class Kick implements ItemHandler {
+public class KickOpener implements ItemHandler {
 
 	@Override
 	public void execute(SUtilPlayer player, OnigoriScreen screen) {

@@ -7,8 +7,8 @@ import com.onigori.api.guihelper.components.TargetableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
-import com.onigori.serverutility.objects.inventories.handlers.punish.Kick;
-import com.onigori.serverutility.objects.inventories.handlers.punish.Warn;
+import com.onigori.serverutility.objects.inventories.handlers.punish.KickOpener;
+import com.onigori.serverutility.objects.inventories.handlers.punish.WarnOpener;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Material;
@@ -21,6 +21,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 	private OnigoriScreen previousScreen;
 
+	private final ScreenType screenType;
+
 	private String reason;
 
 	public PunishScreen(SUtilPlayer executor, SUtilPlayer target, String reason, ScreenType screenType, OnigoriScreen previousScreen) {
@@ -32,6 +34,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 		this.reason = reason;
 
 		this.previousScreen = previousScreen;
+
+		this.screenType = screenType;
 
 		if (screenType == ScreenType.BOSS) {
 			this.init();
@@ -91,24 +95,24 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 				, 25
 		);
 
-		//Kick
+		//KickOpener
 
 		this.setItem(
 				new ItemBuilder(Material.DISPENSER, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-displayname", this.executor.getLocale())).
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-lore", this.executor.getLocale())).
-						setListener(new Kick()).
+						setListener(new KickOpener()).
 						build()
 				, 4
 		);
 
-		//Warn
+		//WarnOpener
 
 		this.setItem(
 				new ItemBuilder(Material.REDSTONE_TORCH_ON, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-warnaction-displayname", this.executor.getLocale())).
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-warnaction-lore", this.executor.getLocale())).
-						setListener(new Warn()).
+						setListener(new WarnOpener()).
 						build()
 				, 40
 		);
@@ -132,6 +136,10 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 	@Override
 	public SUtilPlayer getTarget() {
 		return this.target;
+	}
+
+	public ScreenType getScreenType() {
+		return this.screenType;
 	}
 
 	@Override

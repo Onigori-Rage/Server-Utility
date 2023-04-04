@@ -1,4 +1,4 @@
-package com.onigori.serverutility.commands.impl;
+package com.onigori.serverutility.commands;
 
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;

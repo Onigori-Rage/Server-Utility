@@ -6,7 +6,7 @@ import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.Return;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
-import com.onigori.serverutility.objects.inventories.handlers.punish.kick.Accept;
+import com.onigori.serverutility.objects.inventories.handlers.punish.PunishAccept;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Material;
@@ -29,7 +29,7 @@ public class KickScreen extends PunishScreen {
 				new ItemBuilder(Material.EMERALD_BLOCK, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kick-accept-displayname", locale)).
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kick-accept-lore", locale)).
-						setListener(new Accept()).
+						setListener(new PunishAccept()).
 						build()
 				, 11
 		);
