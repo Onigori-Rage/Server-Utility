@@ -1,6 +1,5 @@
 package com.onigori.serverutility.modules.players;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.players.Punishment;
 import com.onigori.serverutility.players.SUtilPlayer;

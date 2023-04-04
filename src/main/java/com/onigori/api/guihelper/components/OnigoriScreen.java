@@ -2,14 +2,12 @@ package com.onigori.api.guihelper.components;
 
 import com.onigori.api.guihelper.OnigoriItem;
 import com.onigori.serverutility.SUtilMain;
-import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
 import java.util.HashMap;
-import java.util.concurrent.ConcurrentHashMap;
 
 public abstract class OnigoriScreen implements InventoryHolder {
 

@@ -4,7 +4,7 @@ import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
-import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
+import com.onigori.serverutility.objects.inventories.handlers.Return;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Material;
 
@@ -34,7 +34,6 @@ public class TargetInfoScreen extends OnigoriScreen implements ReturnableScreen 
 		this.setItem(
 				new ItemBuilder(Material.SKULL_ITEM, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).
-						setListener(new TargetInfo()).
 						setDescription(
 								LocalizedMessage.
 										getLocalizedMessage("gui-punish-targetinfo-lore",
@@ -46,6 +45,15 @@ public class TargetInfoScreen extends OnigoriScreen implements ReturnableScreen 
 						mergeSkull(this.target.getUUID()).
 						build()
 				, 22);
+
+		this.setItem(
+				new ItemBuilder(Material.ARROW, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-global-return-displayname", locale)).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-global-return-lore", locale)).
+						setListener(new Return()).
+						build()
+				, 36
+		);
 
 	}
 
