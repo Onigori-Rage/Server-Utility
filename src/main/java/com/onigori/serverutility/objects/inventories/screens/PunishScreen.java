@@ -1,28 +1,19 @@
 package com.onigori.serverutility.objects.inventories.screens;
 
 import com.onigori.api.guihelper.ItemBuilder;
-import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
+import com.onigori.api.guihelper.components.TargetableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.punish.Kick;
-import com.onigori.serverutility.objects.inventories.handlers.punish.TargetInfo;
+import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
 import com.onigori.serverutility.objects.inventories.handlers.punish.Warn;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
-import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.players.SUtilPlayer;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.SkullType;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.SkullMeta;
 
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.concurrent.ConcurrentHashMap;
-
-public class PunishScreen extends OnigoriScreen implements ReturnableScreen {
+public class PunishScreen extends OnigoriScreen implements ReturnableScreen, TargetableScreen {
 
 	private final SUtilPlayer executor;
 
@@ -138,6 +129,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen {
 		return this.executor;
 	}
 
+	@Override
 	public SUtilPlayer getTarget() {
 		return this.target;
 	}

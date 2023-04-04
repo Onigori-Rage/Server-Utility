@@ -5,7 +5,7 @@ import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.Return;
-import com.onigori.serverutility.objects.inventories.handlers.punish.TargetInfo;
+import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
 import com.onigori.serverutility.objects.inventories.handlers.punish.kick.Accept;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.players.SUtilPlayer;

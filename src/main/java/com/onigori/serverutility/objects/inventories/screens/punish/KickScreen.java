@@ -2,10 +2,10 @@ package com.onigori.serverutility.objects.inventories.screens.punish;
 
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
-import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
-import com.onigori.serverutility.objects.inventories.handlers.punish.TargetInfo;
+import com.onigori.serverutility.objects.inventories.handlers.Return;
+import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
 import com.onigori.serverutility.objects.inventories.handlers.punish.kick.Accept;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
@@ -57,7 +57,17 @@ public class KickScreen extends PunishScreen {
 						).
 						mergeSkull(this.getTarget().getUUID()).
 						build()
-				, 13);
+				, 13
+		);
+
+		this.setItem(
+				new ItemBuilder(Material.ARROW, 1).
+						setName(LocalizedMessage.getLocalizedMessage("gui-global-return-displayname", locale)).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-global-return-lore", locale)).
+						setListener(new Return()).
+						build()
+				, 18
+		);
 
 		this.setItem(
 				new ItemBuilder(Material.NAME_TAG, 1).
