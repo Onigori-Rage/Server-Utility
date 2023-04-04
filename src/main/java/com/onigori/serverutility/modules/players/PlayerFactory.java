@@ -31,9 +31,6 @@ public class PlayerFactory {
 		return player;
 	}
 
-	/*
-	WarnOpener
-	 */
 	public SUtilPlayer fetch(String name) {
 		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(name);
 		return this.fetch(offlinePlayer.getUniqueId());

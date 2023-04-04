@@ -13,6 +13,8 @@ import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Material;
 
+import java.util.Date;
+
 public class PunishScreen extends OnigoriScreen implements ReturnableScreen, TargetableScreen {
 
 	private final SUtilPlayer executor;
@@ -24,6 +26,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 	private final ScreenType screenType;
 
 	private String reason;
+
+	private int expire;
 
 	public PunishScreen(SUtilPlayer executor, SUtilPlayer target, String reason, ScreenType screenType, OnigoriScreen previousScreen) {
 		super(screenType.getRow(), LocalizedMessage.getLocalizedMessage(screenType.getDisplayKey(), executor.getLocale()));
@@ -44,6 +48,10 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 	public String getReason() {
 		return this.reason;
+	}
+
+	public int getExpire() {
+		return this.expire;
 	}
 
 	@Override

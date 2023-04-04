@@ -6,10 +6,9 @@ import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.modules.ArgumentManager;
-import com.onigori.serverutility.modules.players.PunishmentFactory;
 import com.onigori.serverutility.players.SUtilPlayer;
 
-public class CmdKick implements SubCommand {
+public class CmdWarn implements SubCommand {
 
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
@@ -17,10 +16,10 @@ public class CmdKick implements SubCommand {
 
 		String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
-		String key = "command-spunish-kick-failed";
+		String key = "command-spunish-warn-failed";
 
 		if (target.kick(reason)) {
-			key = "command-spunish-kick-success";
+			key = "command-spunish-warn-success";
 		}
 
 		sender.sendMessage(key, true, target.getName());

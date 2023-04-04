@@ -1,9 +1,11 @@
 package com.onigori.serverutility.players;
 
+import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Permission;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
 import java.util.Locale;
@@ -86,10 +88,15 @@ public class SUtilPlayer implements Sender {
 		}
 	}
 
-	public void kick(String reason) {
+	public boolean kick(String reason) {
 		if (this.corePlayer != null) {
-			this.corePlayer.kickPlayer(reason);
+			Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
+					this.corePlayer.kickPlayer(LocalizedMessage.getLocalizedMessage("kick-reason", this.locale, Symbols.PREFIX, reason))
+			);
+			return true;
 		}
+
+		return false;
 	}
 
 }
