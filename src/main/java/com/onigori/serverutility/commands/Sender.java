@@ -18,4 +18,6 @@ public interface Sender {
 
 	boolean isPlayer();
 
+	String getName();
+
 }

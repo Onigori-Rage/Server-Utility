@@ -20,4 +20,6 @@ public class Symbols {
 
 	public static final String DEFAULT_REASON = "Unknown / なし";
 
+	public static final String CONSOLE_NAME = "CONSOLE";
+
 }

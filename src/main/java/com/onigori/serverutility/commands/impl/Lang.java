@@ -16,6 +16,7 @@ public class Lang extends Command {
 	public void execute(Sender sender, String[] args) {
 		if (args.length >= 1) {
 			String messageKey = "command-slang-success";
+
 			switch (args[0].toLowerCase()) {
 				case "english":
 					sender.setLocale(Locale.ENGLISH);
@@ -30,6 +31,7 @@ public class Lang extends Command {
 			}
 
 			sender.sendMessage(messageKey, true);
+
 			return;
 		}
 		sender.sendMessage(this.getUsageKey(), true);

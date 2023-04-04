@@ -5,6 +5,7 @@ import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.commands.impl.punish.Kick;
 import com.onigori.serverutility.commands.impl.punish.Panel;
+import com.onigori.serverutility.commands.impl.punish.Warn;
 import com.onigori.serverutility.objects.Permission;
 
 import java.util.HashMap;
@@ -18,6 +19,7 @@ public class Punish extends Command {
 
 		this.subcommands.put("panel", new Panel());
 		this.subcommands.put("kick", new Kick());
+		this.subcommands.put("warn", new Warn());
 	}
 
 	@Override

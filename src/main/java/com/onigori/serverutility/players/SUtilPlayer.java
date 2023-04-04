@@ -41,6 +41,7 @@ public class SUtilPlayer implements Sender {
 		return true;
 	}
 
+	@Override
 	public String getName() {
 		return this.name;
 	}
@@ -89,10 +90,10 @@ public class SUtilPlayer implements Sender {
 
 	}
 
-	public boolean kick(String reason) {
+	public boolean kick(String reason, String executor) {
 		if (this.corePlayer != null) {
 			Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
-					this.corePlayer.kickPlayer(LocalizedMessage.getLocalizedMessage("kick-reason", this.locale, Symbols.PREFIX, reason))
+					this.corePlayer.kickPlayer(LocalizedMessage.getLocalizedMessage("kick-message", this.locale, Symbols.PREFIX, executor, reason))
 			);
 
 			return true;
@@ -101,9 +102,9 @@ public class SUtilPlayer implements Sender {
 		return false;
 	}
 
-	public boolean warn(String reason) {
+	public boolean warn(String reason, String executor) {
 		if (this.corePlayer != null) {
-			this.sendMessage(reason, true);
+			this.sendMessage("warn-message", false, Symbols.PREFIX, executor, reason);
 
 			return true;
 		}

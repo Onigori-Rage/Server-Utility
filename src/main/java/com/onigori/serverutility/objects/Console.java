@@ -22,6 +22,11 @@ public class Console implements Sender {
 	}
 
 	@Override
+	public String getName() {
+		return Symbols.CONSOLE_NAME;
+	}
+
+	@Override
 	public Permission getPermission() {
 		return Permission.HIGHEST;
 	}
