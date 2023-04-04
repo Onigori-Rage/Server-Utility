@@ -14,12 +14,22 @@ public class Punish extends Command {
 
 	private final HashMap<String, SubCommand> subcommands = new HashMap<>();
 
+	/*
+	TODO Add mute and ban logic.
+	 */
 	public Punish() {
 		super("spunish", "command-spunish-usage", "command-spunish-description", Permission.NORMAL);//Permission.HIGHEST);
 
 		this.subcommands.put("panel", new Panel());
+
 		this.subcommands.put("kick", new Kick());
 		this.subcommands.put("warn", new Warn());
+
+		this.subcommands.put("ban", null);
+		this.subcommands.put("tban", null);
+
+		this.subcommands.put("mute", null);
+		this.subcommands.put("tmute", null);
 	}
 
 	@Override
