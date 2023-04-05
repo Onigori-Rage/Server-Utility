@@ -6,6 +6,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import javax.sound.midi.SysexMessage;
+
 public class PluginBootstrap extends JavaPlugin {
 
 	@Override
@@ -23,9 +25,14 @@ public class PluginBootstrap extends JavaPlugin {
 		/*
 		Fixed command implements logic.
 		 */
+		long a = System.nanoTime();
 		Bukkit.getScheduler().runTaskAsynchronously(this,
 				() -> SUtilMain.getCommandHandler().dispatchCommand(sender, arguments, command.getName())
 		);
+
+		long b = System.nanoTime();
+
+		System.out.println(b-a + "ns SUtil EXECUTING");
 		return true;
 	}
 

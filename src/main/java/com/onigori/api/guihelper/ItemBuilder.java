@@ -32,6 +32,7 @@ public class ItemBuilder {
 	}
 
 	public ItemBuilder mergeSkull(UUID uuid) {
+
 		((SkullMeta) this.meta).setOwningPlayer(Bukkit.getOfflinePlayer(uuid));
 
 		this.item.getItemStack().setDurability((short) SkullType.PLAYER.ordinal());
