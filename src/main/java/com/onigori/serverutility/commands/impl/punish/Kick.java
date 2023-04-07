@@ -16,7 +16,7 @@ public class Kick implements SubCommand {
 
 		String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
-		sender.sendMessage(target.kick(reason, sender.getName()) ? "command-spunish-kick-success" : "command-spunish-kick-failed", true, target.getName());
+		new com.onigori.serverutility.objects.punishments.Kick(reason, sender, target).queue();
 	}
 
 }

@@ -19,17 +19,17 @@ public class SUtilPlayer implements Sender {
 
 	private Permission permission;
 
-	private Punishment punishment;
+	private PunishmentContainer punishmentContainer;
 
 	private Locale locale = Symbols.DEFAULT_LOCALE;
 
 	private Player corePlayer;
 
-	public SUtilPlayer(UUID uuid, String name, Permission permission, Punishment punishment) {
+	public SUtilPlayer(UUID uuid, String name, Permission permission, PunishmentContainer punishmentContainer) {
 		this.uuid = uuid;
 		this.name = name;
 		this.permission = permission;
-		this.punishment = punishment;
+		this.punishmentContainer = punishmentContainer;
 	}
 
 	public UUID getUUID() {
@@ -50,8 +50,8 @@ public class SUtilPlayer implements Sender {
 		return this.corePlayer;
 	}
 
-	public Punishment getPunishment() {
-		return this.punishment;
+	public PunishmentContainer getPunishment() {
+		return this.punishmentContainer;
 	}
 
 	@Override

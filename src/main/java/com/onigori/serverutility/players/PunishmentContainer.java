@@ -1,6 +1,6 @@
 package com.onigori.serverutility.players;
 
-public class Punishment {
+public class PunishmentContainer {
 
 
 }

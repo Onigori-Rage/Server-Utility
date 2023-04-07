@@ -1,7 +1,7 @@
 package com.onigori.serverutility.modules.players;
 
 import com.onigori.serverutility.objects.Permission;
-import com.onigori.serverutility.players.Punishment;
+import com.onigori.serverutility.players.PunishmentContainer;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
@@ -39,7 +39,7 @@ public class PlayerFactory {
 	public SUtilPlayer addPlayer(UUID uuid) {
 		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
 
-		SUtilPlayer player = new SUtilPlayer(uuid, offlinePlayer.getName(), Permission.NORMAL, new Punishment());
+		SUtilPlayer player = new SUtilPlayer(uuid, offlinePlayer.getName(), Permission.NORMAL, new PunishmentContainer());
 		player.updatePlayer(offlinePlayer.getPlayer());
 
 		return this.addPlayer(player);

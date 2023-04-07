@@ -1,5 +1,8 @@
 package com.onigori.serverutility.objects.punishments;
 
-public class PunishmentType {
+public enum PunishmentType {
+
+	KICK,
+	WARN;
 
 }

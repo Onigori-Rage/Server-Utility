@@ -16,7 +16,7 @@ public class Warn implements SubCommand {
 
 		String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
-		sender.sendMessage(target.warn(reason, sender.getName()) ? "command-spunish-warn-success" : "command-spunish-warn-failed", true, target.getName());
+		new com.onigori.serverutility.objects.punishments.Warn(reason, sender, target).queue();
 	}
 
 }
