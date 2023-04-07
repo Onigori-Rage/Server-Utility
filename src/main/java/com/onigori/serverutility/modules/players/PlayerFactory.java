@@ -1,13 +1,19 @@
 package com.onigori.serverutility.modules.players;
 
+import com.onigori.serverutility.modules.SearchParser;
 import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.players.PunishmentContainer;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class PlayerFactory {
 
@@ -29,6 +35,21 @@ public class PlayerFactory {
 		//SUtilMain.getSender().sendTranslated(uuid.toString(), true);
 
 		return player;
+	}
+
+	/*
+	Very slow system.
+	 */
+	public Collection<SUtilPlayer> query(HashMap<SearchParser.Option, String> command) {
+		Stream<SUtilPlayer> stream = playerMap.values().stream();
+
+		Collection<SUtilPlayer> road = stream.collect(Collectors.toSet());
+
+		for (Map.Entry<SearchParser.Option, String> entry : command.entrySet()) {
+			road = entry.getKey().handle(road, entry.getValue());
+		}
+
+		return road;
 	}
 
 	public SUtilPlayer fetch(String name) {

@@ -3,5 +3,10 @@ name: Server-Utility
 version: 1.0
 commands:
   spunish:
+    aliases: [punish]
   slang:
+    aliases: [lang]
   shelp:
+    aliases: [help]
+  ssearch:
+    aliases: [search]

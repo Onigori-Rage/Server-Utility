@@ -4,6 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.impl.Help;
 import com.onigori.serverutility.commands.impl.Lang;
 import com.onigori.serverutility.commands.impl.Punish;
+import com.onigori.serverutility.commands.impl.Search;
 import com.onigori.serverutility.objects.Permission;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
@@ -22,6 +23,8 @@ public class CommandHandler {
 		this.addCommand(new Punish());
 		this.addCommand(new Lang());
 		this.addCommand(new Help());
+
+		this.addCommand(new Search());
 	}
 
 	public void stop() {
