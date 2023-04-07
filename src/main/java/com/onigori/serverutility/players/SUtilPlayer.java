@@ -5,6 +5,9 @@ import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Permission;
+import com.onigori.serverutility.objects.punishments.Ban;
+import com.onigori.serverutility.objects.punishments.Kick;
+import com.onigori.serverutility.objects.punishments.Warn;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -90,10 +93,10 @@ public class SUtilPlayer implements Sender {
 
 	}
 
-	public boolean kick(String reason, String executor) {
+	public boolean kick(Kick kick) {
 		if (this.corePlayer != null) {
 			Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
-					this.corePlayer.kickPlayer(LocalizedMessage.getLocalizedMessage("kick-message", this.locale, Symbols.PREFIX, executor, reason))
+					this.corePlayer.kickPlayer(LocalizedMessage.getLocalizedMessage("kick-message", this.locale, Symbols.PREFIX, kick.getExecutor().getName(), kick.getReason()))
 			);
 
 			return true;
@@ -102,14 +105,20 @@ public class SUtilPlayer implements Sender {
 		return false;
 	}
 
-	public boolean warn(String reason, String executor) {
+	public boolean warn(Warn warn) {
 		if (this.corePlayer != null) {
-			this.sendMessage("warn-message", false, Symbols.PREFIX, executor, reason);
+			this.sendMessage("warn-message", false, Symbols.PREFIX, warn.getExecutor().getName(), warn.getReason());
 
 			return true;
 		}
 
 		return false;
+	}
+
+	public void ban(Ban ban) {
+		this.kick(new Kick(ban.getReason(), ban.getExecutor(), ban.getTarget()));
+
+		this.punishmentContainer.setBan(ban);
 	}
 
 }

@@ -3,9 +3,7 @@ package com.onigori.serverutility.commands.impl;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.commands.impl.punish.Kick;
-import com.onigori.serverutility.commands.impl.punish.Panel;
-import com.onigori.serverutility.commands.impl.punish.Warn;
+import com.onigori.serverutility.commands.impl.punish.*;
 import com.onigori.serverutility.objects.Permission;
 
 import java.util.HashMap;
@@ -25,8 +23,8 @@ public class Punish extends Command {
 		this.subcommands.put("kick", new Kick());
 		this.subcommands.put("warn", new Warn());
 
-		this.subcommands.put("ban", null);
-		this.subcommands.put("tban", null);
+		this.subcommands.put("ban", new Ban());
+		this.subcommands.put("tban", new TBan());
 
 		this.subcommands.put("mute", null);
 		this.subcommands.put("tmute", null);

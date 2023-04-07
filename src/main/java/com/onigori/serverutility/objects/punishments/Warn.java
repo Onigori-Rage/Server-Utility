@@ -13,6 +13,6 @@ public class Warn extends Punishment {
 
 	@Override
 	public boolean execute() {
-		return getTarget().warn(getReason(), getExecutor().getName());
+		return getTarget().warn(this);
 	}
 }

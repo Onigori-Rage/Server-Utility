@@ -13,7 +13,7 @@ public class Kick extends Punishment {
 
 	@Override
 	public boolean execute() {
-		return getTarget().kick(getReason(), getExecutor().getName());
+		return getTarget().kick(this);
 	}
 
 }
