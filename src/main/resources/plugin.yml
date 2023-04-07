@@ -10,3 +10,4 @@ commands:
     aliases: [help]
   ssearch:
     aliases: [search]
+  test:
