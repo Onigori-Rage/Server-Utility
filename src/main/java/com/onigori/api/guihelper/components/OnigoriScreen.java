@@ -4,6 +4,7 @@ import com.onigori.api.guihelper.OnigoriItem;
 import com.onigori.serverutility.SUtilMain;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 
@@ -29,9 +30,9 @@ public abstract class OnigoriScreen implements InventoryHolder {
 		}
 	}
 
-	public void fireHandler(final int slot, final Player player) {
+	public void fireHandler(final int slot, final Player player, final ClickType type) {
 		// Fixed API
-		this.handlersMap.getOrDefault(slot, EMPTY_HANDLER).execute(SUtilMain.getPlayerFactory().fetch(player.getUniqueId()), this);
+		this.handlersMap.getOrDefault(slot, EMPTY_HANDLER).execute(SUtilMain.getPlayerFactory().fetch(player.getUniqueId()), this, type);
 
 	}
 

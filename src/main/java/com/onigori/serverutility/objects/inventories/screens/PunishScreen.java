@@ -7,7 +7,9 @@ import com.onigori.api.guihelper.components.TargetableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
+import com.onigori.serverutility.objects.inventories.handlers.punish.BanOpener;
 import com.onigori.serverutility.objects.inventories.handlers.punish.KickOpener;
+import com.onigori.serverutility.objects.inventories.handlers.punish.MuteOpener;
 import com.onigori.serverutility.objects.inventories.handlers.punish.WarnOpener;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
 import com.onigori.serverutility.players.SUtilPlayer;
@@ -89,6 +91,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 				new ItemBuilder(Material.LAVA_BUCKET, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-banaction-displayname", this.executor.getLocale())).
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-banaction-lore", this.executor.getLocale())).
+						setListener(new BanOpener()).
 						build()
 				, 19
 		);
@@ -99,6 +102,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 				new ItemBuilder(Material.REDSTONE_BLOCK, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-muteaction-displayname", this.executor.getLocale())).
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-muteaction-lore", this.executor.getLocale())).
+						setListener(new MuteOpener()).
 						build()
 				, 25
 		);

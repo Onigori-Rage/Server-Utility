@@ -27,9 +27,7 @@ public class TBan implements SubCommand {
 			final int days = Integer.parseInt(args[2]);
 
 			Calendar calendar = Calendar.getInstance();
-			//calendar.add(Calendar.DAY_OF_MONTH, days);
-
-			calendar.add(Calendar.SECOND, 10);
+			calendar.add(Calendar.DAY_OF_MONTH, days);
 
 			SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
 

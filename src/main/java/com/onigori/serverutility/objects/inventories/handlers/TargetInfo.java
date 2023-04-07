@@ -6,11 +6,12 @@ import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.TargetableScreen;
 import com.onigori.serverutility.objects.inventories.screens.TargetInfoScreen;
 import com.onigori.serverutility.players.SUtilPlayer;
+import org.bukkit.event.inventory.ClickType;
 
 public class TargetInfo implements ItemHandler {
 
 	@Override
-	public void execute(SUtilPlayer player, OnigoriScreen screen) {
+	public void execute(SUtilPlayer player, OnigoriScreen screen, ClickType type) {
 		GUIHelper.closeInventory(player.getCore());
 
 		TargetableScreen targetableScreen = (TargetableScreen) screen;

@@ -12,11 +12,12 @@ import com.onigori.serverutility.objects.inventories.screens.punish.KickScreen;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
+import org.bukkit.event.inventory.ClickType;
 
 public class PunishAccept implements ItemHandler {
 
 	@Override
-	public void execute(SUtilPlayer player, OnigoriScreen screen) {
+	public void execute(SUtilPlayer player, OnigoriScreen screen, ClickType type) {
 		GUIHelper.closeInventory(player.getCore());
 
 		PunishScreen punishScreen = (PunishScreen) screen;
@@ -29,6 +30,9 @@ public class PunishAccept implements ItemHandler {
 		}
 
 		else {
+
+			//TODO TempBan, Mute に対応する
+			command = command + punishScreen.getReason();
 
 		}
 
