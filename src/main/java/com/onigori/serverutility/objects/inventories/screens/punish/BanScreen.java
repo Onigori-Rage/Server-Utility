@@ -24,7 +24,7 @@ public class BanScreen extends PunishScreen {
 
 	@Override
 	public void init() {
-		Locale locale = this.getExecutor().getLocale();
+		final Locale locale = this.getExecutor().getLocale();
 
 		this.setItem(
 				new ItemBuilder(Material.EMERALD_BLOCK, 1).
@@ -81,15 +81,13 @@ public class BanScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.WATCH, 1).
-						setName("§a§l日付セレクター").
-						setDescription("§70日指定で永久になります。\n\n§71日増やす: §e左クリック\n§71日減らす: §e右クリック\n§7シフトを押しながらクリックで\n§72週間ごとの加減ができます。\n\n§6現在は " + days + " 日").
+						setName(LocalizedMessage.getLocalizedMessage("gui-punish-expirationselector-displayname", locale)).
+						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-expirationselector-lore", locale, String.valueOf(this.getExpiration()))).
 						setListener(new DaySelector()).
 						build()
 				, 0
 		);
 
 	}
-
-	public int days = 0;
 
 }

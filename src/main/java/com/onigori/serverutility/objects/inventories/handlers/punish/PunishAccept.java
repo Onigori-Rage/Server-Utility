@@ -18,6 +18,7 @@ public class PunishAccept implements ItemHandler {
 
 	@Override
 	public void execute(SUtilPlayer player, OnigoriScreen screen, ClickType type) {
+
 		GUIHelper.closeInventory(player.getCore());
 
 		PunishScreen punishScreen = (PunishScreen) screen;
@@ -25,18 +26,10 @@ public class PunishAccept implements ItemHandler {
 		ScreenType screenType = punishScreen.getScreenType();
 		String command = screenType.name() + " " + punishScreen.getTarget().getName() + " ";
 
-		if (screenType == ScreenType.WARN || screenType == ScreenType.KICK) {
-			command = command + punishScreen.getReason();
-		}
-
-		else {
-
-			//TODO TempBan, Mute に対応する
-			command = command + punishScreen.getReason();
-
-		}
+		command = command + punishScreen.getReason();
 
 		SUtilMain.getCommandHandler().dispatchCommand(player, command.split(" "), "spunish");
+
 	}
 
 }

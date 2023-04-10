@@ -4,6 +4,8 @@ import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.listeners.LoginHandler;
+import com.onigori.serverutility.listeners.PlayerChatHandler;
+import com.onigori.serverutility.listeners.QuitHandler;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
@@ -46,6 +48,7 @@ public class SUtilMain {
 
 		Bukkit.getPluginManager().registerEvents(new LoginHandler(), plugin);
 
+
 	}
 
 	public static void onDisable() {
@@ -59,6 +62,14 @@ public class SUtilMain {
 	@Deprecated
 	public static CommandSender getConsole() {
 		return console;
+	}
+
+	private static void registerListeners() {
+		Bukkit.getPluginManager().registerEvents(new LoginHandler(), plugin);
+
+		Bukkit.getPluginManager().registerEvents(new PlayerChatHandler(), plugin);
+
+		Bukkit.getPluginManager().registerEvents(new QuitHandler(), plugin);
 	}
 
 	public static Sender getSender() {

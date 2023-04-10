@@ -14,6 +14,7 @@ import com.onigori.serverutility.objects.inventories.handlers.punish.WarnOpener;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Material;
+import org.bukkit.event.inventory.ClickType;
 
 import java.util.Date;
 
@@ -29,7 +30,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 	private String reason;
 
-	private int expire;
+	private int expiration = 0;
 
 	public PunishScreen(SUtilPlayer executor, SUtilPlayer target, String reason, ScreenType screenType, OnigoriScreen previousScreen) {
 		super(screenType.getRow(), LocalizedMessage.getLocalizedMessage(screenType.getDisplayKey(), executor.getLocale()));
@@ -48,12 +49,29 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 		}
 	}
 
-	public String getReason() {
+	public final String getReason() {
 		return this.reason;
 	}
 
-	public int getExpire() {
-		return this.expire;
+	public final int getExpiration() {
+		return this.expiration;
+	}
+
+	public final int adjustExpiration(ClickType type) {
+		int variation = type.isShiftClick() ? 14: 1;
+
+		this.expiration = expiration + (type.isLeftClick() ? variation : -variation);
+
+		/*
+		Checker below.
+		 */
+
+		if (this.expiration < 0) {
+			this.expiration = 0;
+		}
+
+		return this.expiration;
+
 	}
 
 	@Override
@@ -70,7 +88,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 										this.target.getName(),
 										this.target.getUUID().toString(),
 										this.target.getPermission().name())
-				).
+						).
 				mergeSkull(this.target.getUUID()).
 				build()
 		, 22);
@@ -141,21 +159,21 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 	}
 
-	public SUtilPlayer getExecutor() {
+	public final SUtilPlayer getExecutor() {
 		return this.executor;
 	}
 
 	@Override
-	public SUtilPlayer getTarget() {
+	public final SUtilPlayer getTarget() {
 		return this.target;
 	}
 
-	public ScreenType getScreenType() {
+	public final ScreenType getScreenType() {
 		return this.screenType;
 	}
 
 	@Override
-	public OnigoriScreen getPreviousScreen() {
+	public final OnigoriScreen getPreviousScreen() {
 		return this.previousScreen;
 	}
 

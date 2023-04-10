@@ -26,8 +26,8 @@ public class Punish extends Command {
 		this.subcommands.put("ban", new Ban());
 		this.subcommands.put("tban", new TBan());
 
-		this.subcommands.put("mute", null);
-		this.subcommands.put("tmute", null);
+		this.subcommands.put("mute", new Mute());
+		this.subcommands.put("tmute", new TMute());
 	}
 
 	@Override

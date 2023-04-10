@@ -44,7 +44,14 @@ public class TargetInfoScreen extends OnigoriScreen implements ReturnableScreen 
 						).
 						mergeSkull(this.target.getUUID()).
 						build()
-				, 22);
+				, 1);
+
+		this.setItem(
+				new ItemBuilder(Material.STAINED_GLASS_PANE, 1).
+						setName("").
+						build()
+				, 10
+		);
 
 		this.setItem(
 				new ItemBuilder(Material.ARROW, 1).

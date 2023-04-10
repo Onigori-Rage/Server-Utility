@@ -6,6 +6,7 @@ import org.bukkit.Material;
 import org.bukkit.SkullType;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
+import org.bukkit.material.MaterialData;
 
 import java.util.Arrays;
 import java.util.UUID;
@@ -23,6 +24,7 @@ public class ItemBuilder {
 
 	public ItemBuilder setName(String name) {
 		this.meta.setDisplayName(name);
+
 		return this;
 	}
 

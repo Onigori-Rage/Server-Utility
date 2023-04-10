@@ -23,7 +23,7 @@ public class WarnScreen extends PunishScreen {
 
 	@Override
 	public void init() {
-		Locale locale = this.getExecutor().getLocale();
+		final Locale locale = this.getExecutor().getLocale();
 
 		this.setItem(
 				new ItemBuilder(Material.EMERALD_BLOCK, 1).

@@ -53,7 +53,7 @@ public class CommandHandler {
 	/*
 	Logic (dispatching command)
 	 */
-	public void dispatchCommand(final CommandSender commandSender, final String[] args, final String command) {
+	public final void dispatchCommand(final CommandSender commandSender, final String[] args, final String command) {
 		long a = System.nanoTime();
 
 		this.dispatchCommand(commandSender instanceof ConsoleCommandSender ? SUtilMain.getSender() : SUtilMain.getPlayerFactory().fetch(((Player) commandSender).getUniqueId()), args, command);
@@ -62,7 +62,7 @@ public class CommandHandler {
 		System.out.println(b-a);
 	}
 
-	public void dispatchCommand(final Sender sender, final String[] args, final String command) {
+	public final void dispatchCommand(final Sender sender, final String[] args, final String command) {
 		final Command commandExecutor = this.getCommandOrDefault(command);
 
 		if (Permission.comparedPermission(sender, commandExecutor.getPermission())) {

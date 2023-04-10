@@ -38,8 +38,8 @@ public class SearchParser {
 	public static class NameFilter extends Option {
 
 		@Override
-		public Collection<SUtilPlayer> handle(Collection<SUtilPlayer> stream, String arg) {
-			return stream.stream().filter(player -> player.getName().toLowerCase().startsWith(arg.toLowerCase())).collect(Collectors.toSet());
+		public Collection<SUtilPlayer> handle(Collection<SUtilPlayer> collection, String arg) {
+			return collection.stream().filter(player -> player.getName().toLowerCase().startsWith(arg.toLowerCase())).collect(Collectors.toSet());
 		}
 
 	}
@@ -47,8 +47,8 @@ public class SearchParser {
 	public static class PermissionFilter extends Option {
 
 		@Override
-		public Collection<SUtilPlayer> handle(Collection<SUtilPlayer> stream, String arg) {
-			return stream.stream().filter(player -> player.getPermission().name().equalsIgnoreCase(arg)).collect(Collectors.toSet());
+		public Collection<SUtilPlayer> handle(Collection<SUtilPlayer> collection, String arg) {
+			return collection.stream().filter(player -> player.getPermission().name().equalsIgnoreCase(arg)).collect(Collectors.toSet());
 		}
 
 	}

@@ -7,6 +7,7 @@ import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.objects.punishments.Kick;
+import com.onigori.serverutility.objects.punishments.Mute;
 import com.onigori.serverutility.objects.punishments.Warn;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -119,6 +120,10 @@ public class SUtilPlayer implements Sender {
 		this.kick(new Kick(ban.getReason(), ban.getExecutor(), ban.getTarget()));
 
 		this.punishmentContainer.setBan(ban);
+	}
+
+	public void mute(Mute mute) {
+		this.punishmentContainer.setMute(mute);
 	}
 
 }

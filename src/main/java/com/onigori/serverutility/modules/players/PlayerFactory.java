@@ -7,10 +7,7 @@ import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -41,15 +38,14 @@ public class PlayerFactory {
 	Very slow system.
 	 */
 	public Collection<SUtilPlayer> query(HashMap<SearchParser.Option, String> command) {
-		Stream<SUtilPlayer> stream = playerMap.values().stream();
 
-		Collection<SUtilPlayer> road = stream.collect(Collectors.toSet());
+		Collection<SUtilPlayer> result = new HashSet<>(playerMap.values());
 
 		for (Map.Entry<SearchParser.Option, String> entry : command.entrySet()) {
-			road = entry.getKey().handle(road, entry.getValue());
+			result = entry.getKey().handle(result, entry.getValue());
 		}
 
-		return road;
+		return result;
 	}
 
 	public SUtilPlayer fetch(String name) {

@@ -4,6 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.players.SUtilPlayer;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public abstract class Punishment {
@@ -55,6 +56,14 @@ public abstract class Punishment {
 
 	public final SUtilPlayer getTarget() {
 		return target;
+	}
+
+	/*
+	Return: Whether he/she is to be kept away from the server.
+	 */
+	public final boolean checkExpiration() {
+		return !this.isTemporary || expire.after(new Date());
+
 	}
 
 	public abstract boolean execute();
