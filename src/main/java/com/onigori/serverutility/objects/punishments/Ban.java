@@ -18,6 +18,7 @@ public class Ban extends Punishment {
 	@Override
 	public boolean execute() {
 		getTarget().ban(this);
+
 		return true;
 	}
 

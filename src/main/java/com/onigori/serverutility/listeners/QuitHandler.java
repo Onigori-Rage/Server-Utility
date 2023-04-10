@@ -10,6 +10,7 @@ public class QuitHandler implements Listener {
 	@EventHandler
 	public void onQuit(PlayerQuitEvent event) {
 		SUtilMain.getPlayerFactory().fetch(event.getPlayer().getUniqueId()).updatePlayer(null);
+
 	}
 
 }

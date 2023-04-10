@@ -53,6 +53,10 @@ public class SUtilMain {
 
 	public static void onDisable() {
 
+		/*
+		TODO Save config システムなどを追加する
+		 */
+
 	}
 
 	public static JavaPlugin getInstance() {

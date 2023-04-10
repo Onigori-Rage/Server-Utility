@@ -19,6 +19,7 @@ public class PlayerChatHandler implements Listener {
 			event.setCancelled(true);
 
 			player.sendTranslated("You are muted now!", true);
+
 		}
 	}
 

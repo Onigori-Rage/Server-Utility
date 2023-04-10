@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 public class SearchParser {
 
 	public static HashMap<Option, String> parse(String[] filters) {
-		HashMap<Option, String> filtering = new HashMap<>();
+		final HashMap<Option, String> filtering = new HashMap<>();
 
 		for (String option : filters) {
 			String[] reformatted = option.split(":");

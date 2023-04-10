@@ -26,7 +26,8 @@ public class TMute implements SubCommand {
 		try {
 			final int days = Integer.parseInt(args[2]);
 
-			Calendar calendar = Calendar.getInstance();
+			final Calendar calendar = Calendar.getInstance();
+
 			calendar.add(Calendar.DAY_OF_MONTH, days);
 
 			SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
