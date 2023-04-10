@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class Symbols {
 
-	public static final String PREFIX = ChatColor.LIGHT_PURPLE + "[BETA TEST] " + ChatColor.WHITE;//ChatColor.WHITE + "[" + ChatColor.YELLOW + "S" + ChatColor.AQUA + "Util" + ChatColor.WHITE + "] ";
+	public static final String PREFIX = ChatColor.WHITE + "[" + ChatColor.YELLOW + "S" + ChatColor.AQUA + "Util" + ChatColor.WHITE + "] ";
 
 	public static final String AUTHOR = "Onigori_Rage";
 

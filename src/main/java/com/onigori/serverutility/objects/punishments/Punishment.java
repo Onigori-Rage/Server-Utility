@@ -2,7 +2,9 @@ package com.onigori.serverutility.objects.punishments;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Sender;
+import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.players.SUtilPlayer;
+import org.apache.commons.lang3.time.DurationFormatUtils;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -19,11 +21,11 @@ public abstract class Punishment {
 
 	private final boolean isRecordable;
 
-	private Date expire;
+	private Date expiration;
 
 	private boolean isTemporary;
 
-	public Punishment(PunishmentType type, String reason, Sender executor, SUtilPlayer target, boolean isRecordable, boolean isTemporary, Date expire) {
+	public Punishment(PunishmentType type, String reason, Sender executor, SUtilPlayer target, boolean isRecordable, boolean isTemporary, Date expiration) {
 		this.type = type;
 
 		this.reason = reason;
@@ -33,7 +35,7 @@ public abstract class Punishment {
 
 		this.isRecordable = isRecordable;
 
-		this.expire = expire;
+		this.expiration = expiration;
 
 		this.isTemporary = isTemporary;
 	}
@@ -62,7 +64,7 @@ public abstract class Punishment {
 	Return: Whether he/she is to be kept away from the server.
 	 */
 	public final boolean checkExpiration() {
-		return !this.isTemporary || expire.after(new Date());
+		return !this.isTemporary || expiration.after(new Date());
 
 	}
 
@@ -70,14 +72,24 @@ public abstract class Punishment {
 
 	public final void queue() {
 		boolean result = this.execute();
+
 		executor.sendMessage("command-spunish-" + type.name().toLowerCase() + "-" + (result ? "success" : "failed"), true, this.target.getName());
 	}
 
-	public final Date getExpire() {
-		return expire;
+	public final Date getExpiration() {
+		return expiration;
+	}
+
+	public final String getExpirationAsString() {
+		if (!isTemporary) {
+			return LocalizedMessage.getLocalizedMessage("expiration-permanent", target.getLocale());
+		}
+
+		return DurationFormatUtils.formatPeriod(new Date().getTime(), this.expiration.getTime(), LocalizedMessage.getLocalizedMessage("expiration-format", target.getLocale()));
 	}
 
 	public final boolean isTemporary() {
 		return isTemporary;
 	}
+
 }

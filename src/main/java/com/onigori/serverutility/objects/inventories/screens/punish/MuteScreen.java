@@ -19,6 +19,8 @@ public class MuteScreen extends PunishScreen {
 
 	public MuteScreen(SUtilPlayer executor, SUtilPlayer target, String reason, OnigoriScreen previousScreen) {
 		super(executor, target, reason, ScreenType.MUTE, previousScreen);
+
+		this.init();
 	}
 
 	@Override

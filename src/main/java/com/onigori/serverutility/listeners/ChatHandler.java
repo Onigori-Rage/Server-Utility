@@ -7,7 +7,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class PlayerChatHandler implements Listener {
+public class ChatHandler implements Listener {
 
 	@EventHandler
 	public void onAsyncChat(AsyncPlayerChatEvent event) {
@@ -15,7 +15,7 @@ public class PlayerChatHandler implements Listener {
 
 		Mute mute = player.getPunishment().getAvailableMute();
 
-		if (mute.checkExpiration()) {
+		if (mute != null && mute.checkExpiration()) {
 			event.setCancelled(true);
 
 			player.sendTranslated("You are muted now!", true);

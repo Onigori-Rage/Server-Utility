@@ -23,10 +23,10 @@ public class PunishAccept implements ItemHandler {
 
 		PunishScreen punishScreen = (PunishScreen) screen;
 
-		ScreenType screenType = punishScreen.getScreenType();
-		String command = screenType.name() + " " + punishScreen.getTarget().getName() + " ";
+		final int expiration = punishScreen.getExpiration();
 
-		command = command + punishScreen.getReason();
+		ScreenType screenType = punishScreen.getScreenType();
+		String command = (expiration == 0 ? "" : "t") + screenType.name() + " " + punishScreen.getTarget().getName() + " " + (expiration == 0 ? "" : expiration + " ") + punishScreen.getReason();
 
 		SUtilMain.getCommandHandler().dispatchCommand(player, command.split(" "), "spunish");
 
