@@ -2,7 +2,7 @@ package com.onigori.api.guihelper;
 
 import com.onigori.api.guihelper.components.InventoryHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
-import com.onigori.serverutility.SUtilMain;
+import com.onigori.nekozouneko.eco.common.EconomyPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,17 +25,14 @@ public class GUIHelper {
 		return plugin;
 	}
 
-	/*
-	Fixed API
-	 */
 	public static void openInventory(OnigoriScreen screen, Player player) {
-		Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
+		Bukkit.getScheduler().runTask(EconomyPlugin.getPlugin(), () ->
 				player.openInventory(screen.getInventory())
 		);
 	}
 
 	public static void closeInventory(Player player) {
-		Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
+		Bukkit.getScheduler().runTask(EconomyPlugin.getPlugin(), () ->
 				player.closeInventory()
 		);
 	}

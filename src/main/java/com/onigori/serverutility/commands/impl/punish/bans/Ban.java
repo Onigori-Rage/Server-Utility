@@ -1,4 +1,4 @@
-package com.onigori.serverutility.commands.impl.punish;
+package com.onigori.serverutility.commands.impl.punish.bans;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
@@ -8,7 +8,7 @@ import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.modules.ArgumentManager;
 import com.onigori.serverutility.players.SUtilPlayer;
 
-public class Mute implements SubCommand {
+public class Ban implements SubCommand {
 
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
@@ -17,7 +17,8 @@ public class Mute implements SubCommand {
 
 		String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
-		new com.onigori.serverutility.objects.punishments.Mute(reason, sender, target).queue();
+		new com.onigori.serverutility.objects.punishments.Ban(reason, sender, target).queue();
 
 	}
+
 }

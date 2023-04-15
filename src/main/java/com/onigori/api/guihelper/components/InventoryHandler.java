@@ -23,7 +23,7 @@ public class InventoryHandler implements Listener {
 				Player player = (Player) event.getWhoClicked();
 				OnigoriScreen screen = (OnigoriScreen) holder;
 
-				screen.fireHandler(event.getRawSlot(), player, event.getClick());
+				screen.fireHandler(event.getRawSlot(), player);
 
 				long b = System.nanoTime();
 

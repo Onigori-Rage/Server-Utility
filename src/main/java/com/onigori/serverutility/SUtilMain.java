@@ -3,9 +3,9 @@ package com.onigori.serverutility;
 import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.listeners.LoginHandler;
-import com.onigori.serverutility.listeners.ChatHandler;
-import com.onigori.serverutility.listeners.QuitHandler;
+import com.onigori.serverutility.listeners.LoginListener;
+import com.onigori.serverutility.listeners.ChatListener;
+import com.onigori.serverutility.listeners.QuitListener;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
@@ -68,11 +68,11 @@ public class SUtilMain {
 	}
 
 	private static void registerListeners() {
-		Bukkit.getPluginManager().registerEvents(new LoginHandler(), plugin);
+		Bukkit.getPluginManager().registerEvents(new LoginListener(), plugin);
 
-		Bukkit.getPluginManager().registerEvents(new ChatHandler(), plugin);
+		Bukkit.getPluginManager().registerEvents(new ChatListener(), plugin);
 
-		Bukkit.getPluginManager().registerEvents(new QuitHandler(), plugin);
+		Bukkit.getPluginManager().registerEvents(new QuitListener(), plugin);
 	}
 
 	public static Sender getSender() {

@@ -1,24 +1,25 @@
 package com.onigori.serverutility.listeners;
 
 import com.onigori.serverutility.SUtilMain;
+import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.objects.punishments.Mute;
 import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
-public class ChatHandler implements Listener {
+public class ChatListener implements Listener {
 
 	@EventHandler
 	public void onAsyncChat(AsyncPlayerChatEvent event) {
-		SUtilPlayer player = SUtilMain.getPlayerFactory().fetch(event.getPlayer().getUniqueId());
+		final SUtilPlayer player = SUtilMain.getPlayerFactory().fetch(event.getPlayer().getUniqueId());
 
-		Mute mute = player.getPunishment().getAvailableMute();
+		final Mute mute = player.getPunishment().getAvailableMute();
 
 		if (mute != null && mute.checkExpiration()) {
 			event.setCancelled(true);
 
-			player.sendTranslated("You are muted now!", true);
+			player.sendMessage("mute-message", true, Symbols.PREFIX, mute.getExecutor().getName(), mute.getReason(), mute.getExpirationAsString());
 
 		}
 	}

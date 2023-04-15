@@ -1,15 +1,14 @@
 package com.onigori.api.guihelper;
 
-import com.onigori.api.guihelper.components.EmptyHandler;
 import com.onigori.api.guihelper.components.ItemHandler;
 import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class OnigoriItem {
 
-	private ItemStack itemStack;
+	private final ItemStack itemStack;
 
-	private ItemHandler handler = new EmptyHandler();
+	private ItemHandler handler;
 
 	public OnigoriItem(Material material, int amount) {
 		this.itemStack = new ItemStack(material, amount);

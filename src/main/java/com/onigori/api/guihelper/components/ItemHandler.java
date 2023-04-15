@@ -1,10 +1,9 @@
 package com.onigori.api.guihelper.components;
 
-import com.onigori.serverutility.players.SUtilPlayer;
-import org.bukkit.event.inventory.ClickType;
+import org.bukkit.entity.Player;
 
 public interface ItemHandler {
 
-	void execute(SUtilPlayer player, OnigoriScreen screen, ClickType type);
+	void execute(Player player, OnigoriScreen screen);
 
 }

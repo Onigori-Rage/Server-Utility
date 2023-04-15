@@ -1,4 +1,4 @@
-package com.onigori.serverutility.commands.impl.punish;
+package com.onigori.serverutility.commands.impl.punish.mutes;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;

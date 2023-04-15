@@ -8,14 +8,10 @@ import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.AsyncPlayerPreLoginEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
-import org.bukkit.event.player.PlayerQuitEvent;
 
-import java.util.Calendar;
-
-public class LoginHandler implements Listener {
+public class LoginListener implements Listener {
 
 	@EventHandler
 	public void onPreLogin(AsyncPlayerPreLoginEvent event) {
