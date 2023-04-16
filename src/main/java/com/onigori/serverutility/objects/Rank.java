@@ -12,6 +12,8 @@ public final class Rank {
 
 	private int value;
 
+	private boolean isToBeRemoved = false;
+
 	public Rank(String name, String rawPrefix, int value) {
 		this.name = name;
 
@@ -24,6 +26,10 @@ public final class Rank {
 
 	public String getName() {
 		return this.name;
+	}
+
+	public boolean isToBeRemoved() {
+		return this.isToBeRemoved;
 	}
 
 	public String getPrefix() {
@@ -46,6 +52,10 @@ public final class Rank {
 		this.rawPrefix = rawPrefix;
 
 		this.prefix = ChatColor.translateAlternateColorCodes('&', rawPrefix);
+	}
+
+	public void remove() {
+		this.isToBeRemoved = true;
 	}
 
 	/*HIGHEST(100),

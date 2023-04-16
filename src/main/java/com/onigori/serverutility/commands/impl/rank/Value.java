@@ -7,7 +7,7 @@ import com.onigori.serverutility.modules.ArgumentManager;
 import com.onigori.serverutility.modules.RankManager;
 import com.onigori.serverutility.objects.Rank;
 
-public class Prefix implements SubCommand {
+public class Value implements SubCommand {
 
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
@@ -16,28 +16,22 @@ public class Prefix implements SubCommand {
 
 			if (rank != null) {
 
-				if (args[2].equalsIgnoreCase("clear")) {
+				try {
+					rank.setValue(Integer.parseInt(args[2]));
 
-					rank.setPrefix("");
-
-					sender.sendMessage("command-srank-prefix-success-clear", true, rank.getPrefix());
+					sender.sendMessage("command-srank-value-success", true);
 
 					return;
 				}
 
-				rank.setPrefix(ArgumentManager.getArgumentsByArray(args, 2, " ") + " ");
+				catch (Exception exception) {
 
-				final String prefix = rank.getPrefix();
-
-				sender.sendMessage("command-srank-prefix-success", true, prefix.substring(0, prefix.length() - 1));
-
-				return;
+				}
 			}
 
 		}
 
 		sender.sendMessage(instance.getUsageKey(), true);
-
 	}
 
 }

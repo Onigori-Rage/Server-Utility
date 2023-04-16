@@ -3,9 +3,7 @@ package com.onigori.serverutility.commands.impl;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.commands.impl.rank.Create;
-import com.onigori.serverutility.commands.impl.rank.Info;
-import com.onigori.serverutility.commands.impl.rank.Prefix;
+import com.onigori.serverutility.commands.impl.rank.*;
 
 import java.util.HashMap;
 
@@ -21,11 +19,17 @@ public class Rank extends Command {
 		this.subcommands.put("prefix", new Prefix());
 
 		subcommands.put("create", new Create());
+
+		subcommands.put("list", new List());
+
+		subcommands.put("remove", new Remove());
+
+		subcommands.put("value", new Value());
 	}
 
 	@Override
 	public void execute(Sender sender, String[] args) {
-		if (args.length >= 2) {
+		if (args.length >= 2 || (args.length == 1 && args[0].toLowerCase().equals("list"))) {
 			SubCommand subcommand = this.subcommands.get(args[0].toLowerCase());
 
 			if (subcommand != null) {
