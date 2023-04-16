@@ -5,7 +5,7 @@ import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.handlers.Return;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.Material;
 
 import java.util.Locale;

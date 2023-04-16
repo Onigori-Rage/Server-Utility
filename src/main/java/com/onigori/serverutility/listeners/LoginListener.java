@@ -4,7 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.punishments.Ban;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

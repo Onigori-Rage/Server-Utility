@@ -1,6 +1,6 @@
 package com.onigori.serverutility.commands;
 
-import com.onigori.serverutility.objects.Permission;
+import com.onigori.serverutility.objects.players.Rank;
 
 import java.util.Locale;
 
@@ -10,7 +10,7 @@ public interface Sender {
 
 	void sendMessage(String key, boolean prefix, String... args);
 
-	Permission getPermission();
+	Rank getRank();
 
 	Locale getLocale();
 

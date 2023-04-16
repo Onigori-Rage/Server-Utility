@@ -1,12 +1,10 @@
 package com.onigori.serverutility.objects.punishments;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 
-import java.util.Calendar;
 import java.util.Date;
 
 public abstract class Punishment {

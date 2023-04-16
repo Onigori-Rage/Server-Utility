@@ -9,8 +9,7 @@ import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
 import com.onigori.serverutility.objects.inventories.handlers.punish.DaySelector;
 import com.onigori.serverutility.objects.inventories.handlers.punish.PunishAccept;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
-import com.onigori.serverutility.objects.punishments.PunishmentType;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.Material;
 
 import java.util.Locale;

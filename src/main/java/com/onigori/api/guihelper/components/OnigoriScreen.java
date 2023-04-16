@@ -2,7 +2,6 @@ package com.onigori.api.guihelper.components;
 
 import com.onigori.api.guihelper.OnigoriItem;
 import com.onigori.serverutility.SUtilMain;
-import com.onigori.serverutility.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;

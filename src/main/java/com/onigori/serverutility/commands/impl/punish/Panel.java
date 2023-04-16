@@ -9,7 +9,7 @@ import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.modules.ArgumentManager;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.entity.Player;
 
 public class Panel implements SubCommand {

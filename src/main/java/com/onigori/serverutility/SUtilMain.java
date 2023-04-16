@@ -3,6 +3,7 @@ package com.onigori.serverutility;
 import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
+import com.onigori.serverutility.listeners.JailListener;
 import com.onigori.serverutility.listeners.LoginListener;
 import com.onigori.serverutility.listeners.ChatListener;
 import com.onigori.serverutility.listeners.QuitListener;
@@ -10,6 +11,7 @@ import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,6 +26,8 @@ public class SUtilMain {
 	private static Sender consoleSender;
 
 	private static PlayerFactory playerFactory;
+
+	private static Location jailFallback;
 
 	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
@@ -73,6 +77,8 @@ public class SUtilMain {
 		Bukkit.getPluginManager().registerEvents(new ChatListener(), plugin);
 
 		Bukkit.getPluginManager().registerEvents(new QuitListener(), plugin);
+
+		Bukkit.getPluginManager().registerEvents(new JailListener(), plugin);
 	}
 
 	public static Sender getSender() {
@@ -85,6 +91,10 @@ public class SUtilMain {
 
 	public static CommandHandler getCommandHandler() {
 		return commandHandler;
+	}
+
+	public static Location getJailFallback() {
+		return jailFallback;
 	}
 
 }

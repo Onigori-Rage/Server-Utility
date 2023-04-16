@@ -5,7 +5,7 @@ import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.SearchParser;
 import com.onigori.serverutility.objects.Permission;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 
 public class Search extends Command {
 

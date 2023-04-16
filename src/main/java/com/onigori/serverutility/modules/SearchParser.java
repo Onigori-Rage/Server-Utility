@@ -1,11 +1,10 @@
 package com.onigori.serverutility.modules;
 
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class SearchParser {
 

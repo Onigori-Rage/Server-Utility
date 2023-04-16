@@ -1,16 +1,10 @@
 package com.onigori.serverutility.commands.impl;
 
-import com.mojang.authlib.GameProfile;
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.objects.Permission;
-import com.onigori.serverutility.players.SUtilPlayer;
-import org.bukkit.Bukkit;
-import org.bukkit.entity.Player;
-import org.bukkit.util.Vector;
-
-import java.util.ArrayList;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 
 public class Test extends Command {
 

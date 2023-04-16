@@ -10,4 +10,6 @@ commands:
     aliases: [help]
   ssearch:
     aliases: [search]
+  server-utility:
+    aliases: [sutil, su]
   test:

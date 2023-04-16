@@ -1,11 +1,11 @@
-package com.onigori.serverutility.objects.inventories.handlers.punish;
+package com.onigori.serverutility.objects.inventories.handlers.punish.opener;
 
 import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.objects.inventories.screens.punish.BanScreen;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.event.inventory.ClickType;
 
 public class BanOpener implements ItemHandler {

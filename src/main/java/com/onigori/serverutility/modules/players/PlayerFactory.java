@@ -2,15 +2,13 @@ package com.onigori.serverutility.modules.players;
 
 import com.onigori.serverutility.modules.SearchParser;
 import com.onigori.serverutility.objects.Permission;
-import com.onigori.serverutility.players.PunishmentContainer;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.PunishmentContainer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class PlayerFactory {
 

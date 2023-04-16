@@ -1,7 +1,6 @@
 package com.onigori.api.guihelper.components;
 
-import com.onigori.serverutility.players.SUtilPlayer;
-import org.bukkit.entity.Player;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.event.inventory.ClickType;
 
 public class EmptyHandler implements ItemHandler {

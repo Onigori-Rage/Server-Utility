@@ -4,14 +4,9 @@ import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.serverutility.SUtilMain;
-import com.onigori.serverutility.Symbols;
-import com.onigori.serverutility.commands.CommandHandler;
-import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
-import com.onigori.serverutility.objects.inventories.screens.punish.KickScreen;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
-import com.onigori.serverutility.players.SUtilPlayer;
-import org.bukkit.Bukkit;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.event.inventory.ClickType;
 
 public class PunishAccept implements ItemHandler {

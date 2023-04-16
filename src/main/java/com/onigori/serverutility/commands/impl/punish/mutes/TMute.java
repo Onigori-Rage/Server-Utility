@@ -6,9 +6,8 @@ import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.modules.ArgumentManager;
-import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.objects.punishments.Mute;
-import com.onigori.serverutility.players.SUtilPlayer;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 
 import java.util.Calendar;
 

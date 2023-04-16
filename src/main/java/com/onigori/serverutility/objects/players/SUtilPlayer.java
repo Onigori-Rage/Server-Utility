@@ -1,10 +1,9 @@
-package com.onigori.serverutility.players;
+package com.onigori.serverutility.objects.players;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
-import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.objects.punishments.Kick;
 import com.onigori.serverutility.objects.punishments.Mute;
@@ -21,7 +20,7 @@ public class SUtilPlayer implements Sender {
 
 	private String name;
 
-	private Permission permission;
+	private Rank rank;
 
 	private PunishmentContainer punishmentContainer;
 
@@ -29,10 +28,10 @@ public class SUtilPlayer implements Sender {
 
 	private Player corePlayer;
 
-	public SUtilPlayer(UUID uuid, String name, Permission permission, PunishmentContainer punishmentContainer) {
+	public SUtilPlayer(UUID uuid, String name, Rank rank, PunishmentContainer punishmentContainer) {
 		this.uuid = uuid;
 		this.name = name;
-		this.permission = permission;
+		this.rank = rank;
 		this.punishmentContainer = punishmentContainer;
 	}
 
@@ -59,8 +58,8 @@ public class SUtilPlayer implements Sender {
 	}
 
 	@Override
-	public Permission getPermission() {
-		return this.permission;
+	public Rank getRank() {
+		return this.rank;
 	}
 
 	@Override
@@ -73,8 +72,8 @@ public class SUtilPlayer implements Sender {
 		this.locale = locale;
 	}
 
-	public void setPermission(Permission permission) {
-		this.permission = permission;
+	public void setRank(Rank rank) {
+		this.rank = rank;
 	}
 
 	public void updatePlayer(Player player) {

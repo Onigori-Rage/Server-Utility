@@ -4,6 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.objects.players.Rank;
 
 import java.util.Locale;
 
@@ -27,8 +28,8 @@ public class Console implements Sender {
 	}
 
 	@Override
-	public Permission getPermission() {
-		return Permission.HIGHEST;
+	public Rank getRank() {
+		return Symbols.CONSOLE_RANK;
 	}
 
 	@Override

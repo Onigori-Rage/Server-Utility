@@ -1,5 +1,6 @@
 package com.onigori.serverutility;
 
+import com.onigori.serverutility.objects.players.Rank;
 import net.md_5.bungee.api.ChatColor;
 
 import java.util.Locale;
@@ -21,5 +22,7 @@ public class Symbols {
 	public static final String DEFAULT_REASON = "Unknown / なし";
 
 	public static final String CONSOLE_NAME = "CONSOLE";
+
+	public static final Rank CONSOLE_RANK = new Rank("*", "", 100);
 
 }

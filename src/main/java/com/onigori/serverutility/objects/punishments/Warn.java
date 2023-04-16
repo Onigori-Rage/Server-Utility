@@ -1,9 +1,7 @@
 package com.onigori.serverutility.objects.punishments;
 
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.players.SUtilPlayer;
-
-import java.util.Date;
+import com.onigori.serverutility.objects.players.SUtilPlayer;
 
 public class Warn extends Punishment {
 
