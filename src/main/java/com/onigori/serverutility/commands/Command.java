@@ -1,7 +1,5 @@
 package com.onigori.serverutility.commands;
 
-import com.onigori.serverutility.objects.Permission;
-
 public abstract class Command {
 
 	private final String name;
@@ -10,28 +8,28 @@ public abstract class Command {
 
 	private final String descriptionKey;
 
-	private final Permission permission;
+	private int requiredValue;
 
-	public Command(String name, String usageKey, String descriptionKey, Permission permission) {
+	public Command(String name, String usageKey, String descriptionKey, int requiredValue) {
 		this.name = name;
 		this.usageKey = usageKey;
 		this.descriptionKey = descriptionKey;
-		this.permission = permission;
+		this.requiredValue = requiredValue;
 	}
 
-	public Permission getPermission() {
-		return this.permission;
+	public final int getRequiredValue() {
+		return this.requiredValue;
 	}
 
-	public String getName() {
+	public final String getName() {
 		return this.name;
 	}
 
-	public String getUsageKey() {
+	public final String getUsageKey() {
 		return this.usageKey;
 	}
 
-	public String getDescriptionKey() {
+	public final String getDescriptionKey() {
 		return this.descriptionKey;
 	}
 
