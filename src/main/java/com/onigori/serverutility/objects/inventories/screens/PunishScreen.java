@@ -85,7 +85,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 										this.executor.getLocale(),
 										this.target.getName(),
 										this.target.getUUID().toString(),
-										this.target.getPermission().name())
+										this.target.getRank().getName())
 						).
 				mergeSkull(this.target.getUUID()).
 				build()

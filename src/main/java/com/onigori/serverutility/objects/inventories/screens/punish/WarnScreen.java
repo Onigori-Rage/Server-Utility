@@ -53,7 +53,7 @@ public class WarnScreen extends PunishScreen {
 												locale,
 												this.getTarget().getName(),
 												this.getTarget().getUUID().toString(),
-												this.getTarget().getPermission().name())
+												this.getTarget().getRank().getName())
 						).
 						mergeSkull(this.getTarget().getUUID()).
 						build()

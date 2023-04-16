@@ -1,5 +1,7 @@
 package com.onigori.serverutility.commands;
 
+import com.onigori.serverutility.SUtilMain;
+
 public abstract class Command {
 
 	private final String name;
@@ -10,11 +12,19 @@ public abstract class Command {
 
 	private int requiredValue;
 
-	public Command(String name, String usageKey, String descriptionKey, int requiredValue) {
+	public Command(String name, String usageKey, String descriptionKey) {
 		this.name = name;
 		this.usageKey = usageKey;
 		this.descriptionKey = descriptionKey;
-		this.requiredValue = requiredValue;
+		this.requiredValue = SUtilMain.getInstance().getConfig().getInt("commands." + name);
+	}
+
+	public Command() {
+		this.name = null;
+
+		this.usageKey = null;
+		this.descriptionKey = null;
+		this.requiredValue = 0;
 	}
 
 	public final int getRequiredValue() {

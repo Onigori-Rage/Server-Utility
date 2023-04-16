@@ -1,5 +1,6 @@
 package com.onigori.serverutility;
 
+import com.onigori.api.confighelper.ConfigHelper;
 import com.onigori.api.guihelper.GUIHelper;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
@@ -8,8 +9,10 @@ import com.onigori.serverutility.listeners.LoginListener;
 import com.onigori.serverutility.listeners.ChatListener;
 import com.onigori.serverutility.listeners.QuitListener;
 import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.modules.RankManager;
 import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
+import com.onigori.serverutility.objects.Rank;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
@@ -34,6 +37,10 @@ public class SUtilMain {
 
 		LocalizedMessage.init();
 
+		ConfigHelper.init(plugin);
+
+		RankManager.init();
+
 		console = Bukkit.getConsoleSender();
 		consoleSender = new Console();
 
@@ -55,6 +62,10 @@ public class SUtilMain {
 	}
 
 	public static void onDisable() {
+
+		RankManager.stop();
+
+		ConfigHelper.stop();
 
 		/*
 		TODO Save config システムなどを追加する

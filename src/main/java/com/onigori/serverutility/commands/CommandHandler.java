@@ -64,13 +64,13 @@ public class CommandHandler {
 	public final void dispatchCommand(final Sender sender, final String[] args, final String command) {
 		final Command commandExecutor = this.getCommandOrDefault(command);
 
-		if (Permission.comparedPermission(sender, commandExecutor.getPermission())) {
+		if (sender.getRank().getValue() >= commandExecutor.getRequiredValue()) {
 			commandExecutor.execute(sender, args);
+
+			return;
 		}
 
-		else {
-			sender.sendMessage("command-permission-error", true);
-		}
+		sender.sendMessage("command-permission-error", true);
 	}
 
 }

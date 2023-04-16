@@ -4,22 +4,22 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ConfigHelper {
 
-	private static Config a;
+	private static Config RANK;
 
 	public static void init(JavaPlugin plugin) {
-		a = new Config("test.yml", "Test", plugin);
+		RANK = new Config("rank.yml", "Rank", plugin);
 
-		a.reloadConfig();
-		a.saveConfig();
+		RANK.reloadConfig();
+		RANK.saveConfig();
 	}
 
 	public static void stop() {
 
-		a.saveConfig();
+		RANK.saveConfig();
 	}
 
-	public static Config getConfig() {
-		return a;
+	public static Config getRankConfig() {
+		return RANK;
 	}
 
 }

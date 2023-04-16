@@ -5,12 +5,13 @@ import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.objects.punishments.Mute;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
 public class ChatListener implements Listener {
 
-	@EventHandler
+	@EventHandler(priority = EventPriority.MONITOR)
 	public void onAsyncChat(AsyncPlayerChatEvent event) {
 		final SUtilPlayer player = SUtilMain.getPlayerFactory().fetch(event.getPlayer().getUniqueId());
 
@@ -21,7 +22,13 @@ public class ChatListener implements Listener {
 
 			player.sendMessage("mute-message", true, Symbols.PREFIX, mute.getExecutor().getName(), mute.getReason(), mute.getExpirationAsString());
 
+			return;
+
 		}
+
+		final String prefix = player.getRank().getPrefix();
+
+		event.setFormat(prefix + player.getName() + "§a: §f%2$s");
 	}
 
 }

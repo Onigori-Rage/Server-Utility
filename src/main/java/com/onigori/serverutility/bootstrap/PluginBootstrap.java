@@ -17,7 +17,7 @@ public class PluginBootstrap extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-
+		SUtilMain.onDisable();
 	}
 
 	@Override

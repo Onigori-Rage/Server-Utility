@@ -1,5 +1,6 @@
 package com.onigori.serverutility.commands.impl;
 
+import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
@@ -13,7 +14,6 @@ import com.onigori.serverutility.commands.impl.punish.jails.Unjail;
 import com.onigori.serverutility.commands.impl.punish.mutes.Mute;
 import com.onigori.serverutility.commands.impl.punish.mutes.TMute;
 import com.onigori.serverutility.commands.impl.punish.mutes.Unmute;
-import com.onigori.serverutility.objects.Permission;
 
 import java.util.HashMap;
 
@@ -25,7 +25,7 @@ public class Punish extends Command {
 	TODO Add mute and ban logic.
 	 */
 	public Punish() {
-		super("spunish", "command-spunish-usage", "command-spunish-description", Permission.NORMAL);//Permission.HIGHEST);
+		super("spunish", "command-spunish-usage", "command-spunish-description");//Permission.HIGHEST);
 
 		this.subcommands.put("panel", new Panel());
 

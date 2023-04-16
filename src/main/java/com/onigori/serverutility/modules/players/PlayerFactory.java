@@ -1,7 +1,8 @@
 package com.onigori.serverutility.modules.players;
 
+import com.onigori.serverutility.Symbols;
+import com.onigori.serverutility.modules.RankManager;
 import com.onigori.serverutility.modules.SearchParser;
-import com.onigori.serverutility.objects.Permission;
 import com.onigori.serverutility.objects.players.PunishmentContainer;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.Bukkit;
@@ -54,7 +55,7 @@ public class PlayerFactory {
 	public SUtilPlayer addPlayer(UUID uuid) {
 		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
 
-		SUtilPlayer player = new SUtilPlayer(uuid, offlinePlayer.getName(), Permission.NORMAL, new PunishmentContainer());
+		SUtilPlayer player = new SUtilPlayer(uuid, offlinePlayer.getName(), RankManager.getDefaultRank(), new PunishmentContainer());
 		player.updatePlayer(offlinePlayer.getPlayer());
 
 		return this.addPlayer(player);

@@ -40,7 +40,7 @@ public class TargetInfoScreen extends OnigoriScreen implements ReturnableScreen 
 												locale,
 												this.target.getName(),
 												this.target.getUUID().toString(),
-												this.target.getPermission().name())
+												this.target.getRank().getName())
 						).
 						mergeSkull(this.target.getUUID()).
 						build()

@@ -4,7 +4,6 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.objects.Permission;
 
 public class List implements SubCommand {
 
@@ -13,7 +12,7 @@ public class List implements SubCommand {
 		StringBuilder stringBuilder = new StringBuilder();
 
 		for (Command command : SUtilMain.getCommandHandler().getCommands()) {
-			if (Permission.comparedPermission(sender, command.getPermission())) {
+			if (sender.getRank().getValue() >= command.getRequiredValue()) {
 				stringBuilder.append(command.getName() + ", ");
 			}
 		}

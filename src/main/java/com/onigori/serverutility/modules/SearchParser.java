@@ -47,7 +47,7 @@ public class SearchParser {
 
 		@Override
 		public Collection<SUtilPlayer> handle(Collection<SUtilPlayer> collection, String arg) {
-			return collection.stream().filter(player -> player.getPermission().name().equalsIgnoreCase(arg)).collect(Collectors.toSet());
+			return collection.stream().filter(player -> player.getRank().getName().equalsIgnoreCase(arg)).collect(Collectors.toSet());
 		}
 
 	}

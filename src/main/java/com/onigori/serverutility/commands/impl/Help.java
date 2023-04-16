@@ -5,7 +5,6 @@ import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.commands.impl.help.Info;
 import com.onigori.serverutility.commands.impl.help.List;
-import com.onigori.serverutility.objects.Permission;
 
 import java.util.HashMap;
 
@@ -14,7 +13,7 @@ public class Help extends Command {
 	private final HashMap<String, SubCommand> subcommands = new HashMap<>();
 
 	public Help() {
-		super("shelp", "command-shelp-usage", "command-shelp-description", Permission.NORMAL);
+		super("shelp", "command-shelp-usage", "command-shelp-description");
 
 		this.subcommands.put("info", new Info());
 		this.subcommands.put("command", new com.onigori.serverutility.commands.impl.help.Command());

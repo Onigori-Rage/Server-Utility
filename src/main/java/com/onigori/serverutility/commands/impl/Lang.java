@@ -2,14 +2,13 @@ package com.onigori.serverutility.commands.impl;
 
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.objects.Permission;
 
 import java.util.Locale;
 
 public class Lang extends Command {
 
 	public Lang() {
-		super("slang", "command-slang-usage", "command-slang-description", Permission.NORMAL);
+		super("slang", "command-slang-usage", "command-slang-description");
 	}
 
 	@Override
