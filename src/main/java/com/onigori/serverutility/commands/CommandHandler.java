@@ -2,7 +2,6 @@ package com.onigori.serverutility.commands;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.impl.*;
-import com.onigori.serverutility.objects.Permission;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;

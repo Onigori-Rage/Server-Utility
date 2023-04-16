@@ -4,6 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.objects.Rank;
 import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.objects.punishments.Kick;
 import com.onigori.serverutility.objects.punishments.Mute;

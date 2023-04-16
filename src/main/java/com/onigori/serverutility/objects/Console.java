@@ -4,7 +4,6 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
-import com.onigori.serverutility.objects.players.Rank;
 
 import java.util.Locale;
 

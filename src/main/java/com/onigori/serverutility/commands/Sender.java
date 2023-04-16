@@ -1,6 +1,6 @@
 package com.onigori.serverutility.commands;
 
-import com.onigori.serverutility.objects.players.Rank;
+import com.onigori.serverutility.objects.Rank;
 
 import java.util.Locale;
 

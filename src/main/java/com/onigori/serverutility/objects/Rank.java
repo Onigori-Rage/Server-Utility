@@ -1,4 +1,4 @@
-package com.onigori.serverutility.objects.players;
+package com.onigori.serverutility.objects;
 
 public final class Rank {
 

@@ -1,6 +1,6 @@
 package com.onigori.serverutility;
 
-import com.onigori.serverutility.objects.players.Rank;
+import com.onigori.serverutility.objects.Rank;
 import net.md_5.bungee.api.ChatColor;
 
 import java.util.Locale;
