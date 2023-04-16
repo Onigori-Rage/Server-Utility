@@ -18,7 +18,7 @@ public class Test extends Command {
 		if (args.length >= 1) {
 			int a = Integer.parseInt(args[0]);
 
-			RankManager.getDefaultRank().setValue(a);
+			SUtilMain.getRankManager().getDefaultRank().setValue(a);
 
 		}
 

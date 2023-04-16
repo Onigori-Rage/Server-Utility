@@ -12,8 +12,6 @@ public class PunishmentContainer {
 
 	private Jail availableJail;
 
-	private boolean isJailedCached = false;
-
 	public Ban getAvailableBan() {
 		return availableBan;
 	}
@@ -36,10 +34,6 @@ public class PunishmentContainer {
 
 	public void setMute(Mute mute) {
 		this.availableMute = mute;
-	}
-
-	public boolean isJailed() {
-		return this.isJailedCached;
 	}
 
 }

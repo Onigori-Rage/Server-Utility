@@ -1,5 +1,6 @@
 package com.onigori.serverutility.commands.impl.rank;
 
+import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
@@ -12,7 +13,7 @@ public class Value implements SubCommand {
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
 		if (args.length >= 3) {
-			final Rank rank = RankManager.getRank(args[1].toLowerCase());
+			final Rank rank = SUtilMain.getRankManager().getRank(args[1].toLowerCase());
 
 			if (rank != null) {
 

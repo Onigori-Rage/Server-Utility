@@ -13,7 +13,7 @@ public class List implements SubCommand {
 	public void execute(Sender sender, String[] args, Command instance) {
 		StringBuilder stringBuilder = new StringBuilder();
 
-		for (Rank rank : RankManager.getRanks()) {
+		for (Rank rank : SUtilMain.getRankManager().getRanks()) {
 			if (!rank.isToBeRemoved()) {
 				stringBuilder.append(rank.getName() + ", ");
 			}

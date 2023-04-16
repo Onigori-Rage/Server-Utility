@@ -30,6 +30,8 @@ public class SUtilMain {
 
 	private static PlayerFactory playerFactory;
 
+	private static RankManager rankManager;
+
 	private static Location jailFallback;
 
 	public static void onEnable(JavaPlugin instance) {
@@ -39,7 +41,8 @@ public class SUtilMain {
 
 		ConfigHelper.init(plugin);
 
-		RankManager.init();
+		rankManager = new RankManager();
+		rankManager.init();
 
 		console = Bukkit.getConsoleSender();
 		consoleSender = new Console();
@@ -63,7 +66,9 @@ public class SUtilMain {
 
 	public static void onDisable() {
 
-		RankManager.stop();
+		playerFactory.stop();
+
+		rankManager.stop();
 
 		ConfigHelper.stop();
 
@@ -106,6 +111,10 @@ public class SUtilMain {
 
 	public static Location getJailFallback() {
 		return jailFallback;
+	}
+
+	public static RankManager getRankManager() {
+		return rankManager;
 	}
 
 }
