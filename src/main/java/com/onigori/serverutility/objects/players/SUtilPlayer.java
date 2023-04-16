@@ -79,6 +79,10 @@ public class SUtilPlayer implements Sender {
 
 	public void updatePlayer(Player player) {
 		this.corePlayer = player;
+
+		if (player != null) {
+			this.name = player.getName();
+		}
 	}
 
 	@Override

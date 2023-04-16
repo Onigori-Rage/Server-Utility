@@ -35,13 +35,13 @@ public class PlayerFactory {
 
 				final Rank rank = rankManager.getRank(section.getString(uuidString + ".rank", "default"));
 
+				final String name = section.getString(uuidString + ".name", null);
+
 				final Locale locale = section.getString(uuidString + ".locale", Symbols.DEFAULT_LOCALE.getDisplayName(Locale.ENGLISH)).equalsIgnoreCase("Japanese") ? Locale.JAPANESE : Locale.ENGLISH;
 
-				final OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
-
-				final SUtilPlayer player = new SUtilPlayer(uuid, offlinePlayer.getName(), rank, new PunishmentContainer());
+				final SUtilPlayer player = new SUtilPlayer(uuid, name, rank, new PunishmentContainer());
 				player.setLocale(locale);
-				player.updatePlayer(offlinePlayer.getPlayer());
+				player.updatePlayer(Bukkit.getOfflinePlayer(uuid).getPlayer());
 
 				this.addPlayer(player);
 
@@ -58,19 +58,13 @@ public class PlayerFactory {
 			playerConfig.set(player.getUUID().toString() + ".rank", player.getRank().getName());
 
 			playerConfig.set(player.getUUID().toString() + ".locale", player.getLocale().getDisplayName(Locale.ENGLISH));
+
+			playerConfig.set(player.getUUID().toString() + ".name", player.getName());
 		}
 	}
 
 	public SUtilPlayer fetch(UUID uuid) {
-		SUtilPlayer player = this.playerMap.get(uuid);
-
-		if (player == null) {
-			player = this.addPlayer(uuid);
-		}
-
-		//SUtilMain.getSender().sendTranslated(uuid.toString(), true);
-
-		return player;
+		return this.playerMap.getOrDefault(uuid, this.addPlayer(uuid));
 	}
 
 	/*
@@ -88,9 +82,7 @@ public class PlayerFactory {
 	}
 
 	public SUtilPlayer fetch(String name) {
-		final OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(name);
-
-		return this.fetch(offlinePlayer.getUniqueId());
+		return this.fetch(Bukkit.getOfflinePlayer(name).getUniqueId());
 	}
 
 	public SUtilPlayer addPlayer(UUID uuid) {

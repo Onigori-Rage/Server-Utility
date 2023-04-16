@@ -5,7 +5,6 @@ import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.modules.ArgumentManager;
-import com.onigori.serverutility.modules.RankManager;
 import com.onigori.serverutility.objects.Rank;
 
 public class Prefix implements SubCommand {

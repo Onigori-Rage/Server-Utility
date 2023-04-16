@@ -1,10 +1,11 @@
 package com.onigori.serverutility.commands.impl;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.modules.RankManager;
-import com.onigori.serverutility.objects.players.SUtilPlayer;
+import org.bukkit.Bukkit;
+import org.bukkit.OfflinePlayer;
+
+import java.util.UUID;
 
 public class Test extends Command {
 
@@ -15,12 +16,18 @@ public class Test extends Command {
 	@Override
 	public void execute(Sender sender, String[] args) {
 
-		if (args.length >= 1) {
+		OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(UUID.fromString(args[0]));
+
+		sender.sendTranslated(offlinePlayer.getName(), true);
+
+		/*if (args.length >= 1) {
 			int a = Integer.parseInt(args[0]);
 
 			SUtilMain.getRankManager().getDefaultRank().setValue(a);
 
 		}
+
+		 */
 
 		/*if (args.length >= 2) {
 			SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[0]);

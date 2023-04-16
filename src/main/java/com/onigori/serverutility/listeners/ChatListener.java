@@ -2,8 +2,8 @@ package com.onigori.serverutility.listeners;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
-import com.onigori.serverutility.objects.punishments.Mute;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
+import com.onigori.serverutility.objects.punishments.Mute;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;

@@ -1,10 +1,11 @@
 package com.onigori.serverutility.commands.impl;
 
-import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.commands.impl.punish.*;
+import com.onigori.serverutility.commands.impl.punish.Kick;
+import com.onigori.serverutility.commands.impl.punish.Panel;
+import com.onigori.serverutility.commands.impl.punish.Warn;
 import com.onigori.serverutility.commands.impl.punish.bans.Ban;
 import com.onigori.serverutility.commands.impl.punish.bans.TBan;
 import com.onigori.serverutility.commands.impl.punish.bans.Unban;
