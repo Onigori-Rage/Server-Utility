@@ -9,8 +9,4 @@ commands:
   ssearch: 50
   server-utility: 100
   test: 0
-
-ranks:
-  default:
-    value: 0
-    prefix:
+  srank: 0

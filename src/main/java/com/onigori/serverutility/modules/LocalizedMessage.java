@@ -24,7 +24,7 @@ public class LocalizedMessage {
 	Reformat するべき。
 	 */
 	public static String getLocalizedMessage(String key, Locale locale, String... args) {
-		String message = (locale == Locale.JAPANESE ? japanese.getString(key) : english.getString(key));
+		final String message = (locale == Locale.JAPANESE ? japanese.getString(key) : english.getString(key));
 		return (args.length == 0 ? message : MessageFormat.format(message, args));
 	}
 

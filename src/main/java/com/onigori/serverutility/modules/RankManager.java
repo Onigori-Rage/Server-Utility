@@ -29,13 +29,11 @@ public class RankManager {
 
 				int value = section.getInt(rankName + ".value", 0);
 
-				String prefix = ChatColor.translateAlternateColorCodes('&', section.getString(rankName + ".prefix", ""));
-
-				final Rank rank = new Rank(rankName, prefix, value);
+				final Rank rank = new Rank(rankName, section.getString(rankName + ".prefix", ""), value);
 
 				RANKS.put(rankName, rank);
 
-				if (rankName.equals("Default")) {
+				if (rankName.equals("default")) {
 					DEFAULT_RANK = rank;
 				}
 
@@ -44,9 +42,9 @@ public class RankManager {
 			return;
 		}
 
-		DEFAULT_RANK = new Rank("Default", "", 0);
+		DEFAULT_RANK = new Rank("default", "", 0);
 
-		RANKS.put("Default", DEFAULT_RANK);
+		RANKS.put("default", DEFAULT_RANK);
 
 	}
 
@@ -56,8 +54,12 @@ public class RankManager {
 
 			rankConfig.set(rank.getName() + ".value", rank.getValue());
 
-			rankConfig.set(rank.getName() + ".prefix", rank.getPrefix());
+			rankConfig.set(rank.getName() + ".prefix", rank.getRawPrefix());
 		}
+	}
+
+	public static void createRank(String name) {
+		RANKS.put(name, new Rank(name, "", 0));
 	}
 
 	public static Rank getRank(String name) {

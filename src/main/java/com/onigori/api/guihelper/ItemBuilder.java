@@ -3,6 +3,7 @@ package com.onigori.api.guihelper;
 import com.onigori.api.guihelper.components.ItemHandler;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
+import org.bukkit.SkullType;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.SkullMeta;
 
@@ -34,6 +35,7 @@ public class ItemBuilder {
 
 	public ItemBuilder mergeSkull(UUID uuid) {
 		((SkullMeta) this.meta).setOwningPlayer(Bukkit.getOfflinePlayer(uuid));
+		this.item.getItemStack().setDurability((short) SkullType.PLAYER.ordinal());
 
 		return this;
 	}

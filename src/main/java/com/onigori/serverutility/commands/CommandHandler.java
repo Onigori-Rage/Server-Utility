@@ -26,6 +26,8 @@ public class CommandHandler {
 		test
 		 */
 
+		this.addCommand(new Rank());
+
 		addCommand(new Test());
 	}
 

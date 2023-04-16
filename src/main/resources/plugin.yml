@@ -12,4 +12,6 @@ commands:
     aliases: [search]
   server-utility:
     aliases: [sutil, su]
+  srank:
+    aliases: [rank]
   test:
