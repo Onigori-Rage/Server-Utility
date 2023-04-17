@@ -5,10 +5,7 @@ import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Rank;
-import com.onigori.serverutility.objects.punishments.Ban;
-import com.onigori.serverutility.objects.punishments.Kick;
-import com.onigori.serverutility.objects.punishments.Mute;
-import com.onigori.serverutility.objects.punishments.Warn;
+import com.onigori.serverutility.objects.punishments.*;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -126,8 +123,24 @@ public class SUtilPlayer implements Sender {
 		this.punishmentContainer.setBan(ban);
 	}
 
+	public void unBan() {
+		this.punishmentContainer.setBan(null);
+	}
+
 	public void mute(Mute mute) {
 		this.punishmentContainer.setMute(mute);
+	}
+
+	public void unMute() {
+		this.punishmentContainer.setMute(null);
+	}
+
+	public void jail(Jail jail) {
+		this.punishmentContainer.setJail(jail);
+	}
+
+	public void unJail() {
+		this.punishmentContainer.setJail(null);
 	}
 
 }

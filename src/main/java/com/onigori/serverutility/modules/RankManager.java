@@ -69,8 +69,12 @@ public class RankManager {
 		rankMap.remove(name);
 	}
 
-	public Rank getRank(String name) {
+	public Rank getRankOrDefault(String name) {
 		return rankMap.getOrDefault(name, DEFAULT_RANK);
+	}
+
+	public Rank getRank(String name) {
+		return rankMap.get(name);
 	}
 
 	public Rank getDefaultRank() {

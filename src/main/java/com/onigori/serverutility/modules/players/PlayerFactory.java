@@ -33,7 +33,7 @@ public class PlayerFactory {
 
 				final UUID uuid = UUID.fromString(uuidString);
 
-				final Rank rank = rankManager.getRank(section.getString(uuidString + ".rank", "default"));
+				final Rank rank = rankManager.getRankOrDefault(section.getString(uuidString + ".rank", "default"));
 
 				final String name = section.getString(uuidString + ".name", null);
 

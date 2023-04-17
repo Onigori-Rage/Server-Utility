@@ -13,7 +13,7 @@ public class Ban implements SubCommand {
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
 
-		SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
+		final SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
 
 		String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 

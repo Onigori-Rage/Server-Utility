@@ -4,7 +4,15 @@ import com.onigori.serverutility.objects.punishments.Ban;
 import com.onigori.serverutility.objects.punishments.Jail;
 import com.onigori.serverutility.objects.punishments.Mute;
 
+import java.util.LinkedList;
+
 public class PunishmentContainer {
+
+	private final LinkedList<Ban> bans = new LinkedList<>();
+
+	private final LinkedList<Mute> mutes = new LinkedList<>();
+
+	private final LinkedList<Jail> jails = new LinkedList<>();
 
 	private Ban availableBan;
 
@@ -34,6 +42,18 @@ public class PunishmentContainer {
 
 	public void setMute(Mute mute) {
 		this.availableMute = mute;
+	}
+
+	public LinkedList<Ban> getBanHistory() {
+		return this.bans;
+	}
+
+	public LinkedList<Mute> getMuteHistory() {
+		return this.mutes;
+	}
+
+	public LinkedList<Jail> getJailHistory() {
+		return this.jails;
 	}
 
 }

@@ -25,6 +25,8 @@ public class Rank extends Command {
 		subcommands.put("remove", new Remove());
 
 		subcommands.put("value", new Value());
+
+		subcommands.put("player", new Player());
 	}
 
 	@Override
