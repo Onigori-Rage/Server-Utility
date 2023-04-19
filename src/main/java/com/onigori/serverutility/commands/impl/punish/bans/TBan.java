@@ -8,6 +8,7 @@ import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.modules.ArgumentManager;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import com.onigori.serverutility.objects.punishments.Ban;
+import org.bukkit.permissions.PermissionAttachmentInfo;
 
 import java.util.Calendar;
 

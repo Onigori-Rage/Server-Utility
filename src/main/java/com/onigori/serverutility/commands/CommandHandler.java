@@ -2,6 +2,7 @@ package com.onigori.serverutility.commands;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.impl.*;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.ConsoleCommandSender;
 import org.bukkit.entity.Player;
@@ -35,7 +36,7 @@ public class CommandHandler {
 
 	}
 
-	private void addCommand(Command command) {
+	public void addCommand(Command command) {
 		this.commandMap.put(command.getName(), command);
 	}
 
@@ -55,12 +56,11 @@ public class CommandHandler {
 	Logic (dispatching command)
 	 */
 	public final void dispatchCommand(final CommandSender commandSender, final String[] args, final String command) {
-		long a = System.nanoTime();
 
-		this.dispatchCommand(commandSender instanceof ConsoleCommandSender ? SUtilMain.getSender() : SUtilMain.getPlayerFactory().fetch(((Player) commandSender).getUniqueId()), args, command);
+		Bukkit.getScheduler().runTaskAsynchronously(SUtilMain.getInstance(),
+				() -> this.dispatchCommand(commandSender instanceof ConsoleCommandSender ? SUtilMain.getSender() : SUtilMain.getPlayerFactory().fetch(((Player) commandSender).getUniqueId()), args, command)
+		);
 
-		long b = System.nanoTime();
-		System.out.println(b-a);
 	}
 
 	public final void dispatchCommand(final Sender sender, final String[] args, final String command) {

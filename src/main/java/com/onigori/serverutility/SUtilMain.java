@@ -17,6 +17,8 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.util.HashSet;
+
 public class SUtilMain {
 
 	private static JavaPlugin plugin;
@@ -32,6 +34,8 @@ public class SUtilMain {
 	private static RankManager rankManager;
 
 	private static Location jailFallback;
+
+	private static final HashSet<String> pluginsList = new HashSet<>();
 
 	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
@@ -75,6 +79,12 @@ public class SUtilMain {
 		TODO Save config システムなどを追加する
 		 */
 
+	}
+
+	public static void enableAddonPlugin(JavaPlugin plugin) {
+		pluginsList.add(plugin.getName());
+
+		consoleSender.sendTranslated("We found out addon, " + plugin.getName(), true);
 	}
 
 	public static JavaPlugin getInstance() {

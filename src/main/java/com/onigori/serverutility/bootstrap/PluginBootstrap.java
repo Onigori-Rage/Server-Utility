@@ -20,17 +20,9 @@ public class PluginBootstrap extends JavaPlugin {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] arguments) {
-		/*
-		Fixed command implements logic.
-		 */
-		long a = System.nanoTime();
-		Bukkit.getScheduler().runTaskAsynchronously(this,
-				() -> SUtilMain.getCommandHandler().dispatchCommand(sender, arguments, command.getName())
-		);
 
-		long b = System.nanoTime();
+		SUtilMain.getCommandHandler().dispatchCommand(sender, arguments, command.getName());
 
-		System.out.println(b-a + "ns SUtil EXECUTING");
 		return true;
 	}
 
