@@ -119,12 +119,12 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 		//JailOpener
 		this.setItem(
-				new ItemBuilder(Material.IRON_BARDING, 1).
+				new ItemBuilder(Material.IRON_FENCE, 1).
 						setName(LocalizedMessage.getLocalizedMessage("gui-punish-jailaction-displayname", locale)).
 						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-jailaction-lore", locale)).
 						setListener(null).
 						build()
-				, 20
+				, 11
 		);
 
 		//Mute
