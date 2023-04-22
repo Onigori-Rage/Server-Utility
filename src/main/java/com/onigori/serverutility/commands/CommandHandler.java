@@ -28,8 +28,6 @@ public class CommandHandler {
 		 */
 
 		this.addCommand(new Rank());
-
-		addCommand(new Test());
 	}
 
 	public void stop() {

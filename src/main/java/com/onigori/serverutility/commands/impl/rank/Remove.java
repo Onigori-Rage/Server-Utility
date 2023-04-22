@@ -16,19 +16,19 @@ public class Remove implements SubCommand {
 
 			if (rank.getName().equals("default")) {
 
-				sender.sendMessage("command-srank-remove-failed-default", true);
+				sender.sendMessage("command-rank-remove-failed-default", true);
 
 				return;
 			}
 
 			rank.remove();
 
-			sender.sendMessage("command-srank-remove-success", true, rank.getName());
+			sender.sendMessage("command-rank-remove-success", true, rank.getName());
 
 			return;
 		}
 
-		sender.sendMessage("command-srank-remove-failed", true);
+		sender.sendMessage("command-rank-remove-failed", true);
 	}
 
 }

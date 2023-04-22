@@ -20,7 +20,7 @@ public class Prefix implements SubCommand {
 
 					rank.setPrefix("");
 
-					sender.sendMessage("command-srank-prefix-success-clear", true, rank.getPrefix());
+					sender.sendMessage("command-rank-prefix-success-clear", true, rank.getPrefix());
 
 					return;
 				}
@@ -29,7 +29,7 @@ public class Prefix implements SubCommand {
 
 				final String prefix = rank.getPrefix();
 
-				sender.sendMessage("command-srank-prefix-success", true, prefix.substring(0, prefix.length() - 1));
+				sender.sendMessage("command-rank-prefix-success", true, prefix.substring(0, prefix.length() - 1));
 
 				return;
 			}

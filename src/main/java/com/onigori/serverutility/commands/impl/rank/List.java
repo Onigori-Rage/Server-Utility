@@ -22,7 +22,7 @@ public class List implements SubCommand {
 
 		String ranksList = stringBuilder.toString();
 
-		sender.sendMessage("command-srank-list-success", true, ranksList);
+		sender.sendMessage("command-rank-list-success", true, ranksList);
 	}
 
 }

@@ -29,7 +29,7 @@ public class Panel implements SubCommand {
 			return;
 		}
 
-		sender.sendMessage("command-spunish-panel-executor-error", true);
+		sender.sendMessage("command-punish-panel-executor-error", true);
 	}
 
 }

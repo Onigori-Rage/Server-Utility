@@ -8,13 +8,13 @@ import java.util.Locale;
 public class Lang extends Command {
 
 	public Lang() {
-		super("slang", "command-slang-usage", "command-slang-description");
+		super("lang", "command-lang-usage", "command-lang-description");
 	}
 
 	@Override
 	public void execute(Sender sender, String[] args) {
 		if (args.length >= 1) {
-			String messageKey = "command-slang-success";
+			String messageKey = "command-lang-success";
 
 			switch (args[0].toLowerCase()) {
 				case "english":

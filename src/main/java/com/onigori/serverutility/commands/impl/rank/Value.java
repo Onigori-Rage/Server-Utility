@@ -18,7 +18,7 @@ public class Value implements SubCommand {
 				try {
 					rank.setValue(Integer.parseInt(args[2]));
 
-					sender.sendMessage("command-srank-value-success", true);
+					sender.sendMessage("command-rank-value-success", true);
 
 					return;
 				}

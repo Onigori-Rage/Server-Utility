@@ -20,7 +20,7 @@ public class List implements SubCommand {
 
 		String availableCommandsList = stringBuilder.toString();
 
-		sender.sendMessage("command-shelp-list-success", true, availableCommandsList);
+		sender.sendMessage("command-help-list-success", true, availableCommandsList);
 	}
 
 }

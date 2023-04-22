@@ -12,7 +12,7 @@ public class Rank extends Command {
 	private final HashMap<String, SubCommand> subcommands = new HashMap<>();
 
 	public Rank() {
-		super("srank", "command-srank-usage", "command-srank-description");
+		super("rank", "command-rank-usage", "command-rank-description");
 
 		this.subcommands.put("info", new Info());
 

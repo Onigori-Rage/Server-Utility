@@ -13,7 +13,7 @@ public class Help extends Command {
 	private final HashMap<String, SubCommand> subcommands = new HashMap<>();
 
 	public Help() {
-		super("shelp", "command-shelp-usage", "command-shelp-description");
+		super("help", "command-help-usage", "command-help-description");
 
 		this.subcommands.put("info", new Info());
 		this.subcommands.put("command", new com.onigori.serverutility.commands.impl.help.Command());

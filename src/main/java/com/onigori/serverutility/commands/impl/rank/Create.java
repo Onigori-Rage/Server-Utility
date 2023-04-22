@@ -16,12 +16,12 @@ public class Create implements SubCommand {
 
 			SUtilMain.getRankManager().createRank(args[1].toLowerCase());
 
-			sender.sendMessage("command-srank-create-success", true, args[1].toLowerCase());
+			sender.sendMessage("command-rank-create-success", true, args[1].toLowerCase());
 
 			return;
 		}
 
-		sender.sendMessage("command-srank-create-failed", true);
+		sender.sendMessage("command-rank-create-failed", true);
 	}
 
 }

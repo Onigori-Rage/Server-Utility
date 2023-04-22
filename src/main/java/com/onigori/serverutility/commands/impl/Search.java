@@ -9,7 +9,7 @@ import com.onigori.serverutility.objects.players.SUtilPlayer;
 public class Search extends Command {
 
 	public Search() {
-		super("ssearch", "usageKey", "descriptionKey");
+		super("search", "usageKey", "descriptionKey");
 	}
 
 	@Override

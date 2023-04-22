@@ -20,11 +20,11 @@ public class Command implements SubCommand {
 
 				String description = "Undefined.";//LocalizedMessage.getLocalizedMessage(command.getDescriptionKey(), sender.getLocale());
 
-				sender.sendMessage("command-shelp-command-success", true, command.getName(), description, String.valueOf(command.getRequiredValue()), usage);
+				sender.sendMessage("command-help-command-success", true, command.getName(), description, String.valueOf(command.getRequiredValue()), usage);
 				return;
 			}
 
-			sender.sendMessage("command-shelp-command-failed", true);
+			sender.sendMessage("command-help-command-failed", true);
 			return;
 		}
 		sender.sendMessage(instance.getUsageKey(), true);
