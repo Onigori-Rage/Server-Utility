@@ -59,6 +59,7 @@ public class CommandHandler {
 	}
 
 	public final void dispatchCommand(final Sender sender, final String[] args, final String command) {
+
 		final Command commandExecutor = this.getCommandOrDefault(command);
 
 		if (sender.getRank().getValue() >= commandExecutor.getRequiredValue()) {

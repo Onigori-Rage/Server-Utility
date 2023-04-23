@@ -22,6 +22,7 @@ public class PluginBootstrap extends JavaPlugin {
 
 	@Override
 	public boolean onCommand(CommandSender sender, Command command, String label, String[] arguments) {
+
 		SUtilMain.getCommandHandler().dispatchCommand(sender, arguments, command.getName());
 
 		return true;

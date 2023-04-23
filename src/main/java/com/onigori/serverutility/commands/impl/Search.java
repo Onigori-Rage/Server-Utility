@@ -8,36 +8,44 @@ import com.onigori.serverutility.modules.SearchParser;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import io.netty.util.internal.ConcurrentSet;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.LinkedHashSet;
-import java.util.PropertyResourceBundle;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Search extends Command {
 
 	public Search() {
-		super("search", "usageKey", "descriptionKey");
+		super("search", "command-search-usage", "descriptionKey");
 	}
 
 	@Override
 	public void execute(Sender sender, String[] args) {
 		if (args.length >= 1) {
-			final Collection<SUtilPlayer> result = SUtilMain.getPlayerFactory().query(SearchParser.parse(args));
+			final HashMap<SearchParser.Option, String> options = SearchParser.parse(args);
+
+			if (options.isEmpty()) {
+				sender.sendMessage(getUsageKey(), true);
+
+				return;
+			}
+
+			final Collection<SUtilPlayer> result = SUtilMain.getPlayerFactory().query(options);
 
 			if (!result.isEmpty()) {
-				sender.sendTranslated(ArgumentManager.getArgumentsByObjects(result.toArray(), 0, ", "), true);
+
+				sender.sendMessageIncludingBlank("command-search-success", true, ArgumentManager.getArgumentsByObjects(result.toArray(), 0, ", "));
+
 			}
 
 			else {
-				sender.sendTranslated("§cSorry, but cannot find the player.", true);
+				sender.sendMessageIncludingBlank("command-search-failed", true);
 			}
 
+			return;
+
 		}
 
-		else {
-			sender.sendTranslated("/search <filters...>", true);
-		}
+		sender.sendMessage(getUsageKey(), true);
+
 	}
 
 }

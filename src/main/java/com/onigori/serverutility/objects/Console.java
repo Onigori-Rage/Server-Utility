@@ -22,6 +22,19 @@ public class Console implements Sender {
 	}
 
 	@Override
+	public void sendMessageIncludingBlank(String key, boolean prefix, Object... args) {
+
+		boolean isFirst = true;
+
+		for (String message: LocalizedMessage.getLocalizedMessage(key, this.locale, args).split("\n")) {
+
+			sendTranslated(message, isFirst);
+
+			isFirst = false;
+		}
+	}
+
+	@Override
 	public String getName() {
 		return Symbols.CONSOLE_NAME;
 	}

@@ -9,17 +9,22 @@ import java.util.stream.Collectors;
 public class SearchParser {
 
 	public static HashMap<Option, String> parse(String[] filters) {
+
 		final HashMap<Option, String> filtering = new HashMap<>();
 
 		for (String option : filters) {
 			String[] reformatted = option.split(":");
 
+			if (reformatted.length < 2) {
+				continue;
+			}
+
 			if (reformatted[0].equalsIgnoreCase("name")) {
 				filtering.put(new NameFilter(), reformatted[1]);
 			}
 
-			if (reformatted[0].equalsIgnoreCase("permission")) {
-				filtering.put(new PermissionFilter(), reformatted[1]);
+			if (reformatted[0].equalsIgnoreCase("rank")) {
+				filtering.put(new RankFilter(), reformatted[1]);
 			}
 
 		}
@@ -43,7 +48,7 @@ public class SearchParser {
 
 	}
 
-	public static class PermissionFilter extends Option {
+	public static class RankFilter extends Option {
 
 		@Override
 		public Collection<SUtilPlayer> handle(Collection<SUtilPlayer> collection, String arg) {

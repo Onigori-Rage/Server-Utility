@@ -101,6 +101,20 @@ public class SUtilPlayer implements Sender {
 
 	}
 
+	@Override
+	public void sendMessageIncludingBlank(String key, boolean prefix, Object... args) {
+
+		boolean isFirst = true;
+
+		for (String message: LocalizedMessage.getLocalizedMessage(key, this.locale, args).split("\n")) {
+
+			sendTranslated(message, isFirst);
+
+			isFirst = false;
+		}
+
+	}
+
 	public boolean kick(Kick kick) {
 		if (this.corePlayer != null) {
 			Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->

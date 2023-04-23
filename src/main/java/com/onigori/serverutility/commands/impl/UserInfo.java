@@ -17,7 +17,11 @@ public class UserInfo extends Command {
 			final SUtilPlayer user = SUtilMain.getPlayerFactory().fetch(args[0]);
 
 			sender.sendMessage("command-userinfo-success", true, user.getName(), user.getUUID(), user.getRank().getName(), user.getLocale().getDisplayName(sender.getLocale()), user.isBanned(), user.isMuted());
+
+			return;
 		}
+
+		sender.sendMessage(getUsageKey(), true);
 	}
 
 }

@@ -10,6 +10,8 @@ public interface Sender {
 
 	void sendMessage(String key, boolean prefix, Object... args);
 
+	void sendMessageIncludingBlank(String key, boolean prefix, Object... args);
+
 	Rank getRank();
 
 	Locale getLocale();
