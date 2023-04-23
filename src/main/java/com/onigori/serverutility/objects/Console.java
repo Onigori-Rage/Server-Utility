@@ -17,7 +17,7 @@ public class Console implements Sender {
 	}
 
 	@Override
-	public void sendMessage(String key, boolean prefix, String... args) {
+	public void sendMessage(String key, boolean prefix, Object... args) {
 		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, this.locale, args), prefix);
 	}
 

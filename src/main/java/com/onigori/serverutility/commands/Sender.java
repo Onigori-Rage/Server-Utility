@@ -8,7 +8,7 @@ public interface Sender {
 
 	void sendTranslated(String message, boolean prefix);
 
-	void sendMessage(String key, boolean prefix, String... args);
+	void sendMessage(String key, boolean prefix, Object... args);
 
 	Rank getRank();
 

@@ -7,6 +7,7 @@ import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Rank;
 import com.onigori.serverutility.objects.punishments.*;
 import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 import java.util.Locale;
@@ -14,13 +15,13 @@ import java.util.UUID;
 
 public class SUtilPlayer implements Sender {
 
-	private UUID uuid;
+	private final UUID uuid;
 
 	private String name;
 
 	private Rank rank;
 
-	private PunishmentContainer punishmentContainer;
+	private final PunishmentContainer punishmentContainer;
 
 	private Locale locale = Symbols.DEFAULT_LOCALE;
 
@@ -45,6 +46,11 @@ public class SUtilPlayer implements Sender {
 	@Override
 	public String getName() {
 		return this.name;
+	}
+
+	@Override
+	public String toString() {
+		return this.getName();
 	}
 
 	public Player getCore() {
@@ -83,7 +89,7 @@ public class SUtilPlayer implements Sender {
 	}
 
 	@Override
-	public void sendMessage(String key, boolean prefix, String... args) {
+	public void sendMessage(String key, boolean prefix, Object... args) {
 		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, this.locale, args), prefix);
 	}
 
@@ -141,6 +147,32 @@ public class SUtilPlayer implements Sender {
 
 	public void unJail() {
 		this.punishmentContainer.setJail(null);
+	}
+
+	public boolean isBanned() {
+		return this.punishmentContainer.getAvailableBan() != null;
+	}
+
+	public boolean isMuted() {
+		return this.punishmentContainer.getAvailableMute() != null;
+	}
+
+	public boolean isJailed() {
+		return this.punishmentContainer.getAvailableJail() != null;
+	}
+
+	public void teleport(Location location) {
+		if (this.corePlayer != null) {
+			corePlayer.teleport(location);
+		}
+	}
+
+	public Location getLocation() {
+		if (this.corePlayer != null) {
+			return corePlayer.getLocation();
+		}
+
+		return null;
 	}
 
 }

@@ -32,7 +32,7 @@ public class Rank extends Command {
 	@Override
 	public void execute(Sender sender, String[] args) {
 		if (args.length >= 2 || (args.length == 1 && args[0].toLowerCase().equals("list"))) {
-			SubCommand subcommand = this.subcommands.get(args[0].toLowerCase());
+			final SubCommand subcommand = this.subcommands.get(args[0].toLowerCase());
 
 			if (subcommand != null) {
 				subcommand.execute(sender, args, this);

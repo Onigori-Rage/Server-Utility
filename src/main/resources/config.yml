@@ -3,10 +3,9 @@ locale: English
 
 # コマンドのパーミッションを0から100の間で設定できます。
 commands:
-  shelp: 0
-  slang: 0
-  spunish: 70
-  ssearch: 50
-  server-utility: 100
-  test: 0
-  srank: 0
+  help: 0
+  lang: 0
+  punish: 70
+  search: 50
+  rank: 0
+  userinfo: 70

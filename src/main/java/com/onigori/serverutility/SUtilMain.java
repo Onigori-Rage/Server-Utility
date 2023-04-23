@@ -18,6 +18,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashSet;
+import java.util.Locale;
 
 public class SUtilMain {
 
@@ -119,6 +120,10 @@ public class SUtilMain {
 
 	public static Location getJailFallback() {
 		return jailFallback;
+	}
+
+	public static void setJailFallback(Location location) {
+		jailFallback = location;
 	}
 
 	public static RankManager getRankManager() {

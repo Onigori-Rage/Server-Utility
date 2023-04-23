@@ -16,6 +16,7 @@ public abstract class Command {
 		this.name = name;
 		this.usageKey = usageKey;
 		this.descriptionKey = descriptionKey;
+
 		this.requiredValue = SUtilMain.getInstance().getConfig().getInt("commands." + name);
 	}
 

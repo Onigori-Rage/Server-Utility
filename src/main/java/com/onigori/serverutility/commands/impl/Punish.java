@@ -50,7 +50,7 @@ public class Punish extends Command {
 	@Override
 	public void execute(Sender sender, String[] args) {
 		if (args.length >= 2) {
-			SubCommand subcommand = this.subcommands.get(args[0].toLowerCase());
+			final SubCommand subcommand = this.subcommands.get(args[0].toLowerCase());
 
 			if (subcommand != null) {
 				subcommand.execute(sender, args, this);

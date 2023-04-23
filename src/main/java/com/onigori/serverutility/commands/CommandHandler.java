@@ -17,17 +17,14 @@ public class CommandHandler {
 	private final Command defaultCommand = new Default();
 
 	public void init() {
-		this.addCommand(new Punish());
-		this.addCommand(new Lang());
-		this.addCommand(new Help());
+		addCommand(new Punish());
+		addCommand(new Lang());
+		addCommand(new Help());
 
-		this.addCommand(new Search());
+		addCommand(new Search());
+		addCommand(new Rank());
 
-		/*
-		test
-		 */
-
-		this.addCommand(new Rank());
+		addCommand(new UserInfo());
 	}
 
 	public void stop() {
@@ -42,11 +39,11 @@ public class CommandHandler {
 		return this.commandMap.values();
 	}
 
-	public Command getCommandOrDefault(String command) {
+	public final Command getCommandOrDefault(final String command) {
 		return this.commandMap.getOrDefault(command, this.defaultCommand);
 	}
 
-	public Command getCommand(String command) {
+	public final Command getCommand(final String command) {
 		return this.commandMap.get(command);
 	}
 

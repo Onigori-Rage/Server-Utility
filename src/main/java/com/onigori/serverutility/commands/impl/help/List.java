@@ -9,16 +9,17 @@ public class List implements SubCommand {
 
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
-		StringBuilder stringBuilder = new StringBuilder();
+		final StringBuilder stringBuilder = new StringBuilder();
 
 		for (Command command : SUtilMain.getCommandHandler().getCommands()) {
 			if (sender.getRank().getValue() >= command.getRequiredValue()) {
-				stringBuilder.append(command.getName() + ", ");
+				stringBuilder.append(command.getName()).append(", ");
 			}
 		}
+
 		stringBuilder.setLength(stringBuilder.length() - 2);
 
-		String availableCommandsList = stringBuilder.toString();
+		final String availableCommandsList = stringBuilder.toString();
 
 		sender.sendMessage("command-help-list-success", true, availableCommandsList);
 	}

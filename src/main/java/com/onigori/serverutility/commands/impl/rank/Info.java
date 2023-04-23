@@ -13,7 +13,7 @@ public class Info implements SubCommand {
 		final Rank rank = SUtilMain.getRankManager().getRank(args[1].toLowerCase());
 
 		if (rank != null) {
-			sender.sendMessage("command-rank-info-success", true, rank.getName(), rank.getPrefix(), String.valueOf(rank.getValue()));
+			sender.sendMessage("command-rank-info-success", true, rank.getName(), rank.getPrefix(), rank.getValue());
 
 			return;
 		}

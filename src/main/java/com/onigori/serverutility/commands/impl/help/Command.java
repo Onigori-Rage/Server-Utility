@@ -11,12 +11,14 @@ public class Command implements SubCommand {
 	@Override
 	public void execute(Sender sender, String[] args, com.onigori.serverutility.commands.Command instance) {
 		if (args.length >= 2) {
-			com.onigori.serverutility.commands.Command command = SUtilMain.getCommandHandler().getCommand(args[1]);
+			final com.onigori.serverutility.commands.Command command = SUtilMain.getCommandHandler().getCommand(args[1]);
 			if (command != null) {
 				String usage = LocalizedMessage.getLocalizedMessage(command.getUsageKey(), sender.getLocale())
 						.replaceAll("§cCorrect usage: ", "")
 						.replaceAll("§c使い方: ", "");
+
 				usage = ChatColor.stripColor(usage);
+
 
 				String description = "Undefined.";//LocalizedMessage.getLocalizedMessage(command.getDescriptionKey(), sender.getLocale());
 
@@ -27,6 +29,7 @@ public class Command implements SubCommand {
 			sender.sendMessage("command-help-command-failed", true);
 			return;
 		}
+
 		sender.sendMessage(instance.getUsageKey(), true);
 	}
 

@@ -9,19 +9,19 @@ import java.util.Date;
 
 public abstract class Punishment {
 
-	private PunishmentType type;
+	private final PunishmentType type;
 
-	private String reason;
+	private final String reason;
 
-	private Sender executor;
+	private final Sender executor;
 
 	private SUtilPlayer target;
 
 	private final boolean isRecordable;
 
-	private Date expiration;
+	private final Date expiration;
 
-	private boolean isTemporary;
+	private final boolean isTemporary;
 
 	public Punishment(PunishmentType type, String reason, Sender executor, SUtilPlayer target, boolean isRecordable, boolean isTemporary, Date expiration) {
 		this.type = type;
@@ -71,7 +71,7 @@ public abstract class Punishment {
 	public final void queue() {
 		boolean result = this.execute();
 
-		executor.sendMessage("command-spunish-" + type.name().toLowerCase() + "-" + (result ? "success" : "failed"), true, this.target.getName());
+		executor.sendMessage("command-punish-" + type.name().toLowerCase() + "-" + (result ? "success" : "failed"), true, this.target.getName());
 	}
 
 	public final Date getExpiration() {

@@ -5,7 +5,7 @@ commands:
   punish:
   lang:
   help:
+    aliases: [shelp]
   search:
-  server-utility:
-    aliases: [sutil, su]
   rank:
+  userinfo:

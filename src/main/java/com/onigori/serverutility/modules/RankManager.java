@@ -24,7 +24,7 @@ public class RankManager {
 
 			for (String rankName : section.getKeys(false)) {
 
-				int value = section.getInt(rankName + ".value", 0);
+				final int value = section.getInt(rankName + ".value", 0);
 
 				final Rank rank = new Rank(rankName, section.getString(rankName + ".prefix", ""), value);
 
