@@ -2,6 +2,7 @@ package com.onigori.serverutility.objects;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
+import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
 
@@ -24,7 +25,7 @@ public class Console implements Sender {
 	@Override
 	public void sendMessageIncludingBlank(String key, boolean prefix, Object... args) {
 
-		boolean isFirst = true;
+		boolean isFirst = prefix;
 
 		for (String message: LocalizedMessage.getLocalizedMessage(key, this.locale, args).split("\n")) {
 
@@ -32,6 +33,12 @@ public class Console implements Sender {
 
 			isFirst = false;
 		}
+
+	}
+
+	@Override
+	public void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, boolean isIncludingBlank, Object... args) {
+		sendTranslated((prefix ? addon.getPrefix() : "") + addon.getLocalizedMessage(key, this.locale, args), false);
 	}
 
 	@Override

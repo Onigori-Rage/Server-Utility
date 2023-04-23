@@ -2,6 +2,7 @@ package com.onigori.serverutility;
 
 import com.onigori.api.confighelper.ConfigHelper;
 import com.onigori.api.guihelper.GUIHelper;
+import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.listeners.ChatListener;
@@ -18,6 +19,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashSet;
+import java.util.LinkedHashMap;
 import java.util.Locale;
 
 public class SUtilMain {
@@ -36,7 +38,7 @@ public class SUtilMain {
 
 	private static Location jailFallback;
 
-	private static final HashSet<String> pluginsList = new HashSet<>();
+	private static final LinkedHashMap<Integer, SUtilAddon> pluginsList = new LinkedHashMap<>();
 
 	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
@@ -81,10 +83,14 @@ public class SUtilMain {
 
 	}
 
-	public static void enableAddonPlugin(JavaPlugin plugin) {
-		pluginsList.add(plugin.getName());
+	public static void enableAddonPlugin(SUtilAddon plugin) {
+		pluginsList.put(plugin.getRegistrySerial(), plugin);
 
-		consoleSender.sendTranslated("We found out addon, " + plugin.getName(), true);
+		consoleSender.sendMessage("addon-enable-message", true, plugin.getName(), plugin.getName(), plugin.getVersion(), plugin.getRegistrySerial());
+	}
+
+	public static SUtilAddon getAddon(final int registrySerial) {
+		return pluginsList.get(registrySerial);
 	}
 
 	public static JavaPlugin getInstance() {

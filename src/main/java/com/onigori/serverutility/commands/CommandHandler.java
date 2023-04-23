@@ -12,6 +12,18 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class CommandHandler {
 
+	public static final int HELP_VALUE = 0;
+
+	public static final int LANG_VALUE = 0;
+
+	public static final int PUNISH_VALUE = 70;
+
+	public static final int SEARCH_VALUE = 50;
+
+	public static final int RANK_VALUE = 0;
+
+	public static final int USERINFO_VALUE = 70;
+
 	private final ConcurrentHashMap<String, Command> commandMap = new ConcurrentHashMap<>();
 
 	private final Command defaultCommand = new Default();

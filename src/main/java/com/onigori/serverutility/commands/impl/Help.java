@@ -1,6 +1,7 @@
 package com.onigori.serverutility.commands.impl;
 
 import com.onigori.serverutility.commands.Command;
+import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.commands.impl.help.Info;
@@ -14,7 +15,7 @@ public class Help extends Command {
 	private final HashMap<String, SubCommand> subcommands = new HashMap<>();
 
 	public Help() {
-		super("help", "command-help-usage", "command-help-description");
+		super("help", "command-help-usage", "command-help-description", CommandHandler.HELP_VALUE);
 
 		this.subcommands.put("info", new Info());
 		this.subcommands.put("command", new com.onigori.serverutility.commands.impl.help.Command());

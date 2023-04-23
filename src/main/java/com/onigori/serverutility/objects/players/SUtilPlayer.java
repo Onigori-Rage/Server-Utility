@@ -2,6 +2,7 @@ package com.onigori.serverutility.objects.players;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
+import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.modules.LocalizedMessage;
 import com.onigori.serverutility.objects.Rank;
@@ -104,7 +105,7 @@ public class SUtilPlayer implements Sender {
 	@Override
 	public void sendMessageIncludingBlank(String key, boolean prefix, Object... args) {
 
-		boolean isFirst = true;
+		boolean isFirst = prefix;
 
 		for (String message: LocalizedMessage.getLocalizedMessage(key, this.locale, args).split("\n")) {
 
@@ -115,8 +116,14 @@ public class SUtilPlayer implements Sender {
 
 	}
 
+	@Override
+	public void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, boolean isIncludingBlank, Object... args) {
+		sendTranslated((prefix ? addon.getPrefix() : "") + addon.getLocalizedMessage(key, this.locale, args), false);
+	}
+
 	public boolean kick(Kick kick) {
 		if (this.corePlayer != null) {
+
 			Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
 					this.corePlayer.kickPlayer(LocalizedMessage.getLocalizedMessage("kick-message", this.locale, Symbols.PREFIX, kick.getExecutor().getName(), kick.getReason()))
 			);
@@ -129,6 +136,7 @@ public class SUtilPlayer implements Sender {
 
 	public boolean warn(Warn warn) {
 		if (this.corePlayer != null) {
+
 			this.sendMessage("warn-message", false, Symbols.PREFIX, warn.getExecutor().getName(), warn.getReason());
 
 			return true;

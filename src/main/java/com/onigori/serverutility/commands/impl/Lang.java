@@ -1,6 +1,7 @@
 package com.onigori.serverutility.commands.impl;
 
 import com.onigori.serverutility.commands.Command;
+import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
 
 import java.util.Locale;
@@ -8,7 +9,7 @@ import java.util.Locale;
 public class Lang extends Command {
 
 	public Lang() {
-		super("lang", "command-lang-usage", "command-lang-description");
+		super("lang", "command-lang-usage", "command-lang-description", CommandHandler.LANG_VALUE);
 	}
 
 	@Override

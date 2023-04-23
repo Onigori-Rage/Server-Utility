@@ -1,6 +1,7 @@
 package com.onigori.serverutility.commands.impl;
 
 import com.onigori.serverutility.commands.Command;
+import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
 import com.onigori.serverutility.commands.impl.punish.Kick;
@@ -26,7 +27,7 @@ public class Punish extends Command {
 	TODO Add mute and ban logic.
 	 */
 	public Punish() {
-		super("punish", "command-punish-usage", "command-punish-description");//Permission.HIGHEST);
+		super("punish", "command-punish-usage", "command-punish-description", CommandHandler.PUNISH_VALUE);//Permission.HIGHEST);
 
 		this.subcommands.put("panel", new Panel());
 

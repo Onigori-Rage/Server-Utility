@@ -10,14 +10,14 @@ public abstract class Command {
 
 	private final String descriptionKey;
 
-	private int requiredValue;
+	private final int requiredValue;
 
-	public Command(String name, String usageKey, String descriptionKey) {
+	public Command(String name, String usageKey, String descriptionKey, int requiredValue) {
 		this.name = name;
 		this.usageKey = usageKey;
 		this.descriptionKey = descriptionKey;
 
-		this.requiredValue = SUtilMain.getInstance().getConfig().getInt("commands." + name);
+		this.requiredValue = requiredValue;
 	}
 
 	public Command() {
