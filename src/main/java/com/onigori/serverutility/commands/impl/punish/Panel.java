@@ -17,14 +17,18 @@ public class Panel implements SubCommand {
 	@Override
 	public void execute(Sender sender, String[] args, Command instance) {
 		if (sender.isPlayer()) {
-			SUtilPlayer executor = (SUtilPlayer) sender;
-			Player coreExecutor = executor.getCore();
+			final SUtilPlayer executor = (SUtilPlayer) sender;
 
-			SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
+			final Player coreExecutor = executor.getCore();
+
+			final SUtilPlayer target = SUtilMain.getPlayerFactory().fetch(args[1]);
 
 			String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
 			GUIHelper.openInventory(new PunishScreen(executor, target, reason, ScreenType.BOSS, null), coreExecutor);
+			/*
+			TODO  SUtilPlayer 内にopenInventoryを入れる（APIの隠ぺい）
+			 */
 
 			return;
 		}
