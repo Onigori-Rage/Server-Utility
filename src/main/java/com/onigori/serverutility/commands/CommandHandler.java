@@ -32,10 +32,8 @@ public class CommandHandler {
 		addCommand(new Punish());
 		addCommand(new Lang());
 		addCommand(new Help());
-
 		addCommand(new Search());
 		addCommand(new Rank());
-
 		addCommand(new UserInfo());
 	}
 

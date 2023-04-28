@@ -27,7 +27,7 @@ public class Punish extends Command {
 	TODO Add mute and ban logic.
 	 */
 	public Punish() {
-		super("punish", "command-punish-usage", "command-punish-description", CommandHandler.PUNISH_VALUE);//Permission.HIGHEST);
+		super("punish", "command-punish-usage", "command-punish-description", CommandHandler.PUNISH_VALUE);
 
 		this.subcommands.put("panel", new Panel());
 

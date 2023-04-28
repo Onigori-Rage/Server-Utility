@@ -13,6 +13,7 @@ import org.bukkit.entity.Player;
 
 import java.util.Locale;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class SUtilPlayer implements Sender {
 
@@ -27,6 +28,8 @@ public class SUtilPlayer implements Sender {
 	private Locale locale = Symbols.DEFAULT_LOCALE;
 
 	private Player corePlayer;
+
+	private final ConcurrentHashMap<String, Object> addonDataRegistry = new ConcurrentHashMap<>();
 
 	public SUtilPlayer(UUID uuid, String name, Rank rank, PunishmentContainer punishmentContainer) {
 		this.uuid = uuid;
@@ -195,6 +198,18 @@ public class SUtilPlayer implements Sender {
 		}
 
 		return null;
+	}
+
+	public Object getData(int registrySerial, String key) {
+		return addonDataRegistry.get(registrySerial + "-" + key);
+	}
+
+	public Object getDataOrDefault(int registrySerial, String key, Object defaultObject) {
+		return addonDataRegistry.getOrDefault(registrySerial + "-" + key, defaultObject);
+	}
+
+	public void setData(int registrySerial, String key, Object object) {
+		addonDataRegistry.put(registrySerial + "-" + key, object);
 	}
 
 }
