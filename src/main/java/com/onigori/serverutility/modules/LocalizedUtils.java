@@ -4,7 +4,7 @@ import java.text.MessageFormat;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-public class LocalizedMessage {
+public class LocalizedUtils {
 
 	private static ResourceBundle japanese;
 

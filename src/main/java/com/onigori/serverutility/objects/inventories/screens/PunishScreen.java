@@ -4,7 +4,7 @@ import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.api.guihelper.components.TargetableScreen;
-import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.modules.LocalizedUtils;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
 import com.onigori.serverutility.objects.inventories.handlers.punish.opener.BanOpener;
@@ -33,7 +33,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 	private int expiration = 0;
 
 	public PunishScreen(SUtilPlayer executor, SUtilPlayer target, String reason, ScreenType screenType, OnigoriScreen previousScreen) {
-		super(screenType.getRow(), LocalizedMessage.getLocalizedMessage(screenType.getDisplayKey(), executor.getLocale()));
+		super(screenType.getRow(), LocalizedUtils.getLocalizedMessage(screenType.getDisplayKey(), executor.getLocale()));
 
 		this.executor = executor;
 		this.target = target;
@@ -82,10 +82,10 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 		// Target Info
 		this.setItem(
 				new ItemBuilder(Material.SKULL_ITEM, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).
 						setListener(new TargetInfo()).
 						setDescription(
-								LocalizedMessage.
+								LocalizedUtils.
 										getLocalizedMessage("gui-punish-targetinfo-lore",
 												locale,
 												this.target.getName(),
@@ -99,8 +99,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 		// Cancel
 		this.setItem(
 				new ItemBuilder(Material.BARRIER, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-global-cancel-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-global-cancel-lore", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-global-cancel-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-global-cancel-lore", locale)).
 						setListener(new Cancel()).
 						build()
 				, 44
@@ -110,8 +110,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 		this.setItem(
 				new ItemBuilder(Material.LAVA_BUCKET, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-banaction-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-banaction-lore", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-banaction-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-banaction-lore", locale)).
 						setListener(new BanOpener()).
 						build()
 				, 19
@@ -120,8 +120,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 		//JailOpener
 		this.setItem(
 				new ItemBuilder(Material.IRON_FENCE, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-jailaction-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-jailaction-lore", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-jailaction-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-jailaction-lore", locale)).
 						build()
 				, 11
 		);
@@ -130,8 +130,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 		this.setItem(
 				new ItemBuilder(Material.REDSTONE_BLOCK, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-muteaction-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-muteaction-lore", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-muteaction-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-muteaction-lore", locale)).
 						setListener(new MuteOpener()).
 						build()
 				, 25
@@ -141,8 +141,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 		this.setItem(
 				new ItemBuilder(Material.DISPENSER, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-kickaction-lore", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-kickaction-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-kickaction-lore", locale)).
 						setListener(new KickOpener()).
 						build()
 				, 4
@@ -152,8 +152,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 		this.setItem(
 				new ItemBuilder(Material.REDSTONE_TORCH_ON, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-warnaction-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-warnaction-lore", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-warnaction-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-warnaction-lore", locale)).
 						setListener(new WarnOpener()).
 						build()
 				, 40
@@ -163,8 +163,8 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 		this.setItem(
 				new ItemBuilder(Material.NAME_TAG, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-reason-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-punish-reason-lore", locale, this.reason)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-reason-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-reason-lore", locale, this.reason)).
 						build()
 				, 8
 		);

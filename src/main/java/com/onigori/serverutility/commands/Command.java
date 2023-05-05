@@ -12,6 +12,8 @@ public abstract class Command {
 
 	private final int requiredValue;
 
+	private boolean isAddonCommand = false;
+
 	public Command(String name, String usageKey, String descriptionKey, int requiredValue) {
 		this.name = name;
 		this.usageKey = usageKey;
@@ -45,5 +47,13 @@ public abstract class Command {
 	}
 
 	public abstract void execute(Sender sender, String[] args);
+
+	public boolean isAddonCommand() {
+		return this.isAddonCommand;
+	}
+
+	public void makeAddonCommand() {
+		this.isAddonCommand = true;
+	}
 
 }

@@ -44,8 +44,6 @@ public abstract class SUtilAddon extends JavaPlugin {
 		SUtilMain.getCommandHandler().addCommand(command);
 	}
 
-	public abstract String getPrefix();
-
 	public abstract ResourceBundle getJapaneseBundle();
 
 	public abstract ResourceBundle getEnglishBundle();

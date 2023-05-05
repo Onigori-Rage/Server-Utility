@@ -9,7 +9,7 @@ import com.onigori.serverutility.listeners.ChatListener;
 import com.onigori.serverutility.listeners.JailListener;
 import com.onigori.serverutility.listeners.LoginListener;
 import com.onigori.serverutility.listeners.QuitListener;
-import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.modules.LocalizedUtils;
 import com.onigori.serverutility.modules.RankManager;
 import com.onigori.serverutility.modules.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
@@ -18,9 +18,7 @@ import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.HashSet;
 import java.util.LinkedHashMap;
-import java.util.Locale;
 
 public class SUtilMain {
 
@@ -43,7 +41,7 @@ public class SUtilMain {
 	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
 
-		LocalizedMessage.init();
+		LocalizedUtils.init();
 
 		ConfigHelper.init(plugin);
 

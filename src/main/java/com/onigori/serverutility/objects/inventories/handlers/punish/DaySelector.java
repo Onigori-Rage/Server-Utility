@@ -2,7 +2,7 @@ package com.onigori.serverutility.objects.inventories.handlers.punish;
 
 import com.onigori.api.guihelper.components.ItemHandler;
 import com.onigori.api.guihelper.components.OnigoriScreen;
-import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.modules.LocalizedUtils;
 import com.onigori.serverutility.objects.inventories.screens.PunishScreen;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.event.inventory.ClickType;
@@ -28,7 +28,7 @@ public class DaySelector implements ItemHandler {
 		ItemStack item = punishScreen.getInventory().getItem(0);
 		ItemMeta meta = item.getItemMeta();
 
-		meta.setLore(Arrays.asList(LocalizedMessage.getLocalizedMessage("gui-punish-expirationselector-lore", player.getLocale(), String.valueOf(variation)).split("\n")));
+		meta.setLore(Arrays.asList(LocalizedUtils.getLocalizedMessage("gui-punish-expirationselector-lore", player.getLocale(), String.valueOf(variation)).split("\n")));
 
 		item.setItemMeta(meta);
 

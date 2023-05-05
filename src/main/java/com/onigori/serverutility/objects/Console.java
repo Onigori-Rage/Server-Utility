@@ -4,7 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.modules.LocalizedUtils;
 
 import java.util.Locale;
 
@@ -19,7 +19,7 @@ public class Console implements Sender {
 
 	@Override
 	public void sendMessage(String key, boolean prefix, Object... args) {
-		this.sendTranslated(LocalizedMessage.getLocalizedMessage(key, this.locale, args), prefix);
+		this.sendTranslated(LocalizedUtils.getLocalizedMessage(key, this.locale, args), prefix);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class Console implements Sender {
 
 		boolean isFirst = prefix;
 
-		for (String message: LocalizedMessage.getLocalizedMessage(key, this.locale, args).split("\n")) {
+		for (String message: LocalizedUtils.getLocalizedMessage(key, this.locale, args).split("\n")) {
 
 			sendTranslated(message, isFirst);
 
@@ -37,8 +37,22 @@ public class Console implements Sender {
 	}
 
 	@Override
-	public void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, boolean isIncludingBlank, Object... args) {
-		sendTranslated((prefix ? addon.getPrefix() : "") + addon.getLocalizedMessage(key, this.locale, args), false);
+	public void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, Object... args) {
+		sendTranslated(addon.getLocalizedMessage(key, locale, args), prefix);
+	}
+
+	@Override
+	public void sendAddonMessageIncludingBlank(String key, SUtilAddon addon, boolean prefix, Object... args) {
+
+		boolean isFirst = prefix;
+
+		for (final String message : addon.getLocalizedMessage(key, locale, args).split("\n")) {
+
+			sendTranslated(message, isFirst);
+
+			isFirst = false;
+		}
+
 	}
 
 	@Override

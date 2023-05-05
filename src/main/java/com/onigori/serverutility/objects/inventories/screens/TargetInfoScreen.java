@@ -3,7 +3,7 @@ package com.onigori.serverutility.objects.inventories.screens;
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
-import com.onigori.serverutility.modules.LocalizedMessage;
+import com.onigori.serverutility.modules.LocalizedUtils;
 import com.onigori.serverutility.objects.inventories.handlers.Return;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.Material;
@@ -19,7 +19,7 @@ public class TargetInfoScreen extends OnigoriScreen implements ReturnableScreen 
 	private final OnigoriScreen previousScreen;
 
 	public TargetInfoScreen(SUtilPlayer target, Locale locale, OnigoriScreen previousScreen) {
-		super(5, LocalizedMessage.getLocalizedMessage("gui-targetinfo-displayname", locale));
+		super(5, LocalizedUtils.getLocalizedMessage("gui-targetinfo-displayname", locale));
 
 		this.target = target;
 
@@ -33,9 +33,9 @@ public class TargetInfoScreen extends OnigoriScreen implements ReturnableScreen 
 	public void init() {
 		this.setItem(
 				new ItemBuilder(Material.SKULL_ITEM, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).
 						setDescription(
-								LocalizedMessage.
+								LocalizedUtils.
 										getLocalizedMessage("gui-punish-targetinfo-lore",
 												locale,
 												this.target.getName(),
@@ -55,8 +55,8 @@ public class TargetInfoScreen extends OnigoriScreen implements ReturnableScreen 
 
 		this.setItem(
 				new ItemBuilder(Material.ARROW, 1).
-						setName(LocalizedMessage.getLocalizedMessage("gui-global-return-displayname", locale)).
-						setDescription(LocalizedMessage.getLocalizedMessage("gui-global-return-lore", locale)).
+						setName(LocalizedUtils.getLocalizedMessage("gui-global-return-displayname", locale)).
+						setDescription(LocalizedUtils.getLocalizedMessage("gui-global-return-lore", locale)).
 						setListener(new Return()).
 						build()
 				, 36

@@ -13,7 +13,9 @@ public interface Sender {
 
 	void sendMessageIncludingBlank(String key, boolean prefix, Object... args);
 
-	void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, boolean isIncludingBlank, Object... args);
+	void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, Object... args);
+
+	void sendAddonMessageIncludingBlank(String key, SUtilAddon addon, boolean prefix, Object... args);
 
 	Rank getRank();
 
