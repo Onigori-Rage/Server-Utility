@@ -2,7 +2,7 @@ package com.onigori.serverutility.listeners;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
-import com.onigori.serverutility.utils.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtil;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import com.onigori.serverutility.objects.punishments.Ban;
 import org.bukkit.entity.Player;
@@ -24,7 +24,7 @@ public class LoginListener implements Listener {
 			if (ban.checkExpiration()) {
 				event.setLoginResult(AsyncPlayerPreLoginEvent.Result.KICK_OTHER);
 
-				event.setKickMessage(LocalizedUtils.getLocalizedMessage("ban-message", player.getLocale(), Symbols.PREFIX, ban.getExecutor().getName(), ban.getReason(), ban.getExpirationAsString()));
+				event.setKickMessage(LocalizedUtil.getLocalizedMessage("ban-message", player.getLocale(), Symbols.PREFIX, ban.getExecutor().getName(), ban.getReason(), ban.getExpirationAsString()));
 
 				return;
 			}

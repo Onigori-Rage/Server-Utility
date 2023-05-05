@@ -9,7 +9,7 @@ import com.onigori.serverutility.listeners.ChatListener;
 import com.onigori.serverutility.listeners.JailListener;
 import com.onigori.serverutility.listeners.LoginListener;
 import com.onigori.serverutility.listeners.QuitListener;
-import com.onigori.serverutility.utils.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtil;
 import com.onigori.serverutility.utils.RankManager;
 import com.onigori.serverutility.utils.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
@@ -41,7 +41,7 @@ public class SUtilMain {
 	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
 
-		LocalizedUtils.init();
+		LocalizedUtil.init();
 
 		ConfigHelper.init(plugin);
 
@@ -133,5 +133,7 @@ public class SUtilMain {
 	public static RankManager getRankManager() {
 		return rankManager;
 	}
+
+
 
 }

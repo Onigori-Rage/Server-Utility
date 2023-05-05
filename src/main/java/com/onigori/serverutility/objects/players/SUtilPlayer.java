@@ -4,7 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.utils.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtil;
 import com.onigori.serverutility.objects.Rank;
 import com.onigori.serverutility.objects.punishments.*;
 import org.bukkit.Bukkit;
@@ -94,7 +94,7 @@ public class SUtilPlayer implements Sender {
 
 	@Override
 	public void sendMessage(String key, boolean prefix, Object... args) {
-		this.sendTranslated(LocalizedUtils.getLocalizedMessage(key, this.locale, args), prefix);
+		this.sendTranslated(LocalizedUtil.getLocalizedMessage(key, this.locale, args), prefix);
 	}
 
 	@Override
@@ -110,7 +110,7 @@ public class SUtilPlayer implements Sender {
 
 		boolean isFirst = prefix;
 
-		for (final String message : LocalizedUtils.getLocalizedMessage(key, this.locale, args).split("\n")) {
+		for (final String message : LocalizedUtil.getLocalizedMessage(key, this.locale, args).split("\n")) {
 
 			sendTranslated(message, isFirst);
 
@@ -142,7 +142,7 @@ public class SUtilPlayer implements Sender {
 		if (this.corePlayer != null) {
 
 			Bukkit.getScheduler().runTask(SUtilMain.getInstance(), () ->
-					this.corePlayer.kickPlayer(LocalizedUtils.getLocalizedMessage("kick-message", this.locale, Symbols.PREFIX, kick.getExecutor().getName(), kick.getReason()))
+					this.corePlayer.kickPlayer(LocalizedUtil.getLocalizedMessage("kick-message", this.locale, Symbols.PREFIX, kick.getExecutor().getName(), kick.getReason()))
 			);
 
 			return true;

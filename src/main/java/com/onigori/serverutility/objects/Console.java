@@ -4,7 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.utils.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtil;
 
 import java.util.Locale;
 
@@ -19,7 +19,7 @@ public class Console implements Sender {
 
 	@Override
 	public void sendMessage(String key, boolean prefix, Object... args) {
-		this.sendTranslated(LocalizedUtils.getLocalizedMessage(key, this.locale, args), prefix);
+		this.sendTranslated(LocalizedUtil.getLocalizedMessage(key, this.locale, args), prefix);
 	}
 
 	@Override
@@ -27,7 +27,7 @@ public class Console implements Sender {
 
 		boolean isFirst = prefix;
 
-		for (String message: LocalizedUtils.getLocalizedMessage(key, this.locale, args).split("\n")) {
+		for (String message: LocalizedUtil.getLocalizedMessage(key, this.locale, args).split("\n")) {
 
 			sendTranslated(message, isFirst);
 

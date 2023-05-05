@@ -1,7 +1,7 @@
 package com.onigori.serverutility.objects.punishments;
 
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.utils.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtil;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 
@@ -80,10 +80,10 @@ public abstract class Punishment {
 
 	public final String getExpirationAsString() {
 		if (!isTemporary) {
-			return LocalizedUtils.getLocalizedMessage("expiration-permanent", target.getLocale());
+			return LocalizedUtil.getLocalizedMessage("expiration-permanent", target.getLocale());
 		}
 
-		return DurationFormatUtils.formatPeriod(new Date().getTime(), this.expiration.getTime(), LocalizedUtils.getLocalizedMessage("expiration-format", target.getLocale()));
+		return DurationFormatUtils.formatPeriod(new Date().getTime(), this.expiration.getTime(), LocalizedUtil.getLocalizedMessage("expiration-format", target.getLocale()));
 	}
 
 	public final boolean isTemporary() {

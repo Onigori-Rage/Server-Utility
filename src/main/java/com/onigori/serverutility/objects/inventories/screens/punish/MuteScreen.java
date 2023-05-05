@@ -2,7 +2,7 @@ package com.onigori.serverutility.objects.inventories.screens.punish;
 
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
-import com.onigori.serverutility.utils.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtil;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.Return;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
@@ -28,8 +28,8 @@ public class MuteScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.EMERALD_BLOCK, 1).
-						setName(LocalizedUtils.getLocalizedMessage("gui-punish-mute-accept-displayname", locale)).
-						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-mute-accept-lore", locale)).
+						setName(LocalizedUtil.getLocalizedMessage("gui-punish-mute-accept-displayname", locale)).
+						setDescription(LocalizedUtil.getLocalizedMessage("gui-punish-mute-accept-lore", locale)).
 						setListener(new PunishAccept()).
 						build()
 				, 11
@@ -37,8 +37,8 @@ public class MuteScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.REDSTONE_BLOCK, 1).
-						setName(LocalizedUtils.getLocalizedMessage("gui-global-cancel-displayname", locale)).
-						setDescription(LocalizedUtils.getLocalizedMessage("gui-global-cancel-lore", locale)).
+						setName(LocalizedUtil.getLocalizedMessage("gui-global-cancel-displayname", locale)).
+						setDescription(LocalizedUtil.getLocalizedMessage("gui-global-cancel-lore", locale)).
 						setListener(new Cancel()).
 						build()
 				, 15
@@ -46,10 +46,10 @@ public class MuteScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.SKULL_ITEM, 1).
-						setName(LocalizedUtils.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).
+						setName(LocalizedUtil.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).
 						setListener(new TargetInfo()).
 						setDescription(
-								LocalizedUtils.
+								LocalizedUtil.
 										getLocalizedMessage("gui-punish-targetinfo-lore",
 												locale,
 												this.getTarget().getName(),
@@ -63,8 +63,8 @@ public class MuteScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.ARROW, 1).
-						setName(LocalizedUtils.getLocalizedMessage("gui-global-return-displayname", locale)).
-						setDescription(LocalizedUtils.getLocalizedMessage("gui-global-return-lore", locale)).
+						setName(LocalizedUtil.getLocalizedMessage("gui-global-return-displayname", locale)).
+						setDescription(LocalizedUtil.getLocalizedMessage("gui-global-return-lore", locale)).
 						setListener(new Return()).
 						build()
 				, 18
@@ -72,8 +72,8 @@ public class MuteScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.NAME_TAG, 1).
-						setName(LocalizedUtils.getLocalizedMessage("gui-punish-reason-displayname", locale)).
-						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-reason-lore", locale, this.getReason())).
+						setName(LocalizedUtil.getLocalizedMessage("gui-punish-reason-displayname", locale)).
+						setDescription(LocalizedUtil.getLocalizedMessage("gui-punish-reason-lore", locale, this.getReason())).
 						build()
 				, 8
 		);
@@ -81,8 +81,8 @@ public class MuteScreen extends PunishScreen {
 
 		this.setItem(
 				new ItemBuilder(Material.WATCH, 1).
-						setName(LocalizedUtils.getLocalizedMessage("gui-punish-expirationselector-displayname", locale)).
-						setDescription(LocalizedUtils.getLocalizedMessage("gui-punish-expirationselector-lore", locale, String.valueOf(this.getExpiration()))).
+						setName(LocalizedUtil.getLocalizedMessage("gui-punish-expirationselector-displayname", locale)).
+						setDescription(LocalizedUtil.getLocalizedMessage("gui-punish-expirationselector-lore", locale, String.valueOf(this.getExpiration()))).
 						setListener(new DaySelector()).
 						build()
 				, 0
