@@ -4,7 +4,7 @@ import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.api.guihelper.components.TargetableScreen;
-import com.onigori.serverutility.modules.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtils;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
 import com.onigori.serverutility.objects.inventories.handlers.punish.opener.BanOpener;

@@ -1,4 +1,4 @@
-package com.onigori.serverutility.modules;
+package com.onigori.serverutility.utils;
 
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 

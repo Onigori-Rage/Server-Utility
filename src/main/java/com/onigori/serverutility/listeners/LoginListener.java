@@ -2,7 +2,7 @@ package com.onigori.serverutility.listeners;
 
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
-import com.onigori.serverutility.modules.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtils;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import com.onigori.serverutility.objects.punishments.Ban;
 import org.bukkit.entity.Player;

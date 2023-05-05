@@ -2,7 +2,7 @@ package com.onigori.serverutility.objects.inventories.screens.punish;
 
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
-import com.onigori.serverutility.modules.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtils;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.Return;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;

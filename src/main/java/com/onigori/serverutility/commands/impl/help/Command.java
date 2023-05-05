@@ -3,7 +3,7 @@ package com.onigori.serverutility.commands.impl.help;
 import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.modules.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtils;
 import net.md_5.bungee.api.ChatColor;
 
 public class Command implements SubCommand {

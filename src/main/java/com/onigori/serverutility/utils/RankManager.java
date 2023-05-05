@@ -1,4 +1,4 @@
-package com.onigori.serverutility.modules;
+package com.onigori.serverutility.utils;
 
 import com.onigori.api.confighelper.Config;
 import com.onigori.api.confighelper.ConfigHelper;

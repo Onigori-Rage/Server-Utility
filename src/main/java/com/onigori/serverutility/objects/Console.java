@@ -4,7 +4,7 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.modules.LocalizedUtils;
+import com.onigori.serverutility.utils.LocalizedUtils;
 
 import java.util.Locale;
 
