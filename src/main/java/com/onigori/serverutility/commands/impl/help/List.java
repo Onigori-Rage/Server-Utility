@@ -16,7 +16,7 @@ public class List implements SubCommand {
 			if (sender.getRank().getValue() >= command.getRequiredValue()) {
 				stringBuilder.append(command.getName());
 
-				if (command.isAddon()) {
+				if (command.isAddonCommand()) {
 					stringBuilder.append(ChatColor.GREEN + "*" + ChatColor.WHITE);
 				}
 
