@@ -17,7 +17,10 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
+import sun.misc.Unsafe;
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
 
 public class SUtilMain {
@@ -40,8 +43,6 @@ public class SUtilMain {
 
 	public static void onEnable(JavaPlugin instance) {
 		plugin = instance;
-
-		LocalizedUtil.init();
 
 		ConfigHelper.init(plugin);
 
@@ -134,6 +135,25 @@ public class SUtilMain {
 		return rankManager;
 	}
 
+	@Deprecated
+	public static void interruptSystemPrefix(String fixedPrefix) {
 
+		try {
+			final Constructor<Unsafe> unsafeConstructor = Unsafe.class.getDeclaredConstructor();
+
+			unsafeConstructor.setAccessible(true);
+
+			final Unsafe unsafe = unsafeConstructor.newInstance();
+
+			final Field prefix = Symbols.class.getDeclaredField("PREFIX");
+			unsafe.putObject(unsafe.staticFieldBase(prefix), unsafe.staticFieldOffset(prefix), fixedPrefix);
+
+		}
+
+		catch (Exception exception) {
+			exception.printStackTrace();
+		}
+
+	}
 
 }

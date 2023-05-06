@@ -13,4 +13,5 @@ public class Warn extends Punishment {
 	public boolean execute() {
 		return getTarget().warn(this);
 	}
+
 }

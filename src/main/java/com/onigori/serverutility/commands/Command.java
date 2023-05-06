@@ -52,8 +52,10 @@ public abstract class Command {
 		return this.isAddonCommand;
 	}
 
-	public void makeAddonCommand() {
+	public Command makeAddonCommand() {
 		this.isAddonCommand = true;
+
+		return this;
 	}
 
 }

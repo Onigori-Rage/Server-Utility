@@ -28,13 +28,11 @@ public class GUIHelper {
 		Bukkit.getScheduler().runTask(plugin, () ->
 				player.openInventory(screen.getInventory())
 		);
+
 	}
 
 	public static void closeInventory(Player player) {
-		Bukkit.getScheduler().runTask(plugin, () ->
-				player.closeInventory()
-		);
+		Bukkit.getScheduler().runTask(plugin, player::closeInventory);
 	}
-
 
 }
