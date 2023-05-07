@@ -9,7 +9,7 @@ import org.bukkit.Location;
 
 import java.util.Locale;
 
-public class ProfileBuilder {
+public class ServerProfileLoader {
 
 	public static void init() {
 		final Config serverConfig = ConfigHelper.getServerConfig();
@@ -17,9 +17,9 @@ public class ProfileBuilder {
 		final Locale locale = ((String) serverConfig.get("locale", Symbols.DEFAULT_LOCALE.getDisplayName(Locale.ENGLISH))).equalsIgnoreCase("Japanese") ? Locale.JAPANESE : Locale.ENGLISH;
 
 		String worldName = (String) serverConfig.get("jailLocation.world", null);
-		Integer x = (Integer) serverConfig.get("jailLocation.x", null);
-		Integer y = (Integer) serverConfig.get("jailLocation.y", null);
-		Integer z = (Integer) serverConfig.get("jailLocation.z", null);
+		Double x = (Double) serverConfig.get("jailLocation.x", null);
+		Double y = (Double) serverConfig.get("jailLocation.y", null);
+		Double z = (Double) serverConfig.get("jailLocation.z", null);
 
 		Location jailLocation = null;
 
@@ -27,7 +27,7 @@ public class ProfileBuilder {
 			jailLocation = new Location(Bukkit.getWorld(worldName), x, y, z);
 		}
 
-		SUtilMain.setLocale(locale);
+		SUtilMain.getSender().setLocale(locale);
 
 		SUtilMain.setJailLocation(jailLocation);
 
@@ -48,7 +48,7 @@ public class ProfileBuilder {
 
 		}
 
-		serverConfig.set("locale", SUtilMain.getLocale().getDisplayName(Locale.ENGLISH));
+		serverConfig.set("locale", SUtilMain.getSender().getLocale().getDisplayName(Locale.ENGLISH));
 
 	}
 

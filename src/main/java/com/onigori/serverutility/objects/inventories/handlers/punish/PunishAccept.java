@@ -16,7 +16,7 @@ public class PunishAccept implements ItemHandler {
 
 		GUIHelper.closeInventory(player.getCore());
 
-		PunishScreen punishScreen = (PunishScreen) screen;
+		final PunishScreen punishScreen = (PunishScreen) screen;
 
 		final int expiration = punishScreen.getExpiration();
 

@@ -1,6 +1,7 @@
 main: com.onigori.serverutility.bootstrap.PluginBootstrap
 name: Server-Utility
-version: 1.0
+author: Onigori_Rage
+version: 0.8.1
 commands:
   punish:
   lang:

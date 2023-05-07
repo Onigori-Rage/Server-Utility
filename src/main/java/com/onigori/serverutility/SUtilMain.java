@@ -12,6 +12,7 @@ import com.onigori.serverutility.listeners.QuitListener;
 import com.onigori.serverutility.utils.players.RankManager;
 import com.onigori.serverutility.utils.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
+import com.onigori.serverutility.utils.servers.ServerProfileLoader;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
@@ -37,8 +38,6 @@ public class SUtilMain {
 
 	private static RankManager rankManager;
 
-	private static Locale locale;
-
 	private static Location jailLocation;
 
 	private static final LinkedHashMap<Integer, SUtilAddon> pluginsList = new LinkedHashMap<>();
@@ -53,6 +52,8 @@ public class SUtilMain {
 
 		console = Bukkit.getConsoleSender();
 		consoleSender = new Console();
+
+		ServerProfileLoader.init();
 
 		playerFactory = new PlayerFactory();
 		playerFactory.init();
@@ -75,6 +76,8 @@ public class SUtilMain {
 		playerFactory.stop();
 
 		rankManager.stop();
+
+		ServerProfileLoader.stop();
 
 		ConfigHelper.stop();
 
@@ -148,14 +151,6 @@ public class SUtilMain {
 			exception.printStackTrace();
 		}
 
-	}
-
-	public static Locale getLocale() {
-		return locale;
-	}
-
-	public static void setLocale(Locale locale) {
-		SUtilMain.locale = locale;
 	}
 
 	public static Location getJailLocation() {

@@ -4,6 +4,7 @@ import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
 import com.onigori.api.guihelper.components.TargetableScreen;
+import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.utils.commons.LocalizedUtil;
 import com.onigori.serverutility.objects.inventories.handlers.Cancel;
 import com.onigori.serverutility.objects.inventories.handlers.TargetInfo;
@@ -13,6 +14,7 @@ import com.onigori.serverutility.objects.inventories.handlers.punish.opener.Mute
 import com.onigori.serverutility.objects.inventories.handlers.punish.opener.WarnOpener;
 import com.onigori.serverutility.objects.inventories.screens.punish.ScreenType;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
+import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.event.inventory.ClickType;
 
@@ -24,11 +26,11 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 	private final SUtilPlayer target;
 
-	private OnigoriScreen previousScreen;
+	private final OnigoriScreen previousScreen;
 
 	private final ScreenType screenType;
 
-	private String reason;
+	private final String reason;
 
 	private int expiration = 0;
 
@@ -79,7 +81,7 @@ public class PunishScreen extends OnigoriScreen implements ReturnableScreen, Tar
 
 		final Locale locale = this.executor.getLocale();
 
-		// Target Info
+		// TargetInfo
 		this.setItem(
 				new ItemBuilder(Material.SKULL_ITEM, 1).
 						setName(LocalizedUtil.getLocalizedMessage("gui-punish-targetinfo-displayname", locale)).

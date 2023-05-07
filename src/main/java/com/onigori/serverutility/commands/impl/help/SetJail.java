@@ -13,7 +13,7 @@ public class SetJail implements SubCommand {
 		if (sender.isPlayer()) {
 			final SUtilPlayer player = (SUtilPlayer) sender;
 
-			SUtilMain.setJailFallback(player.getLocation());
+			SUtilMain.setJailLocation(player.getLocation());
 
 			player.sendTranslated("Set the jail location.", true);
 			return;

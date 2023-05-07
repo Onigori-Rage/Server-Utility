@@ -13,6 +13,7 @@ public class ChatListener implements Listener {
 
 	@EventHandler(priority = EventPriority.MONITOR)
 	public void onAsyncChat(AsyncPlayerChatEvent event) {
+
 		final SUtilPlayer player = SUtilMain.getPlayerFactory().fetch(event.getPlayer().getUniqueId());
 
 		final Mute mute = player.getPunishment().getAvailableMute();
@@ -28,7 +29,7 @@ public class ChatListener implements Listener {
 
 		final String prefix = player.getRank().getPrefix();
 
-		event.setFormat(prefix + player.getName() + "§a: §f%2$s");
+		event.setFormat(prefix + "%1$s§a: §f%2$s");
 	}
 
 }

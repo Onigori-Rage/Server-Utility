@@ -10,6 +10,8 @@ import java.util.Locale;
 
 public class Console implements Sender {
 
+	private Locale locale;
+
 	@Override
 	public void sendTranslated(String message, boolean prefix) {
 		SUtilMain.getConsole().sendMessage(prefix ? Symbols.PREFIX + message : message);
@@ -17,7 +19,7 @@ public class Console implements Sender {
 
 	@Override
 	public void sendMessage(String key, boolean prefix, Object... args) {
-		this.sendTranslated(LocalizedUtil.getLocalizedMessage(key, SUtilMain.getLocale(), args), prefix);
+		this.sendTranslated(LocalizedUtil.getLocalizedMessage(key, locale, args), prefix);
 	}
 
 	@Override
@@ -25,7 +27,7 @@ public class Console implements Sender {
 
 		boolean isFirst = prefix;
 
-		for (String message: LocalizedUtil.getLocalizedMessage(key, SUtilMain.getLocale(), args).split("\n")) {
+		for (String message : LocalizedUtil.getLocalizedMessage(key, locale, args).split("\n")) {
 
 			sendTranslated(message, isFirst);
 
@@ -36,7 +38,7 @@ public class Console implements Sender {
 
 	@Override
 	public void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, Object... args) {
-		sendTranslated(addon.getLocalizedMessage(key, SUtilMain.getLocale(), args), prefix);
+		sendTranslated(addon.getLocalizedMessage(key, locale, args), prefix);
 	}
 
 	@Override
@@ -44,7 +46,7 @@ public class Console implements Sender {
 
 		boolean isFirst = prefix;
 
-		for (final String message : addon.getLocalizedMessage(key, SUtilMain.getLocale(), args).split("\n")) {
+		for (final String message : addon.getLocalizedMessage(key, locale, args).split("\n")) {
 
 			sendTranslated(message, isFirst);
 
@@ -70,12 +72,12 @@ public class Console implements Sender {
 
 	@Override
 	public Locale getLocale() {
-		return SUtilMain.getLocale();
+		return locale;
 	}
 
 	@Override
 	public void setLocale(Locale locale) {
-		SUtilMain.setLocale(locale);
+		this.locale = locale;
 	}
 
 }
