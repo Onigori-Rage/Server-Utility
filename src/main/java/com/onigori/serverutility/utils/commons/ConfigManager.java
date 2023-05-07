@@ -1,4 +1,4 @@
-package com.onigori.serverutility.utils;
+package com.onigori.serverutility.utils.commons;
 
 public class ConfigManager {
 

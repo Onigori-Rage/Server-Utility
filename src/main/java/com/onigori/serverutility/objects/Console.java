@@ -4,13 +4,11 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.apis.SUtilAddon;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.utils.LocalizedUtil;
+import com.onigori.serverutility.utils.commons.LocalizedUtil;
 
 import java.util.Locale;
 
 public class Console implements Sender {
-
-	private Locale locale = Symbols.DEFAULT_LOCALE;
 
 	@Override
 	public void sendTranslated(String message, boolean prefix) {
@@ -19,7 +17,7 @@ public class Console implements Sender {
 
 	@Override
 	public void sendMessage(String key, boolean prefix, Object... args) {
-		this.sendTranslated(LocalizedUtil.getLocalizedMessage(key, this.locale, args), prefix);
+		this.sendTranslated(LocalizedUtil.getLocalizedMessage(key, SUtilMain.getLocale(), args), prefix);
 	}
 
 	@Override
@@ -27,7 +25,7 @@ public class Console implements Sender {
 
 		boolean isFirst = prefix;
 
-		for (String message: LocalizedUtil.getLocalizedMessage(key, this.locale, args).split("\n")) {
+		for (String message: LocalizedUtil.getLocalizedMessage(key, SUtilMain.getLocale(), args).split("\n")) {
 
 			sendTranslated(message, isFirst);
 
@@ -38,7 +36,7 @@ public class Console implements Sender {
 
 	@Override
 	public void sendAddonMessage(String key, SUtilAddon addon, boolean prefix, Object... args) {
-		sendTranslated(addon.getLocalizedMessage(key, locale, args), prefix);
+		sendTranslated(addon.getLocalizedMessage(key, SUtilMain.getLocale(), args), prefix);
 	}
 
 	@Override
@@ -46,7 +44,7 @@ public class Console implements Sender {
 
 		boolean isFirst = prefix;
 
-		for (final String message : addon.getLocalizedMessage(key, locale, args).split("\n")) {
+		for (final String message : addon.getLocalizedMessage(key, SUtilMain.getLocale(), args).split("\n")) {
 
 			sendTranslated(message, isFirst);
 
@@ -72,12 +70,12 @@ public class Console implements Sender {
 
 	@Override
 	public Locale getLocale() {
-		return this.locale;
+		return SUtilMain.getLocale();
 	}
 
 	@Override
 	public void setLocale(Locale locale) {
-		this.locale = locale;
+		SUtilMain.setLocale(locale);
 	}
 
 }

@@ -1,7 +1,9 @@
-package com.onigori.serverutility.objects.punishments;
+package com.onigori.serverutility.objects.punishments.impl;
 
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
+import com.onigori.serverutility.objects.punishments.Punishment;
+import com.onigori.serverutility.objects.punishments.PunishmentType;
 
 public class Warn extends Punishment {
 

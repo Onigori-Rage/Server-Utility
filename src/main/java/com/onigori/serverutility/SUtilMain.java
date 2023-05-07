@@ -9,8 +9,7 @@ import com.onigori.serverutility.listeners.ChatListener;
 import com.onigori.serverutility.listeners.JailListener;
 import com.onigori.serverutility.listeners.LoginListener;
 import com.onigori.serverutility.listeners.QuitListener;
-import com.onigori.serverutility.utils.LocalizedUtil;
-import com.onigori.serverutility.utils.RankManager;
+import com.onigori.serverutility.utils.players.RankManager;
 import com.onigori.serverutility.utils.players.PlayerFactory;
 import com.onigori.serverutility.objects.Console;
 import org.bukkit.Bukkit;
@@ -22,6 +21,7 @@ import sun.misc.Unsafe;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
+import java.util.Locale;
 
 public class SUtilMain {
 
@@ -37,7 +37,9 @@ public class SUtilMain {
 
 	private static RankManager rankManager;
 
-	private static Location jailFallback;
+	private static Locale locale;
+
+	private static Location jailLocation;
 
 	private static final LinkedHashMap<Integer, SUtilAddon> pluginsList = new LinkedHashMap<>();
 
@@ -123,14 +125,6 @@ public class SUtilMain {
 		return commandHandler;
 	}
 
-	public static Location getJailFallback() {
-		return jailFallback;
-	}
-
-	public static void setJailFallback(Location location) {
-		jailFallback = location;
-	}
-
 	public static RankManager getRankManager() {
 		return rankManager;
 	}
@@ -154,6 +148,22 @@ public class SUtilMain {
 			exception.printStackTrace();
 		}
 
+	}
+
+	public static Locale getLocale() {
+		return locale;
+	}
+
+	public static void setLocale(Locale locale) {
+		SUtilMain.locale = locale;
+	}
+
+	public static Location getJailLocation() {
+		return jailLocation;
+	}
+
+	public static void setJailLocation(Location location) {
+		jailLocation = location;
 	}
 
 }

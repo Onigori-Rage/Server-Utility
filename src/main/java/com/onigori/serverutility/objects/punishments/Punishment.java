@@ -1,7 +1,7 @@
 package com.onigori.serverutility.objects.punishments;
 
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.utils.LocalizedUtil;
+import com.onigori.serverutility.utils.commons.LocalizedUtil;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.apache.commons.lang3.time.DurationFormatUtils;
 

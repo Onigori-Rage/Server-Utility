@@ -1,8 +1,8 @@
 package com.onigori.serverutility.objects.players;
 
-import com.onigori.serverutility.objects.punishments.Ban;
-import com.onigori.serverutility.objects.punishments.Jail;
-import com.onigori.serverutility.objects.punishments.Mute;
+import com.onigori.serverutility.objects.punishments.impl.Ban;
+import com.onigori.serverutility.objects.punishments.impl.Jail;
+import com.onigori.serverutility.objects.punishments.impl.Mute;
 
 import java.util.LinkedList;
 

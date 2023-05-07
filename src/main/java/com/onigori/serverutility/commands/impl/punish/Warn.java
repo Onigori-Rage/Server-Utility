@@ -5,7 +5,7 @@ import com.onigori.serverutility.Symbols;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.Sender;
 import com.onigori.serverutility.commands.SubCommand;
-import com.onigori.serverutility.utils.ArgumentManager;
+import com.onigori.serverutility.utils.commons.ArgumentManager;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 
 public class Warn implements SubCommand {
@@ -16,7 +16,7 @@ public class Warn implements SubCommand {
 
 		String reason = args.length >= 3 ? ArgumentManager.getArgumentsByArray(args, 2, " ") : Symbols.DEFAULT_REASON;
 
-		new com.onigori.serverutility.objects.punishments.Warn(reason, sender, target).queue();
+		new com.onigori.serverutility.objects.punishments.impl.Warn(reason, sender, target).queue();
 	}
 
 }

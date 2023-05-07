@@ -3,7 +3,7 @@ package com.onigori.serverutility.objects.inventories.screens;
 import com.onigori.api.guihelper.ItemBuilder;
 import com.onigori.api.guihelper.components.OnigoriScreen;
 import com.onigori.api.guihelper.components.ReturnableScreen;
-import com.onigori.serverutility.utils.LocalizedUtil;
+import com.onigori.serverutility.utils.commons.LocalizedUtil;
 import com.onigori.serverutility.objects.inventories.handlers.Return;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 import org.bukkit.Material;

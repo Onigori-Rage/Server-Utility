@@ -1,4 +1,4 @@
-package com.onigori.serverutility.utils;
+package com.onigori.serverutility.utils.commons;
 
 import java.text.MessageFormat;
 import java.util.Locale;

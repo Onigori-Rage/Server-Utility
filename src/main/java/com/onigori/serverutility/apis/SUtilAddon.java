@@ -15,9 +15,9 @@ public abstract class SUtilAddon extends JavaPlugin {
 	@Override
 	public final void onEnable() {
 
-		init();
-
 		SUtilMain.enableAddonPlugin(this);
+
+		init();
 
 	}
 

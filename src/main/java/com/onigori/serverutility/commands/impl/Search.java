@@ -4,8 +4,8 @@ import com.onigori.serverutility.SUtilMain;
 import com.onigori.serverutility.commands.Command;
 import com.onigori.serverutility.commands.CommandHandler;
 import com.onigori.serverutility.commands.Sender;
-import com.onigori.serverutility.utils.ArgumentManager;
-import com.onigori.serverutility.utils.SearchParser;
+import com.onigori.serverutility.utils.commons.ArgumentManager;
+import com.onigori.serverutility.utils.players.SearchParser;
 import com.onigori.serverutility.objects.players.SUtilPlayer;
 
 import java.util.*;
