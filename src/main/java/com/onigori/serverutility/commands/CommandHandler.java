@@ -20,7 +20,7 @@ public class CommandHandler {
 
 	public static final int SEARCH_VALUE = 50;
 
-	public static final int RANK_VALUE = 0;
+	public static final int RANK_VALUE = 70;
 
 	public static final int USERINFO_VALUE = 70;
 

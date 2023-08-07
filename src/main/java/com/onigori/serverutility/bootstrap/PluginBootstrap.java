@@ -32,17 +32,4 @@ public class PluginBootstrap extends JavaPlugin {
 		return true;
 	}
 
-	@Override
-	public ChunkGenerator getDefaultWorldGenerator(String name, String id) {
-		return new ChunkGenerator() {
-
-			@SuppressWarnings("deprecation")
-			@Override
-			public byte[] generate(World world, Random random, int x, int z) {
-				return new byte[32768];
-			}
-
-		};
-	}
-
 }
